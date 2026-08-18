@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "../../../components/SiteHeader";
 import { PromptCards } from "../../../components/PromptCards";
 import { outputTypes, prompts, sourcePhrase, sourceTypes, toSlug } from "../../../data/prompts";
-import { appUrl, siteUrl } from "../../../site";
+import { appUrl, siteUrl, signupUrl } from "../../../site";
 
 type PageProps = { params: Promise<{ source: string }> };
 
@@ -109,7 +109,7 @@ export default async function SourcePage({ params }: PageProps) {
         <section className="bottom-cta" style={{ paddingBlock: 22 }}>
           <span className="spark">✦</span>
           <h2>Your {sourcePhrase[s]} are already sources.</h2>
-          <a className="primary-button" href={appUrl}>
+          <a className="primary-button" href={signupUrl}>
             Create with Ancher <span>→</span>
           </a>
         </section>

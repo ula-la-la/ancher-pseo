@@ -5,7 +5,7 @@ import { galleryItems } from "../../data/gallery";
 import { getUseCase, useCases, useCasesBySlug } from "../../data/useCases";
 import { OutputPreview } from "../../components/OutputPreview";
 import { SiteHeader } from "../../components/SiteHeader";
-import { appUrl, siteUrl } from "../../site";
+import { appUrl, siteUrl, signupUrl } from "../../site";
 
 type PageProps = { params: Promise<{ useCase: string }> };
 
@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const useCase = getUseCase(slug);
   if (!useCase) return {};
   return {
-    title: `Outputs for ${useCase.name}`,
+    title: `Templates for ${useCase.name}`,
     description: useCase.blurb,
     alternates: { canonical: `/for/${useCase.slug}` },
     openGraph: {
-      title: `Ancher outputs for ${useCase.name}`,
+      title: `Ancher templates for ${useCase.name}`,
       description: useCase.blurb,
       url: `${siteUrl}/for/${useCase.slug}`,
     },
@@ -41,13 +41,13 @@ export default async function UseCasePage({ params }: PageProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: `Ancher outputs for ${useCase.name}`,
+    name: `Ancher templates for ${useCase.name}`,
     description: useCase.blurb,
     url: `${siteUrl}/for/${useCase.slug}`,
     hasPart: items.map((item) => ({
       "@type": "WebPage",
       name: item.title,
-      url: `${siteUrl}/outputs/${item.slug}`,
+      url: `${siteUrl}/templates/${item.slug}`,
     })),
   };
 
@@ -56,7 +56,7 @@ export default async function UseCasePage({ params }: PageProps) {
       <SiteHeader />
       <div className="detail wrap">
         <nav className="breadcrumb" aria-label="Breadcrumb">
-          <Link href="/">Output Gallery</Link>
+          <Link href="/">Template Gallery</Link>
           <span>/</span>
           <span>{useCase.name}</span>
         </nav>
@@ -81,13 +81,13 @@ export default async function UseCasePage({ params }: PageProps) {
         <section className="gallery" id="outputs">
           <div className="section-heading">
             <h2>
-              {items.length} output{items.length === 1 ? "" : "s"} for {useCase.name.toLowerCase()}
+              {items.length} template{items.length === 1 ? "" : "s"} for {useCase.name.toLowerCase()}
             </h2>
             <Link href="/">View all →</Link>
           </div>
           <div className="gallery-grid">
             {items.map((item) => (
-              <Link key={item.slug} href={`/outputs/${item.slug}`} className="gallery-card">
+              <Link key={item.slug} href={`/templates/${item.slug}`} className="gallery-card">
                 <OutputPreview item={item} />
                 <div className="card-copy">
                   <div className="card-title-row">
@@ -97,7 +97,7 @@ export default async function UseCasePage({ params }: PageProps) {
                   <p>{item.description}</p>
                   <div className="card-footer">
                     <span>{item.outputType}</span>
-                    <span>View output →</span>
+                    <span>View template →</span>
                   </div>
                 </div>
               </Link>
@@ -125,7 +125,7 @@ export default async function UseCasePage({ params }: PageProps) {
         <span className="spark">✦</span>
         <h2>Turn saved knowledge into finished work.</h2>
         <p>{useCase.blurb}</p>
-        <a className="primary-button" href={appUrl}>
+        <a className="primary-button" href={signupUrl}>
           Create with Ancher <span>→</span>
         </a>
       </section>

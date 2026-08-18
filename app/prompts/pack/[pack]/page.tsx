@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "../../../components/SiteHeader";
 import { OutputThumb } from "../../../components/PaperMotif";
 import { getPrompt, packs, toSlug } from "../../../data/prompts";
-import { appUrl, siteUrl } from "../../../site";
+import { appUrl, siteUrl, signupUrl } from "../../../site";
 
 type PageProps = { params: Promise<{ pack: string }> };
 
@@ -129,7 +129,7 @@ export default async function PackPage({ params }: PageProps) {
         <section className="bottom-cta" style={{ paddingBlock: 22 }}>
           <span className="spark">✦</span>
           <h2>{p.blurb}</h2>
-          <a className="primary-button" href={appUrl}>
+          <a className="primary-button" href={signupUrl}>
             Create with Ancher <span>→</span>
           </a>
         </section>

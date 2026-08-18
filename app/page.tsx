@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { GalleryHome } from "./components/GalleryHome";
 
 export const metadata: Metadata = {
-  title: "Output Gallery",
+  title: "Template Gallery",
   description:
-    "Explore source-grounded reports, briefs, summaries, decks, and other finished work created with Ancher.",
+    "Explore source-grounded report, brief, summary and deck templates, each built from real documents with Ancher.",
   alternates: { canonical: "/" },
 };
 

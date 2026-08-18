@@ -8,7 +8,7 @@ import { CopyPrompt } from "../../components/CopyPrompt";
 import { getPrompt, packs, prompts, toSlug } from "../../data/prompts";
 import { getGalleryItem } from "../../data/gallery";
 import { useCaseBySlug } from "../../data/useCases";
-import { appUrl, siteUrl } from "../../site";
+import { appUrl, siteUrl, signupUrl } from "../../site";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -120,9 +120,9 @@ export default async function PromptPage({ params }: PageProps) {
             {gallery && (
               <>
                 <p className="section-label" style={{ marginTop: 28 }}>
-                  Example output
+                  Matching template
                 </p>
-                <Link href={`/outputs/${gallery.slug}`} style={{ color: "var(--orange)", fontSize: 14 }}>
+                <Link href={`/templates/${gallery.slug}`} style={{ color: "var(--orange)", fontSize: 14 }}>
                   {gallery.title} →
                 </Link>
               </>
@@ -162,7 +162,7 @@ export default async function PromptPage({ params }: PageProps) {
           <span className="spark">✦</span>
           <h2>Run this against your own sources.</h2>
           <p>{prompt.summary}</p>
-          <a className="primary-button" href={appUrl}>
+          <a className="primary-button" href={signupUrl}>
             Create with Ancher <span>→</span>
           </a>
         </section>

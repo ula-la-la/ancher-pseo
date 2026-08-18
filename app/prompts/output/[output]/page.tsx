@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "../../../components/SiteHeader";
 import { PromptCards } from "../../../components/PromptCards";
 import { outputTypes, prompts, sourceTypes, toSlug } from "../../../data/prompts";
-import { appUrl } from "../../../site";
+import { appUrl, signupUrl } from "../../../site";
 
 type PageProps = { params: Promise<{ output: string }> };
 
@@ -108,7 +108,7 @@ export default async function OutputPage({ params }: PageProps) {
         <section className="bottom-cta" style={{ paddingBlock: 22 }}>
           <span className="spark">✦</span>
           <h2>Bring the sources. Ancher shapes the {o.toLowerCase()}.</h2>
-          <a className="primary-button" href={appUrl}>
+          <a className="primary-button" href={signupUrl}>
             Create with Ancher <span>→</span>
           </a>
         </section>

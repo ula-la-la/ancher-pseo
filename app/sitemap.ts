@@ -52,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...galleryItems
       .filter((item) => item.status === "ready")
       .map((item) => ({
-        url: `${siteUrl}/outputs/${item.slug}`,
+        url: `${siteUrl}/templates/${item.slug}`,
         lastModified: now,
         changeFrequency: "monthly" as const,
         priority: 0.8,

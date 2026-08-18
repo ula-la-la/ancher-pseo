@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { siteName, siteUrl } from "./site";
+import { indexable, siteName, siteUrl } from "./site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   description:
     "Finished, source-grounded work created from real documents, notes, and ideas with Ancher.",
   alternates: { canonical: "/" },
+  // Belt and braces alongside the X-Robots-Tag header set in next.config.ts.
+  robots: indexable
+    ? { index: true, follow: true }
+    : { index: false, follow: false, nocache: true },
   openGraph: {
     siteName,
     title: siteName,

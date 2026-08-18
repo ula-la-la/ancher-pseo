@@ -16,7 +16,7 @@ import {
   type SourceType,
 } from "../data/prompts";
 import { useCases } from "../data/useCases";
-import { appUrl, siteUrl } from "../site";
+import { appUrl, siteUrl, signupUrl } from "../site";
 
 export const metadata: Metadata = {
   title: "Prompt Library",
@@ -341,7 +341,7 @@ export default function PromptsPage() {
           <span className="spark">✦</span>
           <h2>Run any of these against your own library.</h2>
           <p>Prompts are half of it. Ancher supplies the other half — your sources, already captured.</p>
-          <a className="primary-button" href={appUrl}>
+          <a className="primary-button" href={signupUrl}>
             Create with Ancher <span>→</span>
           </a>
         </section>

@@ -16,8 +16,8 @@ export function SiteHeader({ active }: { active?: string } = {}) {
         <span>Ancher</span>
       </Link>
       <nav className="main-nav" aria-label="Main navigation">
-        <Link className={active === "outputs" ? "active" : undefined} href="/">
-          Outputs
+        <Link className={active === "templates" ? "active" : undefined} href="/">
+          Templates
         </Link>
         <Link className={active === "prompts" ? "active" : undefined} href="/prompts">
           Prompts

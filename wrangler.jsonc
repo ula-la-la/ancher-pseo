@@ -22,7 +22,11 @@
   "observability": { "enabled": true },
 
   "vars": {
-    "NEXT_PUBLIC_SITE_URL": "https://ancher.us"
+    "NEXT_PUBLIC_SITE_URL": "https://ancher.us",
+    // "false" keeps the whole site out of Google while it is being built out.
+    // The site stays publicly reachable — this only blocks indexing.
+    // Flip to "true" and redeploy when it is ready to rank.
+    "NEXT_PUBLIC_INDEXABLE": "false"
   },
 
   // D1 backs the PSEO pipeline tables (trends, keywords, x_insights, pages).
