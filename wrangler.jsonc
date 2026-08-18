@@ -10,14 +10,21 @@
     "binding": "ASSETS"
   },
 
-  // The site is served from ancher.us only. ancher.ai lives on separate
-  // infrastructure (AWS CloudFront) and is untouched by this Worker.
-  // Uncomment once the zone is confirmed in the Cloudflare dashboard:
-  // "routes": [
-  //   { "pattern": "ancher.us", "custom_domain": true },
-  //   { "pattern": "www.ancher.us", "custom_domain": true }
-  // ],
+  // ancher.us only. ancher.ai lives on separate infrastructure (AWS
+  // CloudFront) and is untouched by this Worker.
+  //
+  // `custom_domain` makes wrangler create and manage the DNS record. If the
+  // hostname is already attached to another Worker or a Pages project, the
+  // deploy will fail with "already in use" — detach it there first, or add
+  // the domain from the dashboard, which offers to move it for you.
+  "routes": [
+    { "pattern": "ancher.us", "custom_domain": true },
+    { "pattern": "www.ancher.us", "custom_domain": true }
+  ],
 
+  // Left on so the preview URL keeps working. Once NEXT_PUBLIC_INDEXABLE is
+  // flipped to "true", set this to false — otherwise workers.dev becomes a
+  // duplicate of ancher.us and the two compete for the same rankings.
   "workers_dev": true,
   "observability": { "enabled": true },
 
