@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "../../../components/SiteHeader";
 import { PromptCards } from "../../../components/PromptCards";
-import { outputTypes, prompts, sourceTypes, toSlug } from "../../../data/prompts";
+import { outputTypes, prompts, sourcePhrase, sourceTypes, toSlug } from "../../../data/prompts";
 import { appUrl, siteUrl } from "../../../site";
 
 type PageProps = { params: Promise<{ source: string }> };
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const n = prompts.filter((p) => p.sources.includes(s)).length;
   return {
     title: `${s} prompts`,
-    description: `${n} Ancher prompts that turn ${s.toLowerCase()} into finished, cited work.`,
+    description: `${n} Ancher prompts that turn ${sourcePhrase[s]} into finished, cited work.`,
     alternates: { canonical: `/prompts/source/${source}` },
   };
 }
@@ -47,7 +47,7 @@ export default async function SourcePage({ params }: PageProps) {
           <span>{s}</span>
         </nav>
         <section className="plib-hero" style={{ paddingTop: 12 }}>
-          <h1>Turn {s.toLowerCase()} into finished work.</h1>
+          <h1>Turn {sourcePhrase[s]} into finished work.</h1>
           <div className="plib-hero-row">
             <div className="plib-nums">
               <div>
@@ -64,7 +64,7 @@ export default async function SourcePage({ params }: PageProps) {
 
         <section>
           <div className="plib-head">
-            <h2>What you can produce from {s.toLowerCase()}</h2>
+            <h2>What you can produce from {sourcePhrase[s]}</h2>
           </div>
           <div className="plib-chips">
             {byOutput.map(({ output, n }) => (
@@ -78,7 +78,7 @@ export default async function SourcePage({ params }: PageProps) {
 
         <section>
           <div className="plib-head">
-            <h2>All {s.toLowerCase()} prompts</h2>
+            <h2>All {sourcePhrase[s]} prompts</h2>
             <Link href="/prompts">Whole library →</Link>
           </div>
           <PromptCards items={items} />
@@ -108,7 +108,7 @@ export default async function SourcePage({ params }: PageProps) {
       <div className="wrap">
         <section className="bottom-cta" style={{ paddingBlock: 22 }}>
           <span className="spark">✦</span>
-          <h2>Your {s.toLowerCase()} are already sources.</h2>
+          <h2>Your {sourcePhrase[s]} are already sources.</h2>
           <a className="primary-button" href={appUrl}>
             Create with Ancher <span>→</span>
           </a>

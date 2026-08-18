@@ -626,6 +626,24 @@ export const recentlyAdded = [...prompts]
 
 export const getPrompt = (slug: string) => prompts.find((p) => p.slug === slug);
 
+/**
+ * How each source reads mid-sentence. Blind toLowerCase() would render
+ * "X threads" as "x threads" and "PDFs & papers" as "pdfs & papers" on every
+ * source landing page, so the casing is spelled out here instead.
+ */
+export const sourcePhrase: Record<SourceType, string> = {
+  "PDFs & papers": "PDFs and papers",
+  "Web articles": "saved web articles",
+  "YouTube & video": "YouTube videos",
+  Podcasts: "podcasts",
+  "X threads": "X threads",
+  "Meeting recordings": "meeting recordings",
+  "Filings & reports": "filings and reports",
+  "Metrics & exports": "metrics exports",
+  "Interview transcripts": "interview transcripts",
+  "Email & Slack": "email and Slack threads",
+};
+
 /** Slug helpers for the /prompts/source/<slug> and /prompts/output/<slug> pages. */
 export const toSlug = (value: string) =>
   value
