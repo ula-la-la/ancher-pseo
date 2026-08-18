@@ -77,3 +77,157 @@ button { font:inherit; }
 .audience-chips a { text-decoration: none; }
 
 .source-chips a { text-decoration: none; }
+
+/* ===========================================================================
+   /prompts — the prompt library.
+   All selectors are namespaced under .plib so nothing here can collide with
+   the gallery's own .filters / .grid / .card rules above.
+   =========================================================================== */
+.plib-hero { padding: 58px 0 44px; border-bottom: 1px solid var(--line); }
+.plib-hero h1 { font: 56px/1.02 Georgia, serif; letter-spacing: -.028em; margin: 0 0 26px; max-width: 17ch; }
+.plib-hero-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+.plib-nums { display: flex; gap: 44px; }
+.plib-nums div { display: flex; flex-direction: column; gap: 2px; }
+.plib-nums b { font: 38px/1 Georgia, serif; color: var(--orange); letter-spacing: -.02em; }
+.plib-nums span { font-size: 12px; color: #8d8f90; text-transform: uppercase; letter-spacing: .1em; }
+
+.plib-search { display: flex; align-items: center; gap: 11px; width: min(400px, 100%); border: 1px solid var(--line); background: var(--surface); border-radius: 9px; padding: 0 15px; height: 50px; transition: .2s; }
+.plib-search:focus-within { border-color: #5a3a2b; }
+.plib-search svg { width: 16px; height: 16px; color: #6f7172; flex: none; }
+.plib-search input { flex: 1; background: transparent; border: 0; outline: 0; color: var(--ink); font-size: 14px; }
+.plib-search input::placeholder { color: #6f7172; }
+
+.plib section { padding-block: 46px; }
+.plib-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+.plib-head h2 { font: 28px/1.1 Georgia, serif; margin: 0; display: flex; align-items: baseline; gap: 12px; }
+.plib-head h2 em { font: 11px Arial; font-style: normal; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); }
+.plib-head a { color: var(--orange); font-size: 13px; white-space: nowrap; }
+
+/* paper motifs */
+.plib-thumb { display: grid; place-items: center; position: relative; overflow: hidden; }
+.plib-sheet { background: var(--paper); box-shadow: 0 12px 28px rgba(0,0,0,.45); display: flex; flex-direction: column; gap: 5px; }
+.plib-sheet.port { width: 33%; aspect-ratio: 3/4; padding: 9px; }
+.plib-sheet.land { width: 52%; aspect-ratio: 16/10; padding: 9px; }
+.plib-sheet i { display: block; height: 2.5px; border-radius: 2px; background: #c2b9a7; }
+.plib-sheet i.hd { height: 6px; width: 56%; background: #8a7150; margin-bottom: 3px; }
+.plib-sheet i.s { width: 78%; } .plib-sheet i.xs { width: 58%; }
+.plib-sheet .bars { display: flex; gap: 4px; align-items: flex-end; height: 34%; margin-top: auto; }
+.plib-sheet .bars b { flex: 1; background: #a6987f; border-radius: 1px; }
+.plib-sheet .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; flex: 1; margin-top: 3px; }
+.plib-sheet .cols div { border: 1px solid #cabfa9; border-radius: 2px; }
+.plib-sheet .dots { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; flex: 1; place-items: center; margin-top: 4px; }
+.plib-sheet .dots b { width: 6px; height: 6px; border-radius: 50%; background: #a6987f; }
+.plib-sheet .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; flex: 1; margin-top: 3px; }
+.plib-sheet .tiles div { background: #dcd2bf; border-radius: 2px; }
+.plib-sheet .avatar-row { display: flex; gap: 5px; align-items: center; margin-bottom: 4px; }
+.plib-sheet .avatar-row u { width: 11px; height: 11px; border-radius: 50%; background: #8a7150; display: block; }
+
+/* 01 packs */
+.plib-packs { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.plib-pack { border: 1px solid var(--line); border-radius: 11px; overflow: hidden; background: var(--surface); transition: .25s; }
+.plib-pack:hover { border-color: #5a3a2b; transform: translateY(-3px); }
+.plib-pack .plib-thumb { aspect-ratio: 16/6; }
+.plib-pack .row { display: flex; gap: 11px; align-items: center; }
+.plib-pack .plib-sheet.port { width: 64px; } .plib-pack .plib-sheet.land { width: 92px; }
+.plib-pack .row .plib-sheet:nth-child(1) { transform: translateY(-9px); }
+.plib-pack .row .plib-sheet:nth-child(3) { transform: translateY(9px); }
+.plib-pack-body { padding: 16px 18px 18px; }
+.plib-pack-body h3 { font: 20px/1.2 Georgia, serif; margin: 0 0 6px; }
+.plib-pack-body p { color: #8d8f90; font-size: 13px; line-height: 1.5; margin: 0 0 12px; }
+.plib-pack-body .f { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #6f7172; }
+.plib-pack-body .f b { color: var(--orange); font-weight: 400; }
+
+/* 02 recently added rail */
+.plib-rail { display: grid; grid-template-columns: repeat(3,1fr); gap: 0 34px; }
+.plib-rank { display: flex; gap: 16px; align-items: center; padding: 15px 0; border-bottom: 1px solid #1c1e1f; transition: .18s; }
+.plib-rank:hover { border-color: #5a3a2b; }
+.plib-rank .n { font: 26px/1 Georgia, serif; color: #3a3c3e; width: 34px; flex: none; transition: .18s; }
+.plib-rank:hover .n { color: var(--orange); }
+.plib-rank .mini { width: 54px; height: 44px; border-radius: 5px; flex: none; display: grid; place-items: center; overflow: hidden; }
+.plib-rank .mini .plib-sheet { width: 50%; box-shadow: none; }
+.plib-rank .mini .plib-sheet.land { width: 72%; }
+.plib-rank .t { flex: 1; min-width: 0; }
+.plib-rank .t h3 { font: 15px/1.25 Georgia, serif; margin: 0 0 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.plib-rank .t span { font-size: 11px; color: #6f7172; }
+.plib-rank .date { font-size: 11px; color: #6f7172; white-space: nowrap; }
+
+/* 03 sources */
+.plib-tiles { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.plib-tile { border: 1px solid var(--line); border-radius: 11px; padding: 22px; display: flex; align-items: center; gap: 18px; background: var(--surface); transition: .25s; }
+.plib-tile:hover { border-color: #5a3a2b; transform: translateY(-2px); }
+.plib-tile .ico { width: 52px; height: 52px; border-radius: 11px; display: grid; place-items: center; flex: none; }
+.plib-tile .ico svg { width: 23px; height: 23px; color: #e8dcc6; opacity: .92; }
+.plib-tile .tx { flex: 1; }
+.plib-tile h3 { font: 19px/1.2 Georgia, serif; margin: 0 0 4px; }
+.plib-tile p { margin: 0; font-size: 12px; color: #7d7f80; }
+.plib-tile .cnt { font: 26px/1 Georgia, serif; color: var(--orange); letter-spacing: -.02em; }
+
+/* 04 output chips */
+.plib-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.plib-chip { border: 1px solid var(--line); border-radius: 9px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; background: var(--surface); transition: .2s; }
+.plib-chip:hover { border-color: #5a3a2b; transform: translateY(-2px); }
+.plib-chip .sw { width: 26px; height: 26px; border-radius: 6px; flex: none; }
+.plib-chip b { font: 15px Georgia, serif; font-weight: 400; }
+.plib-chip em { font-style: normal; font-size: 12px; color: #6f7172; }
+
+/* 05 audiences */
+.plib-auds { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.plib-aud { border: 1px solid var(--line); border-radius: 11px; padding: 20px 22px; background: linear-gradient(135deg,#111314,#0c0d0e); transition: .25s; }
+.plib-aud:hover { border-color: #5a3a2b; transform: translateY(-2px); }
+.plib-aud .top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.plib-aud h3 { font: 21px/1.1 Georgia, serif; margin: 0; }
+.plib-aud .c { font: 22px/1 Georgia, serif; color: var(--orange); }
+.plib-aud p { margin: 0; color: #8d8f90; font-size: 12.5px; line-height: 1.5; }
+
+/* 06 the library */
+.plib-filters { display: flex; gap: 7px; overflow: auto; padding: 0 0 14px; border-bottom: 1px solid var(--line); scrollbar-width: none; }
+.plib-filters::-webkit-scrollbar { display: none; }
+.plib-filters button { border: 1px solid transparent; background: transparent; color: #9b9d9e; padding: 8px 14px; border-radius: 30px; cursor: pointer; white-space: nowrap; font-size: 13px; transition: .18s; }
+.plib-filters button:hover { color: #ddd; }
+.plib-filters button[aria-pressed="true"] { color: #fff; border-color: #60341f; background: #17120f; }
+.plib-filters button i { font-style: normal; color: #6f7172; font-size: 11px; margin-left: 6px; }
+.plib-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; padding-block: 22px 6px; }
+.plib-card { border: 1px solid var(--line); border-radius: 9px; background: var(--surface); overflow: hidden; transition: .22s; position: relative; display: block; }
+.plib-card:hover { border-color: #5a3a2b; transform: translateY(-2px); }
+.plib-card .plib-thumb { aspect-ratio: 16/10; }
+.plib-card-body { padding: 13px 14px 15px; }
+.plib-card h3 { font: 17px/1.25 Georgia, serif; margin: 0 0 7px; }
+.plib-card .sub { color: #8d8f90; font-size: 12px; margin: 0; }
+.plib-card .foot { display: flex; align-items: center; gap: 8px; margin-top: 11px; font-size: 11px; color: #6f7172; }
+.plib-card .foot span { border: 1px solid #2c2e30; border-radius: 4px; padding: 3px 7px; }
+.plib-card .foot .kw { border: 0; padding: 0; margin-left: auto; font-style: italic; }
+.plib-peek { position: absolute; inset: 0; background: #0c0d0e; padding: 16px; font: 12px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; color: #b6b8b9; opacity: 0; transition: .18s; display: flex; flex-direction: column; overflow: hidden; pointer-events: none; }
+.plib-card:hover .plib-peek, .plib-card:focus-within .plib-peek { opacity: 1; pointer-events: auto; }
+.plib-peek p { margin: 0; flex: 1; overflow: hidden; white-space: pre-wrap; }
+.plib-peek button { margin-top: 12px; border: 1px solid #4b2616; background: #17120f; color: var(--orange); border-radius: 6px; padding: 8px; font-size: 12px; cursor: pointer; font-family: Arial; }
+.plib-peek button:hover { background: #1e1610; }
+.plib-empty { padding: 56px 0; text-align: center; color: #6f7172; font-size: 14px; }
+
+/* 07 index */
+.plib-index { border-top: 1px solid var(--line); padding-top: 40px; }
+.plib-index-cols { display: grid; grid-template-columns: repeat(4,1fr); gap: 38px; }
+.plib-index-cols h3 { font: 11px Arial; text-transform: uppercase; letter-spacing: .14em; color: var(--orange); margin: 0 0 14px; }
+.plib-index-cols ul { list-style: none; margin: 0 0 20px; padding: 0; }
+.plib-index-cols li a { display: flex; justify-content: space-between; padding: 5px 0; color: #9b9d9e; font-size: 13px; transition: .15s; }
+.plib-index-cols li a:hover { color: #fff; }
+.plib-index-cols li a em { font-style: normal; color: #5f6162; font-size: 11px; }
+
+@media (max-width: 1200px) { .plib-grid { grid-template-columns: repeat(3,1fr); } .plib-index-cols { grid-template-columns: repeat(2,1fr); } .plib-rail { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 1050px) { .plib-packs, .plib-tiles, .plib-auds { grid-template-columns: 1fr; } .plib-grid { grid-template-columns: repeat(2,1fr); } .plib-rail { grid-template-columns: 1fr; } }
+@media (max-width: 680px) { .plib-hero h1 { font-size: 36px; } .plib-nums { gap: 26px; } .plib-nums b { font-size: 28px; } .plib-grid, .plib-index-cols { grid-template-columns: 1fr; } }
+
+/* Real Ancher mark in the header, replacing the placeholder "A" circle. */
+.brand-logo { width: 26px; height: 26px; color: var(--ink); flex: none; }
+.brand { letter-spacing: .04em; }
+
+/* The "Sources" / "Built for" labels are labels, not chips — the generic
+   .source-chips span rule was giving them a border. */
+.source-chips .chips-label {
+  border: 0;
+  padding: 0 4px 0 0;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6f7172;
+  align-self: center;
+}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "./Logo";
 import { useCases } from "../data/useCases";
 import { appUrl } from "../site";
 
@@ -11,12 +12,15 @@ export function SiteHeader({ active }: { active?: string } = {}) {
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label="Ancher home">
-        <span className="brand-mark">A</span>
-        <span>ANCHER</span>
+        <Logo className="brand-logo" />
+        <span>Ancher</span>
       </Link>
       <nav className="main-nav" aria-label="Main navigation">
-        <Link className={active === undefined ? "active" : undefined} href="/">
+        <Link className={active === "outputs" ? "active" : undefined} href="/">
           Outputs
+        </Link>
+        <Link className={active === "prompts" ? "active" : undefined} href="/prompts">
+          Prompts
         </Link>
         {useCases.map((useCase) => (
           <Link
