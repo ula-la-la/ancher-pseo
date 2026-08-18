@@ -1,0 +1,281 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ancher PSEO — Pilot 內容規劃表</title><style>
+:root{--bg:#0e0f11;--card:#17191c;--line:#2a2e34;--fg:#e8e6e3;--dim:#9aa0a8;--acc:#c98b4b;--ok:#4c9a6a;--warn:#b8893a;--no:#5a5f66}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 ui-sans-serif,-apple-system,"Segoe UI","Noto Sans TC",sans-serif}
+.wrap{max-width:1720px;margin:0 auto;padding:32px 20px 80px}
+h1{font-size:26px;margin:0 0 6px;letter-spacing:-.02em}
+.sub{color:var(--dim);margin:0 0 26px}
+h2{font-size:17px;margin:38px 0 4px;letter-spacing:-.01em}
+h2 .n{color:var(--acc)}
+.note{color:var(--dim);margin:0 0 14px;max-width:95ch}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:132px}
+.stat b{display:block;font-size:22px;color:var(--acc);font-weight:600}
+.stat span{color:var(--dim);font-size:12px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:10px}
+th{background:#1e2126;text-align:left;padding:10px 11px;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:11px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}
+tr:last-child td{border-bottom:none}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
+.num{text-align:right;white-space:nowrap}
+.reason{color:var(--dim);max-width:52ch}
+.b{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
+.ok{background:rgba(76,154,106,.16);color:#7fc79a}
+.warn{background:rgba(184,137,58,.16);color:#d8a95e}
+.no{background:rgba(90,95,102,.18);color:#7d838a}
+.trk-a{background:rgba(201,139,75,.18);color:#e0a86b}
+.trk-b{background:rgba(76,120,154,.18);color:#7fa8c7}
+.pri{color:var(--dim);font-size:11px}
+tr.s0 td,tr.s1 td{opacity:.42}
+.ttl{font-weight:600;margin-bottom:3px;max-width:44ch}
+.slug{color:var(--acc);margin-bottom:5px}
+.h1,.meta{color:var(--dim);font-size:12px;max-width:52ch;margin-bottom:3px}
+ul.sec,ul.inc{margin:5px 0 0;padding-left:15px;color:var(--dim);font-size:11.5px}
+ul.sec li,ul.inc li{margin:1px 0}
+.vol{color:var(--warn);font-weight:600;font-size:11.5px}
+.kd{color:var(--dim);font-weight:400;font-size:11px}
+.tag,.fmt,.cad{display:inline-block;color:var(--dim);font-size:11px;margin-top:3px}
+.src{max-width:26ch;font-size:12px}
+.reqs{color:var(--dim);font-size:11px;margin-top:4px}
+.xq{max-width:30ch;word-break:break-word;color:#8fb6cf}
+.pending{color:var(--warn);font-size:11px;margin-top:5px}
+.trend{color:var(--dim);max-width:18ch}
+.legend{color:var(--dim);font-size:12px;margin-top:10px}
+.scroll{overflow-x:auto}
+</style></head><body><div class="wrap">
+<h1>Ancher PSEO — Pilot 內容規劃表</h1>
+<p class="sub">資料抓取日 2026-08-18 · Google Trends US ×4 feeds → 相關性打分 → 頁面規劃 → 待補 SEMrush 搜索量 + X 討論洞察</p>
+
+<div class="stats">
+<div class="stat"><b>34</b><span>Trends 候選詞</span></div>
+<div class="stat"><b>4</b><span>可用（score ≥3）</span></div>
+<div class="stat"><b>2</b><span>勉強（score 2）</span></div>
+<div class="stat"><b>12%</b><span>命中率</span></div>
+<div class="stat"><b>19</b><span>規劃頁面</span></div>
+<div class="stat"><b>83</b><span>待查關鍵字</span></div>
+</div>
+
+<h2><span class="n">①</span> Google Trends 候選詞 × Ancher 相關性打分</h2>
+<p class="note">今天 US Trends 全站熱門共 34 個唯一詞。打分標準：5＝直接命中 Ancher 的 ICP 與 job-to-be-done；3–4＝需要包裝但成立；2＝形式可用但受眾錯；0–1＝無關。<b>命中率只有 12%，而且這些詞的有效期約 48 小時</b>——這是下面 Track A / Track B 分流的原因。</p>
+<div class="scroll"><table>
+<thead><tr><th>趨勢詞</th><th>Trends 流量</th><th>主題</th><th>分數</th><th>可用</th><th>判定理由</th></tr></thead>
+<tbody><tr class="s4"><td class="mono">masayoshi son</td><td class="num">100+</td><td>Investing</td><td class="num"><b>4</b></td><td><span class="b ok">YES</span></td><td class="reason">SoftBank put 66% of an $18B US portfolio into one stock. Investors are an Ancher ICP and the query needs exactly a sourced position/deal memo.</td></tr><tr class="s3"><td class="mono">10 year treasury yield</td><td class="num">100+</td><td>Investing</td><td class="num"><b>3</b></td><td><span class="b ok">YES</span></td><td class="reason">30y yield at a 19-year high. Recurring query with a real evergreen tail; suits a rolling macro brief.</td></tr><tr class="s3"><td class="mono">costco medicare</td><td class="num">200+</td><td>Business news</td><td class="num"><b>3</b></td><td><span class="b ok">YES</span></td><td class="reason">Costco + SCAN Group launch a Medicare Advantage plan. Real market-entry story that a source-grounded market brief answers well.</td></tr><tr class="s3"><td class="mono">jim cramer</td><td class="num">100+</td><td>Investing</td><td class="num"><b>3</b></td><td><span class="b ok">YES</span></td><td class="reason">Memory-chip calls. Works as a &#x27;track a pundit&#x27;s calls against sources&#x27; brief.</td></tr><tr class="s2"><td class="mono">gel nail ban</td><td class="num">500+</td><td>Regulation</td><td class="num"><b>2</b></td><td><span class="b warn">MAYBE</span></td><td class="reason">UK TPO ban. Works as a &#x27;regulatory change brief&#x27; demo but wrong audience.</td></tr><tr class="s2"><td class="mono">have i been flocked?</td><td class="num">1000+</td><td>Privacy/Civic</td><td class="num"><b>2</b></td><td><span class="b warn">MAYBE</span></td><td class="reason">Flock ALPR backlash. Could support a &#x27;surveillance policy brief&#x27; output, but audience is consumer-civic, not knowledge worker.</td></tr><tr class="s1"><td class="mono">aircraft carrier</td><td class="num">100+</td><td>Defense/Policy</td><td class="num"><b>1</b></td><td><span class="b no">NO</span></td><td class="reason">Navy redesign story. Consultant/analyst adjacent but thin.</td></tr><tr class="s1"><td class="mono">cambridge professor jason arday</td><td class="num">200+</td><td>Academia</td><td class="num"><b>1</b></td><td><span class="b no">NO</span></td><td class="reason">Academic audience fits Ancher, but the story is a death + censorship controversy. Skip on brand-safety grounds.</td></tr><tr class="s1"><td class="mono">ios 26.6.1</td><td class="num">100+</td><td>Consumer tech</td><td class="num"><b>1</b></td><td><span class="b no">NO</span></td><td class="reason">Patch notes. Publisher-dominated.</td></tr><tr class="s1"><td class="mono">samsung galaxy</td><td class="num">1000+</td><td>Consumer tech</td><td class="num"><b>1</b></td><td><span class="b no">NO</span></td><td class="reason">Z Fold 8 review cycle. Generic; dominated by publishers.</td></tr><tr class="s1"><td class="mono">the elder scrolls vi</td><td class="num">200+</td><td>Gaming</td><td class="num"><b>1</b></td><td><span class="b no">NO</span></td><td class="reason">Xbox CEO tease. Wrong audience.</td></tr><tr class="s0"><td class="mono">badminton</td><td class="num">200+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">braves score</td><td class="num">200+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">bryson dechambeau</td><td class="num">2000+</td><td>Celebrity</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">Golf/dating rumours. No overlap.</td></tr><tr class="s0"><td class="mono">cavs rumors</td><td class="num">500+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">chargers depth chart</td><td class="num">200+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">club américa vs atlético san luis standings</td><td class="num">5000+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">Fixture query. No overlap.</td></tr><tr class="s0"><td class="mono">diriyah vs al-nassr</td><td class="num">1000+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">Fixture query.</td></tr><tr class="s0"><td class="mono">disney legends 2026</td><td class="num">500+</td><td>Entertainment</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">fenerbahçe - lyon</td><td class="num">500+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">Fixture query.</td></tr><tr class="s0"><td class="mono">fenerbahçe vs ol</td><td class="num">500+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">Fixture query.</td></tr><tr class="s0"><td class="mono">gta 6 leaks</td><td class="num">500+</td><td>Gaming</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">keke palmer</td><td class="num">200+</td><td>Celebrity</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">laura cardoso</td><td class="num">100+</td><td>Obituary</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">Skip.</td></tr><tr class="s0"><td class="mono">liga mx</td><td class="num">10000+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">Football fixtures. No overlap.</td></tr><tr class="s0"><td class="mono">linda bean pardee</td><td class="num">200+</td><td>Obituary</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">Skip.</td></tr><tr class="s0"><td class="mono">max strus</td><td class="num">200+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">penn state football</td><td class="num">100+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">sophie cunningham wnba reddit ban</td><td class="num">2000+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">Sports drama. No overlap.</td></tr><tr class="s0"><td class="mono">tires season 3 cast</td><td class="num">500+</td><td>Entertainment</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">us open tennis 2026</td><td class="num">100+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr><tr class="s0"><td class="mono">von miller</td><td class="num">20000+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">NFL free agency. No knowledge-work intent.</td></tr><tr class="s0"><td class="mono">washington spirit vs angel city fc</td><td class="num">1000+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">Fixture query.</td></tr><tr class="s0"><td class="mono">yordan alvarez</td><td class="num">500+</td><td>Sports</td><td class="num"><b>0</b></td><td><span class="b no">NO</span></td><td class="reason">No overlap.</td></tr></tbody></table></div>
+
+<h2><span class="n">②</span> 頁面規劃表（上架所需完整欄位）</h2>
+<p class="note"><b>Track A</b>＝趨勢劫持頁，跟著今天的 Trends 走，流量快但 48 小時後衰減，需要排程重跑。<b>Track B</b>＝常青 PSEO 叢集，量體穩定、商業意圖高，是實際會累積的資產。欄位對齊現有 <span class="mono">app/data/gallery.ts</span> 的 <span class="mono">GalleryItem</span> 型別，可直接注入。<span class="b warn">TBD_SEMRUSH</span> 等你導出 CSV 後回填，<span class="b warn">TBD_X_API</span> 等 X 資料通道打通後回填。</p>
+<div class="scroll"><table>
+<thead><tr><th>Track</th><th>關鍵字</th><th>Volume / KD</th><th>頁面 meta</th><th>形式</th><th>頁面區塊</th><th>來源需求</th><th>X 查詢 / 洞察</th><th>Trend 來源</th></tr></thead>
+<tbody><tr class="tA">
+<td><span class="b trk-a">A-trend</span><br><span class="pri">P1</span></td>
+<td><b>investment memo template</b><ul class="sec"><li>investment thesis template</li><li>position memo example</li><li>masayoshi son portfolio</li><li>softbank portfolio 13f</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Investment Position Memo Example: SoftBank&#x27;s 66% Single-Stock Bet</div><div class="slug mono">/outputs/investment-position-memo-softbank</div>
+<div class="h1">H1: Turn filings and coverage into an investment position memo</div><div class="meta">See an investment position memo built from real filings and coverage: thesis, position sizing, risks, and what the sources actually say.</div></td>
+<td>Investment position memo<br><span class="tag">Research</span><br><span class="fmt">html + downloadable memo</span><br><span class="cad">↻ quarterly (13F cycle)</span></td>
+<td><ul class="inc"><li>Position snapshot</li><li>Thesis in one page</li><li>Evidence from filings</li><li>Bull case</li><li>Bear case</li><li>Catalysts and dates</li><li>Open questions</li></ul></td>
+<td class="src">Filings, earnings calls, analyst notes<div class="reqs">13F/13D filings, earnings transcripts, analyst notes, press coverage, your own notes.</div></td>
+<td class="mono xq">(masayoshi son OR softbank) (portfolio OR 13F OR stake) -giveaway lang:en<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">Google Trends US daily 2026-08-18<br>100+</td>
+</tr><tr class="tA">
+<td><span class="b trk-a">A-trend</span><br><span class="pri">P2</span></td>
+<td><b>macro research brief template</b><ul class="sec"><li>macro brief example</li><li>market commentary template</li><li>10 year treasury yield explained</li><li>30 year treasury yield</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Macro Brief Example: Reading the 30-Year Treasury Yield Spike</div><div class="slug mono">/outputs/macro-brief-treasury-yields</div>
+<div class="h1">H1: Turn rate data and commentary into a macro brief</div><div class="meta">A source-grounded macro brief example: yield moves, drivers, what strategists said, and what it changes for positioning.</div></td>
+<td>Macro brief<br><span class="tag">Research</span><br><span class="fmt">html</span><br><span class="cad">↻ weekly</span></td>
+<td><ul class="inc"><li>What moved</li><li>Drivers</li><li>Curve view</li><li>What strategists said</li><li>Implications</li><li>Watch list</li></ul></td>
+<td class="src">Rate data, central-bank statements, strategist notes<div class="reqs">Yield series, FOMC/central bank statements, sell-side notes, news coverage.</div></td>
+<td class="mono xq">(&quot;10 year treasury&quot; OR &quot;30 year treasury&quot; OR &quot;treasury yield&quot;) (yield OR curve) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">Google Trends US daily 2026-08-18<br>100+</td>
+</tr><tr class="tA">
+<td><span class="b trk-a">A-trend</span><br><span class="pri">P2</span></td>
+<td><b>market entry strategy template</b><ul class="sec"><li>market entry analysis example</li><li>go to market brief template</li><li>costco medicare advantage</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Market Entry Brief Example: Costco&#x27;s Move Into Medicare Advantage</div><div class="slug mono">/outputs/market-entry-brief-costco-medicare</div>
+<div class="h1">H1: Turn scattered coverage into a market entry brief</div><div class="meta">See a market entry brief built from real sources: the move, the partner, the market, the incumbents, and the strategic read.</div></td>
+<td>Market entry brief<br><span class="tag">Research</span><br><span class="fmt">html</span><br><span class="cad">↻ event-driven</span></td>
+<td><ul class="inc"><li>The move</li><li>Partner and structure</li><li>Market size and dynamics</li><li>Incumbents</li><li>Why now</li><li>Strategic read</li><li>Open questions</li></ul></td>
+<td class="src">Press releases, filings, competitor pages<div class="reqs">Press releases, regulatory filings, incumbent plan pages, analyst commentary.</div></td>
+<td class="mono xq">costco (medicare OR &quot;medicare advantage&quot; OR SCAN) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">Google Trends US daily 2026-08-18<br>200+</td>
+</tr><tr class="tA">
+<td><span class="b trk-a">A-trend</span><br><span class="pri">P3</span></td>
+<td><b>stock research template</b><ul class="sec"><li>equity research note template</li><li>analyst call tracker</li><li>jim cramer stock picks</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Analyst Call Tracker Example: Auditing Public Stock Calls Against Sources</div><div class="slug mono">/outputs/analyst-call-tracker</div>
+<div class="h1">H1: Track a pundit&#x27;s calls against the original sources</div><div class="meta">See an analyst call tracker built from real sources: the call, the date, the evidence, and what actually happened.</div></td>
+<td>Call tracker<br><span class="tag">Research</span><br><span class="fmt">html + table export</span><br><span class="cad">↻ monthly</span></td>
+<td><ul class="inc"><li>Call log</li><li>Evidence cited</li><li>Counter-evidence</li><li>Outcome vs call</li><li>Pattern notes</li></ul></td>
+<td class="src">Transcripts, price data, filings<div class="reqs">Show transcripts or clips, price history, company filings, contemporaneous news.</div></td>
+<td class="mono xq">(jim cramer OR cramer) (call OR pick OR stock) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">Google Trends US daily 2026-08-18<br>100+</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-alt</span><br><span class="pri">P1</span></td>
+<td><b>notebooklm alternatives</b><ul class="sec"><li>notebooklm alternative</li><li>google notebooklm competitors</li><li>notebooklm vs</li><li>best notebooklm alternative</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">NotebookLM Alternatives: Source-Grounded Research Tools Compared</div><div class="slug mono">/outputs/notebooklm-alternatives</div>
+<div class="h1">H1: Looking for a NotebookLM alternative that keeps your whole library?</div><div class="meta">Compare NotebookLM alternatives for source-grounded research: capture, cross-source linking, citation quality, and output formats.</div></td>
+<td>Comparison page<br><span class="tag">Research</span><br><span class="fmt">html (comparison table)</span><br><span class="cad">↻ quarterly</span></td>
+<td><ul class="inc"><li>Comparison table</li><li>Capture coverage</li><li>Cross-source linking</li><li>Citation quality</li><li>Output formats</li><li>Pricing</li><li>Who each is for</li></ul></td>
+<td class="src">Product docs, pricing pages, hands-on tests<div class="reqs">Vendor docs, pricing pages, changelogs, hands-on notes, user reviews.</div></td>
+<td class="mono xq">notebooklm (alternative OR alternatives OR &quot;instead of&quot; OR switching) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-alt</span><br><span class="pri">P1</span></td>
+<td><b>pocket alternatives</b><ul class="sec"><li>pocket alternative</li><li>read later app</li><li>best read it later app</li><li>pocket export</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Pocket Alternatives: Where to Move Your Read-Later Library</div><div class="slug mono">/outputs/pocket-alternatives-read-later</div>
+<div class="h1">H1: Move your read-later library somewhere that actually uses it</div><div class="meta">Compare Pocket alternatives and read-later apps: import paths, search, highlights, and turning saves into finished work.</div></td>
+<td>Comparison page<br><span class="tag">Knowledge</span><br><span class="fmt">html (comparison table)</span><br><span class="cad">↻ quarterly</span></td>
+<td><ul class="inc"><li>Migration paths</li><li>Import/export formats</li><li>Search and recall</li><li>Highlights and notes</li><li>From save to output</li><li>Pricing</li></ul></td>
+<td class="src">Product docs, export formats, hands-on tests<div class="reqs">Vendor docs, export format specs, migration guides, user threads.</div></td>
+<td class="mono xq">pocket (alternative OR alternatives OR export OR migrating OR shutdown) (&quot;read later&quot; OR readlater OR app) lang:en<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-alt</span><br><span class="pri">P2</span></td>
+<td><b>readwise alternatives</b><ul class="sec"><li>readwise alternative</li><li>readwise reader alternative</li><li>highlight app comparison</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Readwise Alternatives: Highlights That Turn Into Output</div><div class="slug mono">/outputs/readwise-alternatives</div>
+<div class="h1">H1: Highlights are the input, not the product</div><div class="meta">Compare Readwise alternatives on capture sources, review, search, and whether highlights actually become usable work.</div></td>
+<td>Comparison page<br><span class="tag">Knowledge</span><br><span class="fmt">html (comparison table)</span><br><span class="cad">↻ quarterly</span></td>
+<td><ul class="inc"><li>Comparison table</li><li>Capture sources</li><li>Review systems</li><li>Search quality</li><li>Synthesis and output</li><li>Pricing</li></ul></td>
+<td class="src">Product docs, pricing, hands-on tests<div class="reqs">Vendor docs, pricing pages, integration lists, user reviews.</div></td>
+<td class="mono xq">readwise (alternative OR alternatives OR &quot;switched from&quot; OR cancel) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-alt</span><br><span class="pri">P2</span></td>
+<td><b>second brain app</b><ul class="sec"><li>best second brain app</li><li>ai second brain</li><li>second brain apps 2026</li><li>digital second brain</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Second Brain Apps Compared: Which One Actually Produces Work?</div><div class="slug mono">/outputs/second-brain-app</div>
+<div class="h1">H1: A second brain is only worth it if something comes out of it</div><div class="meta">Compare second brain apps on capture, recall, linking, and output. See which turn saved knowledge into finished work.</div></td>
+<td>Comparison page<br><span class="tag">Knowledge</span><br><span class="fmt">html (comparison table)</span><br><span class="cad">↻ quarterly</span></td>
+<td><ul class="inc"><li>Comparison table</li><li>Capture friction</li><li>Recall quality</li><li>Auto-linking</li><li>Output formats</li><li>Pricing</li><li>Who each is for</li></ul></td>
+<td class="src">Product docs, hands-on tests<div class="reqs">Vendor docs, pricing, hands-on notes, community threads.</div></td>
+<td class="mono xq">(&quot;second brain&quot; OR &quot;personal knowledge management&quot; OR PKM) (app OR tool OR setup) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-alt</span><br><span class="pri">P3</span></td>
+<td><b>obsidian vs notion</b><ul class="sec"><li>notion vs obsidian</li><li>obsidian or notion</li><li>best note taking app for research</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Obsidian vs Notion vs an AI Layer: Picking a Knowledge Stack</div><div class="slug mono">/outputs/obsidian-vs-notion</div>
+<div class="h1">H1: Obsidian, Notion, or something that reads for you?</div><div class="meta">Obsidian vs Notion compared on structure, linking, search, and AI. Plus when neither is the right layer.</div></td>
+<td>Comparison page<br><span class="tag">Knowledge</span><br><span class="fmt">html (comparison table)</span><br><span class="cad">↻ semiannual</span></td>
+<td><ul class="inc"><li>Head to head table</li><li>Structure model</li><li>Linking</li><li>Search</li><li>AI features</li><li>Migration</li><li>Verdict by use case</li></ul></td>
+<td class="src">Product docs, hands-on tests<div class="reqs">Vendor docs, plugin ecosystems, hands-on notes, community threads.</div></td>
+<td class="mono xq">(obsidian) (notion) (vs OR versus OR &quot;switched to&quot; OR &quot;moved from&quot;) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-jtbd</span><br><span class="pri">P1</span></td>
+<td><b>summarize pdf with ai</b><ul class="sec"><li>ai pdf summarizer</li><li>summarize long pdf</li><li>pdf summary tool</li><li>summarize research paper</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">How to Summarize a PDF With AI (Without Losing the Citations)</div><div class="slug mono">/outputs/summarize-pdf-with-ai</div>
+<div class="h1">H1: Summarize a PDF and keep every claim traceable</div><div class="meta">Summarize PDFs with AI while keeping citations intact. Steps, prompts, and a source-grounded summary example.</div></td>
+<td>How-to + worked example<br><span class="tag">Research</span><br><span class="fmt">html + example output</span><br><span class="cad">↻ annual</span></td>
+<td><ul class="inc"><li>Why naive summaries drift</li><li>Step by step</li><li>Prompt patterns</li><li>Citation checking</li><li>Worked example</li><li>Common failure modes</li></ul></td>
+<td class="src">PDFs<div class="reqs">The PDFs themselves, plus any related notes.</div></td>
+<td class="mono xq">(summarize OR summarise) (pdf OR &quot;research paper&quot; OR paper) (ai OR gpt OR claude) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-jtbd</span><br><span class="pri">P2</span></td>
+<td><b>youtube video summarizer</b><ul class="sec"><li>youtube to notes</li><li>summarize youtube video</li><li>video transcript to notes</li><li>youtube summary ai</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Turn a YouTube Video Into Structured Notes You&#x27;ll Actually Reuse</div><div class="slug mono">/outputs/youtube-video-to-notes</div>
+<div class="h1">H1: From a two-hour video to notes that survive next month</div><div class="meta">Convert YouTube videos into structured, timestamped notes with sources intact. Steps plus a worked example.</div></td>
+<td>How-to + worked example<br><span class="tag">Knowledge</span><br><span class="fmt">html + example output</span><br><span class="cad">↻ annual</span></td>
+<td><ul class="inc"><li>Getting a clean transcript</li><li>Cutting to claims</li><li>Timestamped citations</li><li>Filing for recall</li><li>Worked example</li></ul></td>
+<td class="src">Video URLs, transcripts<div class="reqs">Video URL or transcript, plus related saved material.</div></td>
+<td class="mono xq">(youtube) (summarize OR summariser OR transcript OR notes) (ai OR tool) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-jtbd</span><br><span class="pri">P2</span></td>
+<td><b>podcast summarizer</b><ul class="sec"><li>podcast transcript to notes</li><li>summarize podcast ai</li><li>podcast notes template</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Turn Podcasts Into a Weekly Brief Your Team Will Read</div><div class="slug mono">/outputs/podcast-to-brief</div>
+<div class="h1">H1: Ten hours of podcasts, one page that matters</div><div class="meta">Turn podcast episodes into a weekly brief: transcripts, quote extraction, timestamps, and a shareable one-pager.</div></td>
+<td>Weekly brief<br><span class="tag">Writing</span><br><span class="fmt">html + example brief</span><br><span class="cad">↻ annual</span></td>
+<td><ul class="inc"><li>Queue triage</li><li>Transcript cleanup</li><li>Quote extraction</li><li>Weekly brief structure</li><li>Distribution</li><li>Worked example</li></ul></td>
+<td class="src">Podcast episodes, transcripts<div class="reqs">Episode audio or transcripts, show notes, your highlights.</div></td>
+<td class="mono xq">(podcast) (summarize OR summary OR transcript OR notes) (ai OR tool OR workflow) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-jtbd</span><br><span class="pri">P2</span></td>
+<td><b>ai newsletter generator</b><ul class="sec"><li>newsletter curation tool</li><li>how to write a newsletter with ai</li><li>content curation workflow</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Turn Saved Articles Into a Newsletter Issue in One Pass</div><div class="slug mono">/outputs/saved-articles-to-newsletter</div>
+<div class="h1">H1: Your saved tabs are already next week&#x27;s issue</div><div class="meta">Turn saved articles into a newsletter draft: curation, clustering, voice, and attribution. With a worked example issue.</div></td>
+<td>Newsletter draft<br><span class="tag">Writing</span><br><span class="fmt">html + example issue</span><br><span class="cad">↻ annual</span></td>
+<td><ul class="inc"><li>Curation pass</li><li>Clustering into themes</li><li>Drafting in your voice</li><li>Attribution and links</li><li>Worked example issue</li></ul></td>
+<td class="src">Saved articles, highlights<div class="reqs">Saved articles, highlights, past issues for voice matching.</div></td>
+<td class="mono xq">(newsletter) (curation OR curate OR &quot;write my newsletter&quot; OR digest) (ai OR workflow OR automate) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-jtbd</span><br><span class="pri">P3</span></td>
+<td><b>how to organize research papers</b><ul class="sec"><li>organize academic papers</li><li>research paper management</li><li>reference manager comparison</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">How to Organize Research Papers So You Can Find Them Again</div><div class="slug mono">/outputs/organize-research-papers</div>
+<div class="h1">H1: Stop rebuilding your literature pile every semester</div><div class="meta">Organize research papers for retrieval, not tidiness. Tagging, linking, citation hygiene, and a worked library example.</div></td>
+<td>How-to + worked example<br><span class="tag">Knowledge</span><br><span class="fmt">html</span><br><span class="cad">↻ annual</span></td>
+<td><ul class="inc"><li>Why folders fail</li><li>Retrieval-first filing</li><li>Citation hygiene</li><li>Linking across papers</li><li>Worked example library</li></ul></td>
+<td class="src">PDFs, citations, notes<div class="reqs">Your PDF library, citation exports, reading notes.</div></td>
+<td class="mono xq">(organize OR organise OR managing) (&quot;research papers&quot; OR &quot;academic papers&quot; OR zotero OR mendeley) lang:en<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-template</span><br><span class="pri">P1</span></td>
+<td><b>literature review template</b><ul class="sec"><li>literature review example</li><li>how to write a literature review</li><li>literature review outline</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Literature Review Example Built From Your Own Sources</div><div class="slug mono">/outputs/literature-review</div>
+<div class="h1">H1: Generate a literature review from the papers you already saved</div><div class="meta">See a source-grounded literature review example: themes, methods, gaps, and a full citation trail.</div></td>
+<td>Literature review<br><span class="tag">Research</span><br><span class="fmt">html + downloadable doc</span><br><span class="cad">↻ evergreen</span></td>
+<td><ul class="inc"><li>Scope and method</li><li>Thematic grouping</li><li>Methodological comparison</li><li>Contradictions</li><li>Gaps</li><li>Citation trail</li></ul></td>
+<td class="src">Papers and reading notes<div class="reqs">Papers, abstracts, reading notes, citation exports.</div></td>
+<td class="mono xq">(&quot;literature review&quot;) (template OR example OR &quot;how to&quot; OR ai) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-template</span><br><span class="pri">P2</span></td>
+<td><b>board update template</b><ul class="sec"><li>investor update template</li><li>board deck template</li><li>monthly investor update example</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Board Update Example With Evidence Behind Every Number</div><div class="slug mono">/outputs/board-update</div>
+<div class="h1">H1: Write the board update once, from the sources</div><div class="meta">See a board update example: highlights, metrics, lowlights, asks, and a linked evidence trail.</div></td>
+<td>Board update<br><span class="tag">Writing</span><br><span class="fmt">html + downloadable doc</span><br><span class="cad">↻ evergreen</span></td>
+<td><ul class="inc"><li>Headline</li><li>Metrics table</li><li>What worked</li><li>What didn&#x27;t</li><li>Asks</li><li>Evidence appendix</li></ul></td>
+<td class="src">Metrics, notes, prior updates<div class="reqs">Metrics exports, team notes, prior updates, customer evidence.</div></td>
+<td class="mono xq">(&quot;board update&quot; OR &quot;investor update&quot;) (template OR example OR writing) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-template</span><br><span class="pri">P2</span></td>
+<td><b>user research synthesis template</b><ul class="sec"><li>research synthesis template</li><li>user interview analysis</li><li>affinity mapping template</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">User Research Synthesis Example With Quotes Linked to Interviews</div><div class="slug mono">/outputs/user-research-synthesis</div>
+<div class="h1">H1: Synthesize interviews without losing the quote trail</div><div class="meta">See a user research synthesis example: themes, evidence strength, quotes with sources, and recommended next steps.</div></td>
+<td>Research synthesis<br><span class="tag">Research</span><br><span class="fmt">html + downloadable doc</span><br><span class="cad">↻ evergreen</span></td>
+<td><ul class="inc"><li>Method</li><li>Themes</li><li>Evidence strength</li><li>Verbatim quotes</li><li>Contradictions</li><li>Recommendations</li></ul></td>
+<td class="src">Interview transcripts and notes<div class="reqs">Interview recordings or transcripts, notes, survey data.</div></td>
+<td class="mono xq">(&quot;user research&quot;) (synthesis OR synthesise OR analyzing OR themes) (template OR ai OR tool) lang:en<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-template</span><br><span class="pri">P3</span></td>
+<td><b>deal memo template</b><ul class="sec"><li>vc investment memo template</li><li>deal memo example</li><li>diligence memo template</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">VC Deal Memo Example With a Full Diligence Trail</div><div class="slug mono">/outputs/vc-deal-memo</div>
+<div class="h1">H1: Write the deal memo from the diligence, not from memory</div><div class="meta">See a VC deal memo example: thesis, team, market, traction, risks, and a linked diligence trail.</div></td>
+<td>Deal memo<br><span class="tag">Research</span><br><span class="fmt">html + downloadable doc</span><br><span class="cad">↻ evergreen</span></td>
+<td><ul class="inc"><li>Thesis</li><li>Team</li><li>Market</li><li>Traction</li><li>Competition</li><li>Risks</li><li>Terms</li><li>Diligence trail</li></ul></td>
+<td class="src">Call notes, data room, market sources<div class="reqs">Founder call notes, data room exports, market reports, reference calls.</div></td>
+<td class="mono xq">(&quot;deal memo&quot; OR &quot;investment memo&quot;) (template OR example OR vc) lang:en -giveaway<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr><tr class="tB">
+<td><span class="b trk-b">B-template</span><br><span class="pri">P3</span></td>
+<td><b>weekly update presentation template</b><ul class="sec"><li>weekly report deck</li><li>internal update deck template</li><li>team digest template</li></ul></td>
+<td class="num vol">TBD_SEMRUSH<br><span class="kd">KD TBD_SEMRUSH</span></td>
+<td><div class="ttl">Weekly Digest Deck Example: A Week of Sources in Ten Slides</div><div class="slug mono">/outputs/weekly-digest-deck</div>
+<div class="h1">H1: Turn a week of reading into ten slides</div><div class="meta">See a weekly digest deck example: themes, signals, implications, and citations on every slide.</div></td>
+<td>Slide deck<br><span class="tag">Slides</span><br><span class="fmt">deck (pptx) + html preview</span><br><span class="cad">↻ evergreen</span></td>
+<td><ul class="inc"><li>Cover</li><li>This week in one slide</li><li>Themes</li><li>Signals</li><li>Implications</li><li>What we&#x27;re watching</li><li>Sources</li></ul></td>
+<td class="src">A week of saved sources<div class="reqs">Saved articles, notes, metrics, meeting summaries from the week.</div></td>
+<td class="mono xq">(&quot;weekly update&quot; OR &quot;weekly digest&quot;) (deck OR slides OR presentation) (template OR ai) lang:en<div class="pending">TBD_X_API</div></td>
+<td class="mono trend">—</td>
+</tr></tbody></table></div>
+<p class="legend">附帶檔案：<span class="mono">01_trend_candidates_scored.csv</span> · <span class="mono">02_pseo_page_plan.csv</span> · <span class="mono">03_semrush_bulk_input.txt</span> · <span class="mono">04_keyword_to_slug_map.csv</span> · <span class="mono">fetch_x_insights.mjs</span></p>
+</div></body></html>

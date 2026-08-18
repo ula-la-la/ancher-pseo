@@ -1,0 +1,45 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "ancher-pseo",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-08-18",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+
+  // The site is served from ancher.us only. ancher.ai lives on separate
+  // infrastructure (AWS CloudFront) and is untouched by this Worker.
+  // Uncomment once the zone is confirmed in the Cloudflare dashboard:
+  // "routes": [
+  //   { "pattern": "ancher.us", "custom_domain": true },
+  //   { "pattern": "www.ancher.us", "custom_domain": true }
+  // ],
+
+  "workers_dev": true,
+  "observability": { "enabled": true },
+
+  "vars": {
+    "NEXT_PUBLIC_SITE_URL": "https://ancher.us"
+  },
+
+  // D1 backs the PSEO pipeline tables (trends, keywords, x_insights, pages).
+  // Create it once with:  npx wrangler d1 create ancher-pseo
+  // then paste the returned database_id below and uncomment this block.
+  // "d1_databases": [
+  //   {
+  //     "binding": "DB",
+  //     "database_name": "ancher-pseo",
+  //     "database_id": "PASTE_DATABASE_ID_HERE",
+  //     "migrations_dir": "drizzle"
+  //   }
+  // ],
+
+  // TWITTER241_RAPIDAPI_KEY is a secret, never a var. Set it with:
+  //   npx wrangler secret put TWITTER241_RAPIDAPI_KEY
+  // (or, for Workers Builds, in the dashboard under Settings > Variables.)
+
+  "placement": { "mode": "smart" }
+}

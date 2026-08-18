@@ -1,0 +1,32 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# next / opennext / wrangler build output
+/.next/
+/.open-next/
+/out/
+/dist/
+/.wrangler/
+next-env.d.ts
+cloudflare-env.d.ts
+*.tsbuildinfo
+
+# env — never commit the RapidAPI key
+.env
+.env.*
+!.env.example
+
+# data pipeline scratch
+/data/raw/
+/data/*.json
+!/data/*.example.json
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+yarn-error.log*
+.vercel
+/coverage

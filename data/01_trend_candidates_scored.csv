@@ -1,0 +1,35 @@
+﻿pulledAt,term,trendTraffic,feed,theme,ancherScore,usable,verdictReason
+2026-08-18,masayoshi son,100+,us/daily,Investing,4,YES,SoftBank put 66% of an $18B US portfolio into one stock. Investors are an Ancher ICP and the query needs exactly a sourced position/deal memo.
+2026-08-18,10 year treasury yield,100+,us/daily,Investing,3,YES,30y yield at a 19-year high. Recurring query with a real evergreen tail; suits a rolling macro brief.
+2026-08-18,costco medicare,200+,us/cat3,Business news,3,YES,Costco + SCAN Group launch a Medicare Advantage plan. Real market-entry story that a source-grounded market brief answers well.
+2026-08-18,jim cramer,100+,us/daily,Investing,3,YES,Memory-chip calls. Works as a 'track a pundit's calls against sources' brief.
+2026-08-18,gel nail ban,500+,us/cat3,Regulation,2,MAYBE,UK TPO ban. Works as a 'regulatory change brief' demo but wrong audience.
+2026-08-18,have i been flocked?,1000+,us/daily,Privacy/Civic,2,MAYBE,"Flock ALPR backlash. Could support a 'surveillance policy brief' output, but audience is consumer-civic, not knowledge worker."
+2026-08-18,aircraft carrier,100+,us/cat3,Defense/Policy,1,NO,Navy redesign story. Consultant/analyst adjacent but thin.
+2026-08-18,cambridge professor jason arday,200+,us/cat3,Academia,1,NO,"Academic audience fits Ancher, but the story is a death + censorship controversy. Skip on brand-safety grounds."
+2026-08-18,ios 26.6.1,100+,us/daily,Consumer tech,1,NO,Patch notes. Publisher-dominated.
+2026-08-18,samsung galaxy,1000+,us/cat18,Consumer tech,1,NO,Z Fold 8 review cycle. Generic; dominated by publishers.
+2026-08-18,the elder scrolls vi,200+,us/cat3,Gaming,1,NO,Xbox CEO tease. Wrong audience.
+2026-08-18,badminton,200+,us/168h,Sports,0,NO,No overlap.
+2026-08-18,braves score,200+,us/daily,Sports,0,NO,No overlap.
+2026-08-18,bryson dechambeau,2000+,us/168h,Celebrity,0,NO,Golf/dating rumours. No overlap.
+2026-08-18,cavs rumors,500+,us/cat18,Sports,0,NO,No overlap.
+2026-08-18,chargers depth chart,200+,us/168h,Sports,0,NO,No overlap.
+2026-08-18,club américa vs atlético san luis standings,5000+,us/cat18,Sports,0,NO,Fixture query. No overlap.
+2026-08-18,diriyah vs al-nassr,1000+,us/cat3,Sports,0,NO,Fixture query.
+2026-08-18,disney legends 2026,500+,us/cat18,Entertainment,0,NO,No overlap.
+2026-08-18,fenerbahçe - lyon,500+,us/cat3,Sports,0,NO,Fixture query.
+2026-08-18,fenerbahçe vs ol,500+,us/cat3,Sports,0,NO,Fixture query.
+2026-08-18,gta 6 leaks,500+,us/168h,Gaming,0,NO,No overlap.
+2026-08-18,keke palmer,200+,us/daily,Celebrity,0,NO,No overlap.
+2026-08-18,laura cardoso,100+,us/daily,Obituary,0,NO,Skip.
+2026-08-18,liga mx,10000+,us/cat18,Sports,0,NO,Football fixtures. No overlap.
+2026-08-18,linda bean pardee,200+,us/cat3,Obituary,0,NO,Skip.
+2026-08-18,max strus,200+,us/cat3,Sports,0,NO,No overlap.
+2026-08-18,penn state football,100+,us/daily,Sports,0,NO,No overlap.
+2026-08-18,sophie cunningham wnba reddit ban,2000+,us/cat18,Sports,0,NO,Sports drama. No overlap.
+2026-08-18,tires season 3 cast,500+,us/cat18,Entertainment,0,NO,No overlap.
+2026-08-18,us open tennis 2026,100+,us/daily,Sports,0,NO,No overlap.
+2026-08-18,von miller,20000+,us/168h,Sports,0,NO,NFL free agency. No knowledge-work intent.
+2026-08-18,washington spirit vs angel city fc,1000+,us/cat18,Sports,0,NO,Fixture query.
+2026-08-18,yordan alvarez,500+,us/cat18,Sports,0,NO,No overlap.
