@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   // so canonicals and sitemap entries never disagree with what Google crawls.
   trailingSlash: false,
   poweredByHeader: false,
-  images: { remotePatterns: [] },
+  images: { remotePatterns: [], qualities: [75, 80] },
 
   // /outputs/* was the original path. Nothing is indexed yet, but the
   // workers.dev preview URLs have been shared, so keep them resolving.

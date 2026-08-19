@@ -17,6 +17,7 @@ cloudflare-env.d.ts
 .env
 .env.*
 !.env.example
+/api.env
 
 # data pipeline scratch
 /data/raw/

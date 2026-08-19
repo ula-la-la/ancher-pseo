@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { featuredItem, galleryItems, type GalleryCategory } from "../data/gallery";
+import { galleryPrompts } from "../data/galleryPrompts";
 import { OutputPreview } from "./OutputPreview";
 import { SiteHeader } from "./SiteHeader";
 import { signupUrl } from "../site";
@@ -18,7 +19,7 @@ export function GalleryHome() {
     <section className="hero wrap">
       <div className="hero-copy"><p className="kicker"><span /> Template gallery</p><h1>From everything you<br />know, to work you can use.</h1><p>Explore finished work created from real sources, notes, and ideas.</p><a className="primary-button" href={signupUrl}>Create with Ancher <span>→</span></a></div>
       <Link className="featured-card" href={`/templates/${featuredItem.slug}`}>
-        <OutputPreview item={featuredItem} />
+        <OutputPreview item={featuredItem} priority />
         <div className="featured-copy"><p className="featured-label">Featured template</p><h2>{featuredItem.title}</h2><span className="content-type">{featuredItem.outputType}</span><p>{featuredItem.description}</p><div className="source-line"><span>Suggested sources</span><b>Market reports</b><b>Competitor pages</b><b>Internal notes</b></div><span className="view-link">View template <b>→</b></span></div>
       </Link>
     </section>
@@ -30,7 +31,7 @@ export function GalleryHome() {
       <div className="gallery-grid">
         {visibleItems.map((item) => <Link key={item.slug} href={`/templates/${item.slug}`} className="gallery-card">
           <OutputPreview item={item} />
-          <div className="card-copy"><div className="card-title-row"><span className="type-icon">▤</span><h2>{item.title}</h2></div><p>{item.description}</p><div className="card-footer"><span>{item.category}</span><span>View template →</span></div></div>
+          <div className="card-copy"><div className="card-title-row"><span className="type-icon">▤</span><h2>{item.title}</h2></div><p>{item.description}</p><div className="card-footer"><div className="card-tags"><span className="category-tag">{item.category}</span>{item.slug in galleryPrompts && <span className="prompt-badge">Prompt included</span>}</div><span className="view-link">View template →</span></div></div>
         </Link>)}
       </div>
     </section>
