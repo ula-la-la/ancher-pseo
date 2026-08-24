@@ -21,6 +21,7 @@ Read [artifact-contract.md](references/artifact-contract.md) before generation, 
 3. Lock a generation brief containing:
    - source purpose and audience;
    - exact claims, entities, numbers, constraints, media, and placeholders;
+   - only supplied source metadata; mark missing author, date, or media as unavailable instead of deriving or guessing it;
    - supported insights or cross-source synthesis;
    - one specific editorial headline derived from the content;
    - fitting HTML structure;

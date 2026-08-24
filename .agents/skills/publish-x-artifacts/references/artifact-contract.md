@@ -18,6 +18,7 @@ Build it in this order:
 ## Source fidelity
 
 - A source may be one post or a primary post plus distinct supporting posts.
+- Use only supplied source metadata. Do not infer a publication date from a Tweet ID or guess a missing author, timestamp, or media item.
 - Combine multiple posts only when they address the same purpose, event, company, product, or question.
 - Preserve meaningful disagreements rather than forcing false consensus.
 - Use source media when it materially improves the Artifact.
