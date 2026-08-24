@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "../../../components/SiteHeader";
 import { OutputThumb } from "../../../components/PaperMotif";
 import { getPrompt, packs, toSlug } from "../../../data/prompts";
-import { siteUrl, signupUrl } from "../../../site";
+import { indexable, siteUrl, signupUrl } from "../../../site";
 
 type PageProps = { params: Promise<{ pack: string }> };
 
@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${p.title} pack`,
     description: p.blurb,
     alternates: { canonical: `/prompts/pack/${p.slug}` },
+    robots: { index: false, follow: indexable },
   };
 }
 

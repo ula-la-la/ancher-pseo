@@ -5,7 +5,7 @@ import { publicGalleryItems } from "../../data/publicGallery";
 import { getUseCase, useCases, useCasesBySlug } from "../../data/useCases";
 import { OutputPreview } from "../../components/OutputPreview";
 import { SiteHeader } from "../../components/SiteHeader";
-import { appUrl, siteUrl, signupUrl } from "../../site";
+import { appUrl, indexable, siteUrl, signupUrl } from "../../site";
 
 type PageProps = { params: Promise<{ useCase: string }> };
 
@@ -17,6 +17,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { useCase: slug } = await params;
   const useCase = getUseCase(slug);
   if (!useCase) return {};
+  const hasPublicArtifact = publicGalleryItems.some((item) =>
+    (useCasesBySlug[item.slug] ?? []).includes(useCase.slug),
+  );
   return {
     title: `Templates for ${useCase.name}`,
     description: useCase.blurb,
@@ -25,6 +28,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `Ancher templates for ${useCase.name}`,
       description: useCase.blurb,
       url: `${siteUrl}/for/${useCase.slug}`,
+    },
+    robots: {
+      index: indexable && hasPublicArtifact,
+      follow: indexable,
     },
   };
 }

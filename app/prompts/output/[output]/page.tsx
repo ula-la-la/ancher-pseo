@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "../../../components/SiteHeader";
 import { PromptCards } from "../../../components/PromptCards";
 import { outputTypes, prompts, sourceTypes, toSlug } from "../../../data/prompts";
-import { signupUrl } from "../../../site";
+import { indexable, signupUrl } from "../../../site";
 
 type PageProps = { params: Promise<{ output: string }> };
 
@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${o} prompts`,
     description: `${n} Ancher prompts that produce a ${o.toLowerCase()} from your own sources.`,
     alternates: { canonical: `/prompts/output/${output}` },
+    robots: { index: false, follow: indexable },
   };
 }
 

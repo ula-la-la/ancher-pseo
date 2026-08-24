@@ -8,7 +8,7 @@ import { CopyPrompt } from "../../components/CopyPrompt";
 import { getPrompt, packs, prompts, toSlug } from "../../data/prompts";
 import { getPublicGalleryItem } from "../../data/publicGallery";
 import { useCaseBySlug } from "../../data/useCases";
-import { siteUrl, signupUrl } from "../../site";
+import { indexable, siteUrl, signupUrl } from "../../site";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: p.summary,
     alternates: { canonical: `/prompts/${p.slug}` },
     openGraph: { title: p.title, description: p.summary, url: `${siteUrl}/prompts/${p.slug}` },
+    robots: { index: false, follow: indexable },
   };
 }
 

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "../../../components/SiteHeader";
 import { PromptCards } from "../../../components/PromptCards";
 import { outputTypes, prompts, sourcePhrase, sourceTypes, toSlug } from "../../../data/prompts";
-import { siteUrl, signupUrl } from "../../../site";
+import { indexable, siteUrl, signupUrl } from "../../../site";
 
 type PageProps = { params: Promise<{ source: string }> };
 
@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${s} prompts`,
     description: `${n} Ancher prompts that turn ${sourcePhrase[s]} into finished, cited work.`,
     alternates: { canonical: `/prompts/source/${source}` },
+    robots: { index: false, follow: indexable },
   };
 }
 

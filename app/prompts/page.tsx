@@ -16,7 +16,7 @@ import {
   type SourceType,
 } from "../data/prompts";
 import { useCases } from "../data/useCases";
-import { siteUrl, signupUrl } from "../site";
+import { indexable, siteUrl, signupUrl } from "../site";
 
 export const metadata: Metadata = {
   title: "Prompt Library",
@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     description: "Prompts for the work you owe, grouped by source, output, and audience.",
     url: `${siteUrl}/prompts`,
   },
+  robots: { index: false, follow: indexable },
 };
 
 /* Icons for the "browse by source" tiles. */
