@@ -11,30 +11,34 @@ Build one repeatable, review-gated workflow that turns existing or newly sourced
 
 - Only `ancher.us` website code and content are modified. The workflow uses Ancher MCP and public `.ancher.app` artifacts but does not modify the `ancher.ai` or `app.ancher.ai` applications.
 - The website CTA text is `Make your own with Ancher` and its destination is exactly `https://app.ancher.ai`.
-- The seven artifacts already published on `ancher.us` are legacy examples. Their artifact HTML, footer copy, review language, and Ancher share pages are not regenerated or edited.
-- New artifacts use the exact visible footer text `Design in ancher`. The text is not a link.
+- The seven artifacts already published on `ancher.us` remain unchanged while the next five are generated and reviewed as one batch.
+- New artifacts use the exact visible footer text `Design in ancher`, rendered as a quiet small link to `https://app.ancher.ai`.
 - The current 27 hidden Gallery items are the first batch. Each already has one unique X URL and directly usable prompt data.
-- Multiple X sources are supported by the data model, but the workflow does not proactively search for supplemental posts for the current 27 items. A future sourcing run may select one primary post plus zero or more complementary posts when they concern the same event and add distinct useful evidence.
+- Multiple X sources are supported. A job uses its existing approved source set; sourcing may add complementary X posts only when they concern the same purpose, event, company, product, or question and add distinct useful evidence.
 - A full Artifact is never embedded in an iframe on `ancher.us`. The website shows a screenshot of the actual Artifact and links to the public `.ancher.app` page.
-- Every newly generated Artifact remains private until the user explicitly approves that particular Artifact.
+- Every newly generated Artifact remains private until the user explicitly approves its review packet. The next five are reviewed and approved as one batch.
 
 ## Product Surfaces
 
 ### Ancher Artifact
 
-An Artifact is a standalone, self-contained HTML deliverable. For the current PSEO batch it defaults to a substantive text-first report, guide, memo, brief, comparison, literature review, case study, tutorial, or reusable written template. It must not become a dashboard, workbench, tracker, calculator, or control-heavy tool unless the user explicitly approves that format.
+An Artifact is a standalone, self-contained HTML deliverable whose purpose and content come from its approved X source set. It transforms source material into a richer, readable, shareable web experience; it is not merely a summary, a generic SEO article, or commentary about a prompt. The format follows the source purpose and may be a report, guide, memo, brief, comparison, news-style feature, prompt, checklist, reference, or another fitting editorial structure.
 
 Shared requirements for every new Artifact:
 
-- Ground the content in the supplied X source set and any explicitly approved supporting sources.
-- Preserve provenance for every X URL used.
+- Treat the supplied X content as the factual and conceptual core, not merely as inspiration or provenance.
+- Preserve the source's purpose, claims, numbers, entities, constraints, placeholders, and useful detail.
+- Add new insights, synthesis, implications, or connections only when they are supported by the approved source set or are clearly reasonable inferences from it.
+- When multiple approved X posts add distinct evidence, combine them into one richer Artifact without flattening disagreements or duplicating claims.
 - Use source media when it materially helps the deliverable.
-- Clearly label illustrative inputs, placeholder values, or fabricated demonstration data.
+- Preserve source placeholders as placeholders. Never replace missing inputs with invented companies, people, products, events, books, projects, meetings, statistics, quotations, or scenarios.
+- Never add `Illustrative example`, `Example`, `Sample`, fictional-case labels, or similar framing unless those words are part of the supplied source itself and materially necessary to preserve its meaning.
 - Do not present unsupported claims as verified facts.
+- Write a specific editorial title derived from the source content, similar to a news, feature, or finished-product headline. Do not default to generic titles such as `Sample Report`, `Example Summary`, or a Gallery output type.
 - Produce responsive, readable, self-contained HTML.
-- Include the exact unlinked footer text `Design in ancher`.
+- Include only the quiet small footer link `Design in ancher` to `https://app.ancher.ai` at the end of the page.
 - While private, review-only UI may be shown outside the Artifact. The Artifact itself should be publication-ready and must not include `Private review`, `Manual review`, `Not for publication`, or equivalent internal workflow language.
-- Do not include links to `ancher.ai`, `app.ancher.ai`, or `ancher.us` inside the Artifact footer.
+- Do not include a source trail, X URL, prompt-inspiration section, website SEO copy, large CTA, or other `ancher.us` wrapper content inside the Artifact.
 
 ### ancher.us Example Page
 
@@ -63,7 +67,7 @@ Every job maps to one or more of the six existing Ancher audiences:
 - product / product-growth
 - consultant
 
-The output format is selected from the actual source and audience need. The workflow must not default every job to a study guide or generic report.
+The output format and editorial title are selected from the actual source purpose and audience need. The workflow must not default jobs to a study guide, generic report, sample, template showcase, summary, or fictional case.
 
 ## Source Model
 
@@ -111,7 +115,7 @@ The revised contract is:
 
 - Search and rank multiple candidates as today.
 - Select exactly one primary source.
-- Select zero or more supporting sources only when they concern the same event or output need and add distinct useful evidence.
+- Select zero or more supporting sources only when they concern the same purpose, event, company, product, or question and add distinct useful evidence.
 - Do not add reposts, near-duplicate prompt copies, topic-only commentary, or unrelated high-engagement posts.
 - Preserve all selected URLs, authors, dates, text, and media.
 - If no supporting source qualifies, publish a valid one-source job.
@@ -151,7 +155,7 @@ For every source URL in the job:
 
 1. Save the URL to Ancher as its own note so provenance is not flattened.
 2. Wait until the note parsing state is ready; stop on a parsing error.
-3. Start one Ancher generation conversation that explicitly lists the approved source set, target audience, output purpose, Artifact requirements, and factual constraints.
+3. Start one Ancher generation conversation that explicitly lists the approved source set, source-derived purpose, target audience, editorial title direction, Artifact requirements, and factual constraints. The generation request must say that the source is content input, not inspiration for a fictional example.
 4. If Ancher requests clarification, continue the same conversation.
 5. Resolve the generated Artifact and verify that it is private HTML with non-empty content.
 6. Run the Artifact validator.
@@ -165,13 +169,13 @@ A new Artifact is eligible for review only when:
 
 - It is HTML and non-empty.
 - It has a title and responsive viewport metadata.
-- It contains the exact text `Design in ancher`.
-- That exact footer text is not inside an anchor.
+- It contains exactly one footer link whose visible text is `Design in ancher` and whose destination is `https://app.ancher.ai`.
 - It does not contain the legacy phrase `Designed in Ancher`.
 - It does not contain internal review/publication language.
-- It contains or visibly cites every X URL in the approved source set.
-- It does not contain an unapproved X URL.
-- It does not put `ancher.ai`, `app.ancher.ai`, or `ancher.us` in its footer.
+- It does not contain `Illustrative example`, `Sample`, `Example`, fictional-case framing, or invented entities absent from the approved source set.
+- It does not contain X URLs, a source trail, prompt-inspiration UI, or `ancher.us` SEO wrapper copy; those belong on the website page and review packet.
+- Its title is specific to the source content rather than a generic output-type label.
+- Its footer contains no Ancher URL other than the required `https://app.ancher.ai` destination.
 - Embedded images resolve.
 - The selected output structure matches the job’s audience and purpose.
 
@@ -190,13 +194,13 @@ The review gate shows:
 - Automated validation results and warnings.
 - Actions: approve, request revision, or reject.
 
-Approval of the workflow, Skill, plan, or batch does not approve an individual Artifact.
+For the next-five batch, all five private Artifacts are reviewed together. Approval must explicitly apply to that five-Artifact review packet before any of them are published.
 
 ## Publication Sequence
 
-After explicit Artifact approval:
+After explicit approval of the five-Artifact review packet:
 
-1. Set only that Artifact to public with Ancher MCP.
+1. Set each of the five explicitly approved Artifacts to public with Ancher MCP; do not publish anything outside the approved packet.
 2. Verify `is_public`, `is_html`, and a non-null HTTPS `.ancher.app` `share_url`.
 3. Open the share URL without relying on the owner-only preview.
 4. Capture the real Artifact at a 1440 × 900 desktop viewport.
@@ -211,7 +215,7 @@ Only `published` registry entries are routed, linked, included in related conten
 
 ## Repository and Distribution
 
-The final source of truth is the `ula-la-la/ancher-pseo` repository. Repo-scoped Skills live under `.agents/skills/` so anyone who clones the repository and opens Codex within it receives the same workflow.
+The final source of truth is the `ula-la-la/ancher-pseo` repository. Repo-scoped Skills live under `.agents/skills/` so a teammate who clones the repository, configures their own Ancher/GitHub/Cloudflare access, and opens Codex within it receives the same workflow and can trigger it with a simple instruction such as `開始執行`.
 
 Structure:
 
@@ -242,7 +246,7 @@ The workflow implementation is ready for the 27-item run when:
 4. Prompt preview remains approximately three to four lines with internal scrolling.
 5. The exact CTA points to `https://app.ancher.ai`.
 6. Private workflow state cannot enter the public bundle.
-7. The new Artifact validator catches footer links, legacy copy, internal review language, missing sources, and non-HTML output.
-8. One hidden real job reaches `pending_review` through Ancher MCP without becoming public.
-9. The user approves the pilot before any publication call.
-10. After pilot approval, its public Artifact, real screenshot, source trail, SEO metadata, sitemap entry, and deployed page all verify successfully.
+7. The new Artifact validator catches the wrong footer, legacy copy, internal review language, example/sample framing, X source UI inside the Artifact, generic titles, and non-HTML output.
+8. Each of the next five jobs reaches `pending_review` through Ancher MCP without becoming public.
+9. Five corrected private Artifacts pass validation and are presented in one review packet without becoming public.
+10. After explicit batch approval, all five public Artifacts, real screenshots, source trails, SEO metadata, sitemap entries, analytics, and deployed pages verify successfully, bringing the live Gallery total to twelve.
