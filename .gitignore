@@ -31,3 +31,6 @@ npm-debug.log*
 yarn-error.log*
 .vercel
 /coverage
+
+# local Artifact workflow state and private review payloads
+/.artifacts/
