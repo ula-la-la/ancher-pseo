@@ -22,7 +22,7 @@ Build one repeatable, review-gated workflow that turns existing or newly sourced
 
 ### Ancher Artifact
 
-An Artifact is a standalone, self-contained HTML deliverable. Its information architecture and visual form vary by source, audience, and job to be done. A board dashboard, study guide, comparison, tracker, literature review, or content brief should look and behave like that deliverable; the workflow must not force every output into an article template.
+An Artifact is a standalone, self-contained HTML deliverable. For the current PSEO batch it defaults to a substantive text-first report, guide, memo, brief, comparison, literature review, case study, tutorial, or reusable written template. It must not become a dashboard, workbench, tracker, calculator, or control-heavy tool unless the user explicitly approves that format.
 
 Shared requirements for every new Artifact:
 
