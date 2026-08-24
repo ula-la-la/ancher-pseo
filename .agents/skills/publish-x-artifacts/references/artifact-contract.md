@@ -1,39 +1,60 @@
 # Artifact contract
 
-Each Artifact must be a finished, useful deliverable derived from its supplied X post and shaped for one or more of Ancher's six audiences: Founders, Investors, Researchers, Creators, Product & Growth, and Consultants.
+## Positive recipe
+
+Each Artifact is a finished, shareable HTML deliverable for one or more Ancher audiences: Founders, Investors, Researchers, Creators, Product & Growth, and Consultants.
+
+Build it in this order:
+
+1. Read every approved X post as content input.
+2. Identify the source purpose, intended reader, facts, claims, entities, numbers, constraints, media, and placeholders.
+3. Select a fitting editorial form: news-style feature, report, guide, memo, brief, comparison, prompt, checklist, reference, or another structure implied by the source.
+4. Write a specific headline from the source content. It should read like a finished news, feature, or product headline—not a Gallery output label.
+5. Preserve useful source detail and placeholders.
+6. Add synthesis, implications, connections, or new insights only when supported by the approved source set or a clearly reasonable inference.
+7. Arrange the content into responsive, readable HTML.
+8. End with exactly one quiet small link: Design in ancher to https://app.ancher.ai.
 
 ## Source fidelity
 
-- Use every supplied X URL as primary content input and show every URL in a visible source trail.
-- Preserve author, date, original wording, and media when available.
-- Infer structure and practical guidance only when supported by the post.
-- A generic prompt stays generic and reusable. Use placeholders where facts are missing.
-- Name a company, product, event, person, metric, or time-sensitive claim only when it appears in the supplied source.
-- For the current 27 jobs, do not browse for supplemental evidence even when legacy `sourceRequirements` fields mention other materials.
+- A source may be one post or a primary post plus distinct supporting posts.
+- Combine multiple posts only when they address the same purpose, event, company, product, or question.
+- Preserve meaningful disagreements rather than forcing false consensus.
+- Use source media when it materially improves the Artifact.
+- Keep placeholders such as [project name], [Book Title], or [paste transcript] when the source does not supply the value.
+- Do not invent a company, person, product, event, book, project, meeting, statistic, quotation, or current fact.
+- Do not add Illustrative example, Example, Sample, fictional-case labels, or demonstration disclaimers unless the source itself requires the exact wording to preserve meaning.
+- Do not convert a prompt into an unrelated fictional result. Present or structure the prompt’s actual purpose when required inputs are absent.
+- Do not reduce the source to a generic summary unless summarization is itself the source’s purpose.
+- Do not pad the Artifact to a minimum word count.
 
-## Text-first PSEO output
+## Editorial title
 
-- Default formats: report, guide, memo, brief, comparison, literature review, case study, tutorial, or reusable written template.
-- The Artifact is the deliverable—not commentary about how a prompt might work.
-- Do not make a dashboard, war room, tracker, calculator, terminal, or control-heavy workbench unless explicitly approved.
-- Include at least 700 visible words; target 900–1,800 when the source supports it.
-- Use a clear H1, short introduction, descriptive H2/H3 sections, scannable lists or tables where useful, practical next steps, and the source trail.
-- Keep claims proportional to the evidence. More words must come from explanation and organization, not invented facts or repetition.
+The title must be:
 
-## SEO
+- specific to the source subject and purpose;
+- attractive enough to click and share;
+- proportional to the source evidence;
+- present in both title and H1 elements.
 
-- Include the Gallery `primaryKeyword` naturally in the HTML title and H1.
-- Write a specific meta description, ideally 120–170 characters.
-- Use secondary keywords only when natural. Do not stuff keywords.
-- Match the search intent implied by the Gallery item and make the title promise a concrete benefit.
-- Use semantic HTML and a responsive viewport. The file must be standalone and mobile-friendly.
+Reject bare output labels and framing such as Sample Report, Example Summary, Illustrative PRD, or a title equal only to Research report.
 
-## Ancher branding
+## Separation of surfaces
 
-- End with exactly: `Design in ancher`
-- This footer text must be plain, unlinked text.
-- Do not use `Designed in Ancher`, `Design with Ancher`, an Ancher URL, or an internal review label inside the Artifact.
+The Artifact contains the deliverable only. It must not contain:
 
-The validator is the minimum gate, not a substitute for editorial review. A passing Artifact must still be checked for usefulness, factual fidelity, hierarchy, mobile layout, and visual quality.
+- X URLs or a Source Trail;
+- Prompt Inspiration or provenance panels;
+- Ancher.us SEO copy, Gallery keywords, or wrapper sections;
+- a large CTA or marketing block;
+- internal review, draft, private, pending, or publication-state text.
 
-The seven already published Artifacts are frozen legacy examples. Their older footer or format does not change the new contract and must not be copied forward.
+Ancher.us owns SEO title and description, Prompt and Source cards, X links, audience routing, the public Artifact screenshot, and the Make your own with Ancher CTA.
+
+## Footer
+
+At the absolute end of the page, include one footer containing one anchor whose visible text is Design in ancher and whose href is https://app.ancher.ai. Styling may vary, but the link must remain quiet and small. Nothing visible appears after it.
+
+## Validation boundary
+
+The deterministic validator checks structure, banned framing, locked titles, known disallowed entities, source UI separation, internal workflow language, and footer behavior. Editorial review must still confirm factual fidelity, unsupported inference, useful hierarchy, responsive layout, media quality, and whether the headline matches the source.

@@ -1,47 +1,63 @@
 ---
 name: publish-x-artifacts
-description: Use when processing X-backed Ancher Gallery jobs, producing SEO/PSEO artifacts from saved X posts, preparing private Ancher artifacts for review, or publishing approved artifacts to ancher.us.
+description: Use when an approved X post or source set must become an Ancher HTML Artifact, an Artifact review packet is needed, or approved Artifacts must be published to ancher.us; including “開始執行” and “开始执行” requests.
 ---
 
 # Publish X Artifacts
 
-Turn approved X sources into useful, text-first Ancher Artifacts, pause for human review, then publish only approved work to `ancher.us`.
+## Core principle
 
-## Non-negotiable rules
+Treat X as the content and evidence input. Produce a finished HTML Artifact whose purpose, headline, detail, and useful insights are traceable to the approved source set. Do not turn the source into a fictional example, generic SEO article, or template showcase.
 
-- Treat the saved X post as the content input, not merely as provenance.
-- For the current 27 hidden jobs, use the existing single X URL and do not search for more sources.
-- Do not invent a company, event, product, statistic, quotation, or current fact not present in the supplied source.
-- Default to a substantive text deliverable for SEO. Do not turn it into a dashboard, workbench, or form unless the user explicitly approves that format.
-- Generate privately, validate, and stop at `pending_review`. Approval of the workflow or batch is not approval of an individual Artifact.
-- Never alter or regenerate the seven existing published Artifacts during this batch.
+Read [artifact-contract.md](references/artifact-contract.md) before generation, [review-contract.md](references/review-contract.md) before review or publication, and [website-contract.md](references/website-contract.md) before changing ancher.us.
 
-Read [artifact-contract.md](references/artifact-contract.md) before writing an Artifact. Read [review-contract.md](references/review-contract.md) before generation or approval. Read [website-contract.md](references/website-contract.md) before changing `ancher.us`.
+## Run the workflow
 
-## Workflow
+1. List hidden jobs in Gallery order with:
 
-1. From the repository root, list the hidden jobs:
+       node --import tsx .agents/skills/publish-x-artifacts/scripts/list-hidden-jobs.mjs
 
-   ```sh
-   node --import tsx .agents/skills/publish-x-artifacts/scripts/list-hidden-jobs.mjs
-   ```
+2. Use the job’s approved X source set. The current hidden jobs already have one source each; do not search for extras. Future sourced jobs may use one primary plus distinct supporting posts about the same purpose, event, company, product, or question.
+3. Lock a generation brief containing:
+   - source purpose and audience;
+   - exact claims, entities, numbers, constraints, media, and placeholders;
+   - supported insights or cross-source synthesis;
+   - one specific editorial headline derived from the content;
+   - fitting HTML structure;
+   - disallowed invented terms from any rejected revision.
+4. Send every approved X URL and the locked brief to Ancher in one conversation. State explicitly that source content is the Artifact’s core, not inspiration for a fictional scenario.
+5. Keep the Artifact private. Retrieve and validate its HTML with:
 
-2. Preserve Gallery order. Lock a brief containing the slug, supplied X source(s), audience, existing primary keyword, title, and text-first deliverable type. The first three current jobs are `competitive-analysis`, `research-report`, and `executive-summary`.
-3. Send every supplied X URL to Ancher together. Ask for one self-contained HTML Artifact that follows the artifact contract. Keep it private.
-4. Retrieve the generated HTML and validate it:
+       node .agents/skills/publish-x-artifacts/scripts/validate-artifact.mjs artifact.html job.json
 
-   ```sh
-   node .agents/skills/publish-x-artifacts/scripts/validate-artifact.mjs artifact.html job.json
-   ```
+6. Fix failures in the same conversation and Artifact identity. Record pending_review; do not silently duplicate.
+7. Present the required review packet and stop. For the current five, present one combined packet.
+8. Only after explicit approval, publish the approved Artifact set, capture real Artifact screenshots, register the examples, run repository checks, request deployment approval, deploy, and verify production.
 
-5. If validation fails, revise the private Artifact and rerun validation. If it passes, record `pending_review` and present the review packet. Stop and wait.
-6. After explicit approval for that Artifact, make it public, capture its real product screenshot, and stage the matching Gallery page.
-7. Run repository checks and show the staged website result. Deploy only after separate explicit deployment approval, then verify the live page, Artifact link, source link, sitemap, robots, and analytics.
+## Output recipe
 
-## Batch behavior
+The Artifact is:
 
-Process jobs sequentially by default so review feedback can improve later items. Stable identity is `slug:sourceHash`; resume rather than duplicate. A future job may contain multiple approved X URLs, which must all be sent to Ancher and shown in the source trail. Source acquisition for jobs with no approved URLs is a separate workflow.
+1. a source-derived editorial headline;
+2. the source’s actual purpose and useful content;
+3. preserved placeholders where inputs are missing;
+4. supported synthesis, implications, or new insight when the source set permits it;
+5. a readable, responsive web structure selected for that content;
+6. exactly one quiet footer link: Design in ancher → https://app.ancher.ai.
+
+Ancher.us—not the Artifact—owns X source cards, Prompt/Source layout, SEO metadata, Gallery copy, screenshots, and the main CTA.
 
 ## Stop conditions
 
-Stop when a source is missing, Ancher returns an inaccessible result, validation cannot pass without changing the evidence, or approval is unclear. Never interpret “start the batch” as permission to publicize or deploy.
+Stop on a missing source, inaccessible Ancher result, unresolved factual gap, failed validation, unclear approval, or failed production check. “Start” authorizes work through the review gate, not publication or deployment.
+
+## Common mistakes
+
+| Mistake | Correct behavior |
+|---|---|
+| Add “Illustrative example,” a sample company, or invented metrics | Preserve source content and placeholders |
+| Summarize the post into a generic article | Build the deliverable implied by the post’s purpose |
+| Force the Gallery keyword into Artifact title/H1 | Keep SEO on Ancher.us; use a source-derived headline |
+| Put Source Trail or X links inside the Artifact | Show provenance on Ancher.us and in the review packet |
+| Pad to a fixed word count | Use only the detail the source and supported insight justify |
+| Generate a new Artifact after feedback | Revise the existing private Artifact/conversation |

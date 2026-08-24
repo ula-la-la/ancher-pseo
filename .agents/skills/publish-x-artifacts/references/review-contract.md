@@ -1,32 +1,31 @@
 # Review and publication contract
 
-## Two separate approvals
+## Approval boundaries
 
-1. **Artifact approval** permits making one named private Artifact public and staging its Gallery page.
-2. **Deployment approval** permits deploying the already reviewed website changes to `ancher.us`.
+1. Artifact batch approval permits making the exact named private Artifact set public and staging its Gallery pages.
+2. Deployment approval permits deploying the already reviewed website changes to ancher.us.
 
-Neither “start,” “run the batch,” nor approval of this workflow grants either permission. Approval must identify the Artifact or an unmistakable review item. If revisions are requested, return it to `needs_revision` and generate a new private revision.
+“Start,” “run the batch,” Skill approval, or successful validation grants neither permission. The current five private Artifacts are reviewed together; approval must unmistakably cover all five IDs.
 
 ## Required state order
 
-`source_ready → brief_ready → generating → pending_review → approved → artifact_public → site_staged → deploy_approved → deployed → verified`
+source_ready → brief_ready → generating → pending_review → approved → artifact_public → site_staged → deploy_approved → deployed → verified
 
-Generation errors return to `generating`. Rejected reviews move through `needs_revision` before generation. Never skip from private generation to public or deployed.
+Generation errors return to generating. Requested revisions move through needs_revision and continue the same Ancher conversation and Artifact identity. Never jump from private generation to publication or deployment.
 
 ## Review packet
 
-Show the reviewer:
+Show:
 
-- Gallery slug and proposed title
-- intended audience(s) and deliverable type
-- primary keyword
-- every X source URL
-- private Ancher review link
-- visible word count
-- validator result
-- a screenshot or direct preview
-- any inference or limitation that requires attention
+- Gallery slug and source-derived editorial title;
+- intended audience and deliverable form;
+- every approved X URL, author, date, and useful media;
+- private Ancher review link;
+- concise description of transformations and added insights;
+- validator result;
+- screenshot or direct preview when the private session allows it;
+- any inference or limitation requiring attention.
 
-Stop at `pending_review`. Do not combine review and publication in one action.
+For the current five, present one combined packet and stop at pending_review. Do not combine review and publication in one action.
 
-Identify each run by `slug:sourceHash`. Store the Ancher Artifact ID and current state. On retry, resume the same item or create an explicit revision; do not silently create duplicates.
+Identify each run by slug:sourceHash. Store private Artifact ID, conversation ID, validation result, and state outside the public bundle. Resume instead of silently duplicating.

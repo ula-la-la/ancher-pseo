@@ -1,4 +1,4 @@
 interface:
   display_name: "Publish X artifacts"
-  short_description: "Turn X sources into SEO-ready Ancher artifacts"
-  default_prompt: "Use $publish-x-artifacts to turn approved X-backed gallery jobs into private SEO-ready Ancher artifacts for review."
+  short_description: "Turn approved X content into reviewed Ancher artifacts"
+  default_prompt: "Use $publish-x-artifacts to run the approved X source-to-Ancher Artifact workflow through the private review gate."
