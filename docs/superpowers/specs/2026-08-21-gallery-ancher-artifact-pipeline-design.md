@@ -1,6 +1,6 @@
 # Gallery → Ancher Artifact Pipeline Design
 
-Date: 2026-08-21  
+Date: 2026-08-21
 Status: Approved in chat; awaiting final written-spec review
 
 ## Purpose

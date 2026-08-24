@@ -744,4 +744,3 @@ Record `site_published` only after the live page and links succeed.
 - Public registry changes cannot contain private workflow fields.
 - The plan contains no unresolved implementation placeholders.
 - Function names and state names are consistent with the design spec.
-

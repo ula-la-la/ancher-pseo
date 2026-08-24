@@ -1,6 +1,6 @@
 # X Sources → Ancher Artifact → ancher.us Publishing Workflow
 
-Date: 2026-08-24  
+Date: 2026-08-24
 Status: Approved through iterative product review
 
 ## Purpose
@@ -246,4 +246,3 @@ The workflow implementation is ready for the 27-item run when:
 8. One hidden real job reaches `pending_review` through Ancher MCP without becoming public.
 9. The user approves the pilot before any publication call.
 10. After pilot approval, its public Artifact, real screenshot, source trail, SEO metadata, sitemap entry, and deployed page all verify successfully.
-
