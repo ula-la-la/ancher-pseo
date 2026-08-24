@@ -2,6 +2,8 @@
 
 Programmatic-SEO site for Ancher, served from **ancher.us**.
 
+Canonical repository: **https://github.com/ula-la-la/ancher-pseo**. Do not use this workflow against another repository.
+
 `ancher.ai` is a separate deployment on AWS CloudFront and is not touched by
 anything in this repo. `ancher.us` is already on Cloudflare, so this Worker is
 the only thing that ever answers for that hostname.
@@ -21,6 +23,22 @@ npm run build        # plain Next build (type-checks everything)
 npm run cf:preview   # build for Workers and serve it locally through workerd
 ```
 
+## X → Ancher Artifact workflow
+
+The coworker-ready workflow is packaged inside this repository at
+`.agents/skills/publish-x-artifacts/`. An Agent Skills-compatible coding agent
+can trigger it with:
+
+```text
+Use $publish-x-artifacts. 開始執行剩餘 Artifact，先停在一次性人工審核。
+```
+
+Fresh-clone setup, required accounts, review gates, release commands, Sitemap
+policy, and production checks are defined in
+[the operator runbook](.agents/skills/publish-x-artifacts/references/operator-runbook.md).
+The workflow never stores Ancher, GitHub, Cloudflare, or RapidAPI credentials in
+the repository.
+
 ## Deploying
 
 Two paths, both supported by the single `wrangler.jsonc` in this repo. Pick one.
@@ -35,7 +53,7 @@ npm run cf:deploy
 ### B. Git-connected (Workers Builds)
 
 In the Cloudflare dashboard: **Workers & Pages → Create → Import a repository**,
-pick `BettTer/ancher-pseo`, then set
+pick `ula-la-la/ancher-pseo`, then set
 
 | Field | Value |
 | --- | --- |
@@ -50,9 +68,9 @@ Every push to `main` then builds and deploys automatically.
 
 ### Pointing ancher.us at the Worker
 
-Once the first deploy succeeds, uncomment the `routes` block in
-`wrangler.jsonc` and redeploy, or add the custom domain in the dashboard under
-**Worker → Settings → Domains & Routes**.
+The production routes for `ancher.us` and `www.ancher.us` are already declared
+in `wrangler.jsonc`. Do not add `ancher.ai` or `app.ancher.ai`; they are outside
+this repository.
 
 ---
 
@@ -64,12 +82,13 @@ app/
   layout.tsx                 metadata, OG, favicon
   page.tsx                   gallery home
   robots.ts                  allows /outputs/ and /for/, blocks /api/
-  sitemap.ts                 home + 6 audience hubs + every item with status: "ready"
+  sitemap.ts                 home + published Artifacts + Artifact-backed TA hubs
   data/
     gallery.ts               34 items (14 original + 20 from the PSEO pipeline)
     useCases.ts              the 6 audiences, and the slug -> audience mapping
   for/[useCase]/page.tsx     /for/founder, /for/investor, ... (6 audience hubs)
-  outputs/[slug]/page.tsx    one page per gallery item
+  templates/[slug]/page.tsx  one page per published Artifact
+  prompts/                   public Prompt library; currently noindex
   api/pipeline/
     _auth.ts                 bearer-token gate shared by both endpoints
     trends/route.ts          step 1 — pull Google Trends RSS
@@ -136,14 +155,16 @@ Until then `getDb()` returns `null` and the public site renders entirely from
 
 Three things here are deliberate. Changing them will cost traffic.
 
-1. **`sitemap.ts` only lists items with `status: "ready"`.** All 34 items ship as
-   `"pending"` shells. Submitting empty pages to Google spends crawl budget on
-   thin content and risks a site-wide quality demotion. Flip an item to
-   `"ready"` in the same commit that adds its actual output.
-2. **`outputs/[slug]/page.tsx` sets `robots: noindex` while `status` is
-   `"pending"`.** Same reason, enforced per page.
-3. **`robots.ts` allows `/outputs/`.** The starter this repo came from
-   disallowed it, which would have hidden every generated page.
+1. **Artifact pages enter Sitemap only after the Artifact is approved, public,
+   registered, and backed by a real screenshot.** Hidden jobs are excluded from
+   route generation and public navigation.
+2. **A `/for/<audience>` page enters Sitemap only when it contains at least one
+   public Artifact card.**
+3. **The 54 Prompt-library URLs remain accessible but use `noindex, follow` and
+   stay out of Sitemap until they directly contain approved X provenance and
+   completed Artifact value.**
+4. **`robots.ts` allows crawlers to read page-level directives.** Do not block a
+   noindex page in robots.txt, or Google cannot read its noindex instruction.
 
 ## Track A vs Track B
 

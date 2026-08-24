@@ -11,11 +11,13 @@ Treat X as the content and evidence input. Produce a finished HTML Artifact whos
 
 Read [artifact-contract.md](references/artifact-contract.md) before generation, [review-contract.md](references/review-contract.md) before review or publication, and [website-contract.md](references/website-contract.md) before changing ancher.us.
 
+For a fresh clone or coworker handoff, read [operator-runbook.md](references/operator-runbook.md) before running anything. It defines repository setup, access boundaries, commands, release checks, and what still requires a human account.
+
 ## Run the workflow
 
 1. List hidden jobs in Gallery order with:
 
-       node --import tsx .agents/skills/publish-x-artifacts/scripts/list-hidden-jobs.mjs
+       npm run --silent artifacts:list-hidden
 
 2. Use the job’s approved X source set. The current hidden jobs already have one source each; do not search for extras. Future sourced jobs may use one primary plus distinct supporting posts about the same purpose, event, company, product, or question.
 3. Lock a generation brief containing:

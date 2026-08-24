@@ -27,5 +27,13 @@ Apply this only after explicit approval of the corresponding Artifact review pac
 - Website title, H1, meta description, Open Graph metadata, and structured data match the source-derived Artifact and approved primary keyword.
 - Keep SEO copy on Ancher.us; never inject it into the Artifact merely to satisfy keyword or word-count goals.
 - Add the page to sitemap and indexable routes only after approval.
+- Keep `/templates/<slug>` out of route generation, navigation, related items, TA pages, and sitemap until its Artifact is approved, public, registered, and backed by a real screenshot.
+- Include a `/for/<audience>` TA page in sitemap only when it contains at least one public Artifact card with a real screenshot and link.
+- Keep every standalone Prompt-library URL (`/prompts`, prompt details, packs, sources, and outputs) accessible but `noindex, follow` and out of sitemap until that page directly contains the approved X provenance and completed Artifact value required for indexing.
+- Treat omission from sitemap and page-level `noindex` as separate controls. Apply both when a page is not index-ready.
 - Confirm robots, sitemap, Google indexability, GA4 tracking, Artifact link, every X link, screenshot, responsive layout, and production response.
 - Run tests, typecheck, lint, and production build before requesting deployment approval.
+
+## Current release policy
+
+Derive counts from the repository; never hard-code them into a generation run. At the 2026-08-24 handoff, the expected sitemap is the homepage plus 12 completed Artifact pages and six Artifact-backed TA pages. All 54 Prompt-library URLs remain public but non-indexable. A new approved Artifact may change the Artifact and TA counts, but it must not make Prompt pages indexable automatically.

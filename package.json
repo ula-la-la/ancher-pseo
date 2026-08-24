@@ -12,6 +12,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "artifacts:list-hidden": "node --import tsx .agents/skills/publish-x-artifacts/scripts/list-hidden-jobs.mjs",
+    "artifacts:test": "node --test .agents/skills/publish-x-artifacts/tests/*.test.mjs",
     "cf:build": "NEXT_PUBLIC_GA_MEASUREMENT_ID=G-DPX1LHWRG0 opennextjs-cloudflare build",
     "cf:preview": "NEXT_PUBLIC_GA_MEASUREMENT_ID=G-DPX1LHWRG0 opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf:deploy": "NEXT_PUBLIC_GA_MEASUREMENT_ID=G-DPX1LHWRG0 opennextjs-cloudflare build && opennextjs-cloudflare deploy",
@@ -42,6 +44,7 @@
     "eslint-plugin-react-hooks": "7.1.1",
     "globals": "16.4.0",
     "tailwindcss": "4.3.3",
+    "tsx": "4.23.12",
     "typescript": "5.9.3",
     "typescript-eslint": "8.59.3",
     "wrangler": "4.124.0"
