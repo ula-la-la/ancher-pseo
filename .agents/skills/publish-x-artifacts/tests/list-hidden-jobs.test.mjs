@@ -3,13 +3,13 @@ import test from "node:test";
 
 import { listHiddenJobs } from "../scripts/list-hidden-jobs.mjs";
 
-test("derives exactly 27 hidden X-backed jobs in gallery order", async () => {
+test("derives exactly 22 remaining hidden X-backed jobs in gallery order", async () => {
   const jobs = await listHiddenJobs(process.cwd());
-  assert.equal(jobs.length, 27);
+  assert.equal(jobs.length, 22);
   assert.deepEqual(jobs.slice(0, 3).map((job) => job.slug), [
     "competitive-analysis",
-    "research-report",
-    "executive-summary",
+    "startup-pitch-deck",
+    "case-study",
   ]);
 });
 

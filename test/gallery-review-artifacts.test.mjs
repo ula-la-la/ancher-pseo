@@ -12,6 +12,14 @@ const batch = [
   ["market-research-report", "1929321780319039955", "consultant", "https://wedding-photography-market-disruption-report-1f68bbe5c235b768.ancher.app/"],
 ];
 
+const seoBatch = [
+  ["research-report", "1879566024720494745", "researcher", "https://the-leaked-gemini-prompt-for-editing-source-gr-d8669bfe0ebbe785.ancher.app/"],
+  ["executive-summary", "1845071746774466795", "founder", "https://turn-any-book-into-an-executive-brief-with-one-f07341512b49e473.ancher.app/"],
+  ["project-status-report", "1905905648552071547", "product-growth", "https://six-signals-that-make-a-weekly-project-update-e61dc63e693d4659.ancher.app/"],
+  ["product-requirements-document", "2051957694454444370", "product-growth", "https://the-prd-prompt-to-run-before-you-write-a-singl-69f45bf7b990bf2e.ancher.app/"],
+  ["meeting-notes", "1897224845798334552", "founder", "https://turn-a-60-minute-meeting-into-a-200-word-decis-b9405d13891790c1.ancher.app/"],
+];
+
 test("registers one published Ancher artifact for each approved TA", () => {
   const source = readFileSync(
     resolve(process.cwd(), "app/data/galleryArtifacts.ts"),
@@ -28,6 +36,27 @@ test("registers one published Ancher artifact for each approved TA", () => {
     assert.match(entry, new RegExp(`screenshot: "/gallery-artifacts/${slug}\\.jpg"`));
     assert.ok(
       existsSync(resolve(process.cwd(), `public/gallery-artifacts/${slug}.jpg`)),
+      `missing screenshot for ${slug}`,
+    );
+  }
+});
+
+test("registers the approved five with SEO-aligned public Ancher links", () => {
+  const source = readFileSync(
+    resolve(process.cwd(), "app/data/galleryArtifacts.ts"),
+    "utf8",
+  );
+
+  for (const [slug, tweetId, audience, shareUrl] of seoBatch) {
+    const entry = source.match(new RegExp(`"${slug}":[\\s\\S]*?\\n  },`))?.[0];
+    assert.ok(entry, `missing artifact entry for ${slug}`);
+    assert.match(entry, new RegExp(`tweetId: "${tweetId}"`));
+    assert.match(entry, new RegExp(`audience: "${audience}"`));
+    assert.match(entry, /status: "published"/);
+    assert.ok(entry.includes(`shareUrl: "${shareUrl}"`));
+    assert.match(entry, new RegExp(`screenshot: "/gallery-artifacts/${slug}\\.png"`));
+    assert.ok(
+      existsSync(resolve(process.cwd(), `public/gallery-artifacts/${slug}.png`)),
       `missing screenshot for ${slug}`,
     );
   }

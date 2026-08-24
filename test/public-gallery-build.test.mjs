@@ -11,6 +11,11 @@ const publicSlugs = [
   "content-brief",
   "user-research-synthesis",
   "market-research-report",
+  "research-report",
+  "executive-summary",
+  "project-status-report",
+  "product-requirements-document",
+  "meeting-notes",
 ];
 
 test("publishes only templates backed by completed Ancher artifacts", () => {
