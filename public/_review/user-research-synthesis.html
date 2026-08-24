@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JTBD Interview Synthesis: Four Forces, Job Clusters & Product Opportunities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--paper:#FBF8EF;--paper-2:#F2ECDD;--surface:#FFFFFF;--ink:#171528;--muted:#5E5A6D;
+--rule:#DED7C8;--indigo:#241B62;--indigo-2:#4338A3;--amber:#D99A22;--amber-soft:#F6E3B8;
+--blue:#2D6E8E;--teal:#4F9D8E;--plum:#7A5C82;--danger:#A33A2A;--success:#337A55;
+--shadow-card:0 1px 3px rgba(23,21,40,0.06),0 8px 22px rgba(23,21,40,0.05);--focus:#D99A22;
+color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){:root{
+--paper:#11101C;--paper-2:#1A1828;--surface:#211F32;--ink:#F7F1E3;--muted:#BDB4A3;
+--rule:#3A3548;--indigo:#A99DFF;--indigo-2:#C6BEFF;--amber:#F0B743;--amber-soft:#3A2B12;
+--danger:#E08472;--success:#7DCE9E;--shadow-card:none;}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,sans-serif;font-size:clamp(15px,1vw,17px);line-height:1.6;-webkit-font-smoothing:antialiased}
+.shell{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,56px)}
+a{color:var(--indigo-2)}
+h1,h2,h3{font-family:'Source Serif 4',serif;margin:0}
+.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.eyebrow,.kicker{font-family:Inter;font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.badge{display:inline-block;font-family:Inter;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;background:var(--amber-soft);color:var(--ink);padding:4px 9px;border:1px solid var(--amber)}
+.badge-warn{background:transparent;border-color:var(--danger);color:var(--danger)}
+/* Banner */
+.banner{background:var(--amber-soft);border-top:4px solid var(--danger);padding:16px clamp(18px,4vw,56px)}
+.banner .inner{max-width:1240px;margin:0 auto}
+.banner strong{color:var(--danger)}
+.banner p{margin:4px 0}
+.banner .sec{font-size:13px;color:var(--muted);margin:6px 0 0}
+/* Masthead */
+header.masthead{padding:clamp(28px,5vw,56px) 0 20px}
+header.masthead h1{font-weight:600;font-size:clamp(36px,5.4vw,72px);line-height:1.05;letter-spacing:-0.018em;margin:10px 0 14px}
+.chip{display:inline-block;border:1px solid var(--rule);background:var(--surface);padding:6px 12px;font-size:12px;font-weight:600;color:var(--indigo)}
+.lede{font-family:Lora;font-weight:400;font-size:clamp(18px,1.5vw,22px);line-height:1.55;max-width:760px;color:var(--ink)}
+.metarow{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:22px;padding:12px 0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted)}
+/* Tabs */
+.tablist{display:flex;gap:6px;margin:26px 0 8px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+.tab{font-family:Inter;font-weight:600;font-size:15px;background:none;border:none;color:var(--muted);padding:14px 20px;cursor:pointer;border-bottom:3px solid transparent;min-height:44px}
+.tab[aria-selected="true"]{color:var(--indigo);border-bottom-color:var(--amber)}
+.tab:focus-visible,button:focus-visible,a:focus-visible,[tabindex]:focus-visible,th button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+/* Section */
+section.data{margin:44px 0}
+.sec-top{border-top:2px solid var(--amber);padding-top:14px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.sec-head h2{font-weight:600;font-size:clamp(26px,3vw,42px);line-height:1.12}
+/* Figure frame */
+.frame{background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow-card);padding:clamp(16px,2.4vw,28px)}
+.frame + .frame{margin-top:18px}
+.caption{border-top:1px solid var(--rule);margin-top:16px;padding-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted)}
+.card-h{font-family:'Source Serif 4';font-weight:600;font-size:clamp(20px,1.7vw,26px);line-height:1.2}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.field{margin:12px 0}
+.field .lbl{font-family:Inter;font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);display:block;margin-bottom:3px}
+/* Source trail */
+.trail{background:var(--paper-2);border-left:4px solid var(--amber);padding:20px 22px;margin-top:6px}
+.trail .mono{color:var(--indigo);font-weight:600;font-size:12px}
+.trail p{margin:8px 0}
+/* Timeline */
+.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.phase{background:var(--paper-2);border:1px solid var(--rule);padding:12px;text-align:left;cursor:pointer;font-family:Inter;color:var(--ink);min-height:64px}
+.phase[aria-expanded="true"]{border-color:var(--amber);border-left:3px solid var(--amber);background:var(--surface)}
+.phase .num{font-family:'IBM Plex Mono',monospace;color:var(--amber);font-weight:600;font-size:12px}
+.phase .pn{font-family:'Source Serif 4';font-weight:600;display:block;margin-top:4px;font-size:15px}
+.phase-detail{margin-top:14px;border:1px solid var(--rule);border-left:3px solid var(--amber);padding:16px;background:var(--surface);display:none}
+.phase-detail.open{display:block}
+/* Force cards */
+.force{border:1px solid var(--rule);padding:16px;background:var(--surface)}
+.force.f1{border-top:3px solid var(--danger)}
+.force.f2{border-top:3px solid var(--success)}
+.force.f3{border-top:3px solid var(--amber)}
+.force.f4{border-top:3px solid var(--indigo)}
+.force h4{font-family:'Source Serif 4';font-weight:600;font-size:18px;margin:0 0 8px}
+.force ul{margin:0;padding-left:18px}
+.force li{margin:5px 0;font-size:14.5px}
+.etag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;padding:1px 5px;border:1px solid;margin-right:4px}
+.etag.func{color:var(--blue);border-color:var(--blue)}
+.etag.emo{color:var(--teal);border-color:var(--teal)}
+.etag.soc{color:var(--plum);border-color:var(--plum)}
+.meter{margin-top:8px}
+.bar{height:26px;background:var(--paper-2);border:1px solid var(--rule);position:relative;margin:6px 0;overflow:hidden}
+.bar span{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding-left:10px;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600}
+.bar.drive span{background:var(--indigo)}
+.bar.restrain span{background:var(--muted)}
+.verdict{border-left:3px solid var(--amber);background:var(--amber-soft);padding:12px 14px;margin-top:12px;font-weight:600}
+/* moment stack */
+.moment{border:1px solid var(--rule);border-left:3px solid var(--amber);padding:14px 16px;margin:10px 0;background:var(--surface)}
+.moment .mono{font-size:11px;color:var(--amber);font-weight:600;letter-spacing:.08em}
+/* competitive */
+.compsent{font-family:Lora;font-size:clamp(17px,1.6vw,21px);line-height:1.5}
+.compsent code{font-family:'IBM Plex Mono',monospace;font-size:.82em;background:var(--paper-2);padding:2px 6px;color:var(--indigo)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th button{background:none;border:none;font-family:Inter;font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);cursor:pointer;padding:6px 2px;min-height:44px;display:flex;align-items:center;gap:5px}
+td.mono{font-family:'IBM Plex Mono',monospace}
+.scroll-region{overflow-x:auto}
+tr.toprow td:first-child{border-left:3px solid var(--amber)}
+/* clusters / contradictions */
+.cluster{border:1px solid var(--rule);padding:18px;background:var(--surface);margin-top:16px}
+.cluster h4{font-family:'Source Serif 4';font-weight:600;font-size:19px;margin:0 0 10px;line-height:1.25}
+.conflict{color:var(--danger);border-left:3px solid var(--danger);padding-left:10px;margin-top:8px;font-size:14px}
+.quote{font-family:Lora;font-style:italic;font-size:17px;margin:6px 0}
+.qlabel{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--danger);text-transform:uppercase;letter-spacing:.08em}
+.rec h4{font-family:'Source Serif 4';font-weight:600;font-size:18px;margin:0 0 8px}
+.rec .lbl{color:var(--indigo);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-top:10px;display:block}
+/* blank template */
+.blank{background:var(--paper-2);border:1px dashed var(--rule);padding:14px;margin:10px 0}
+.blank .hint{font-size:12px;color:var(--muted);font-style:italic}
+textarea,.editable{width:100%;background:var(--surface);border:1px dashed var(--rule);color:var(--ink);font-family:Inter;font-size:14px;padding:10px;margin-top:6px;min-height:44px;resize:vertical}
+.editable{min-height:38px}
+[hidden]{display:none!important}
+footer{border-top:1px solid var(--rule);margin-top:60px;padding:28px 0 46px;color:var(--muted);font-size:13px}
+footer a{font-weight:600}
+@media (prefers-reduced-motion:no-preference){.fade{opacity:0;transform:translateY(8px);animation:fin .4s ease forwards}@keyframes fin{to{opacity:1;transform:none}}}
+@media (max-width:980px){.grid2,.grid4{grid-template-columns:1fr}}
+@media (max-width:820px){.timeline{grid-template-columns:1fr}}
+@media (max-width:480px){.frame{padding:16px}.sec-head{align-items:flex-start}}
+</style>
+</head>
+<body>
+<!-- === FABRICATED DATA BANNER === -->
+<div class="banner" role="alert">
+<div class="inner">
+<p><strong>ILLUSTRATIVE FABRICATED EXAMPLE</strong> — This dashboard uses an invented dataset to demonstrate a JTBD synthesis structure. It is NOT real customer evidence. Every quote, finding, score, and recommendation below is fabricated for demonstration.</p>
+<p class="sec">Use manual review before applying this structure to real customer interview rounds.</p>
+</div>
+</div>
+
+<div class="shell">
+<!-- === MASTHEAD === -->
+<header class="masthead fade">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px">
+<span class="eyebrow">JTBD Synthesis Deliverable</span>
+<span class="chip">For Product &amp; Growth teams</span>
+</div>
+<h1>JTBD Interview Synthesis: Four Forces, Job Clusters &amp; Product Opportunities</h1>
+<p class="lede">A finished illustrative synthesis plus a reusable structure for demand-side interview rounds, organized around Four Forces, buying timeline, real competitive set, contradictions, job clusters, and opportunity scoring.</p>
+<div class="metarow mono">Product context: Cadence · Method: Bob Moesta demand-side JTBD · Evidence status: illustrative only</div>
+</header>
+
+<!-- === MODE TABS === -->
+<div class="tablist" role="tablist" aria-label="Synthesis mode">
+<button class="tab" role="tab" id="tab-illus" aria-selected="true" aria-controls="panel-illus">Illustrative example</button>
+<button class="tab" role="tab" id="tab-blank" aria-selected="false" aria-controls="panel-blank">Blank template</button>
+</div>
+
+<main>
+<!-- === SOURCE TRAIL (shared) === -->
+<section class="data" aria-labelledby="st-h">
+<div class="trail">
+<div class="mono">SOURCE TRAIL</div>
+<h2 id="st-h" class="card-h" style="margin:6px 0 4px">Where this framework comes from</h2>
+<p>Framework source: JTBD Strategist prompt by <strong>@alex_verem</strong>, derived from Bob Moesta’s demand-side method.</p>
+<p>Original X post: <a href="https://x.com/alex_verem/status/2044375991867318680" target="_blank" rel="noopener">https://x.com/alex_verem/status/2044375991867318680</a></p>
+<p>Framework elements used here — Four Forces, six-phase buying timeline, job clustering by pushes&nbsp;+&nbsp;pulls, real competitive set, contradictions, and recommendations — come from that post and were not substituted.</p>
+<p><em>Core belief preserved: “Bitching ain’t switching” — study people who DID switch.</em></p>
+</div>
+</section>
+
+<!-- ============ ILLUSTRATIVE PANEL ============ -->
+<div id="panel-illus" role="tabpanel" aria-labelledby="tab-illus">
+
+<!-- PRODUCT CONTEXT -->
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Product Context</span><span class="badge">Illustrative</span></div>
+<div class="frame">
+<h3 class="card-h">Illustrative product context: Cadence</h3>
+<div class="grid2" style="margin-top:14px">
+<div>
+<div class="field"><span class="lbl">Product</span>Cadence — a hypothetical async standup / team-check-in SaaS.</div>
+<div class="field"><span class="lbl">Switch event — what do people STOP doing when they hire Cadence?</span>Stop running daily live video standups.</div>
+</div>
+<div>
+<div class="field"><span class="lbl">1 · Product</span>Cadence, a hypothetical async standup and team-check-in SaaS.</div>
+<div class="field"><span class="lbl">2 · Switch to understand</span>Teams who stopped daily live video standups and moved status sharing into async check-ins.</div>
+<div class="field"><span class="lbl">3 · Customer stories basis</span>Illustrative fabricated synthesis based on invented switch stories; not real interviews.</div>
+<div class="field"><span class="lbl">4 · Current assumption about why people buy</span>Teams buy because live standups interrupt maker time and no longer create alignment in distributed teams.</div>
+</div>
+</div>
+<p class="caption">Evidence status: fabricated example only. Source: Illustrative fabricated synthesis dataset; framework source linked above.</p>
+</div>
+</section>
+
+<!-- SECTION 1 TIMELINE -->
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Section 1 · Timeline Map</span><h2>Six-phase buying timeline</h2><span class="badge">Illustrative</span></div>
+<div class="frame">
+<div class="timeline" id="timeline"></div>
+<div id="phase-detail" class="phase-detail" aria-live="polite"></div>
+<p class="caption">Illustrative six-phase timeline. Each trigger and blocker is invented to demonstrate the synthesis structure.</p>
+</div>
+</section>
+
+<!-- SECTION 2 FOUR FORCES -->
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Section 2 · Four Forces Diagram</span><h2>Push, Pull, Anxiety, Habit</h2><span class="badge">Illustrative</span></div>
+<div class="frame">
+<div class="grid4">
+<div class="force f1"><h4>F1 · Push</h4><ul><li>Standups fragment maker time</li><li>Remote members repeat updates across timezones</li><li>Status meetings hide real blockers</li><li>Meeting load makes managers feel busy but not informed</li></ul></div>
+<div class="force f2"><h4>F2 · Pull</h4><ul><li><span class="etag func">Functional</span>Fewer synchronous interruptions</li><li><span class="etag func">Functional</span>Searchable status history</li><li><span class="etag emo">Emotional</span>Less performative meeting anxiety</li><li><span class="etag soc">Social</span>Looks like a disciplined distributed team</li></ul></div>
+<div class="force f3"><h4>F3 · Anxiety of the New</h4><ul><li>Will people actually write useful updates?</li><li>Can managers trust async accountability?</li><li>Will important blockers be missed?</li><li>Will this become yet another tool?</li></ul></div>
+<div class="force f4"><h4>F4 · Habit of the Present</h4><ul><li>Daily standup is a ritual everyone recognizes</li><li>Leaders equate live presence with control</li><li>Slack pings are already where work happens</li><li>Teams know how to cancel a meeting, not redesign coordination</li></ul></div>
+</div>
+<div class="meter" style="margin-top:20px">
+<h3 class="card-h" style="font-size:19px">Force balance</h3>
+<div class="bar drive"><span style="width:78%">Driving F1 + F2 = 78</span></div>
+<div class="bar restrain"><span style="width:61%">Restraining F3 + F4 = 61</span></div>
+<div class="verdict">Gap: +17 toward switching. Verdict: Switch likely when Cadence proves accountability without adding another meeting.</div>
+<p class="mono" style="font-size:11.5px;color:var(--muted);margin-top:8px">Illustrative score, not measured evidence.</p>
+</div>
+<p class="caption">Source: Illustrative fabricated synthesis dataset; framework source linked above.</p>
+</div>
+</section>
+
+<!-- SECTION 3 SWITCHING MOMENTS -->
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Section 3 · Switching Moments</span><h2>What made today the day</h2><span class="badge">Illustrative</span></div>
+<div class="frame">
+<div class="moment"><span class="mono">MADE TODAY THE DAY</span><p>Two missed standups in one sprint made the ritual feel optional but still costly.</p></div>
+<div class="moment"><span class="mono">MADE TODAY THE DAY</span><p>A timezone expansion turned a 9:30 meeting into a 6:30 meeting for the new engineer.</p></div>
+<div class="moment"><span class="mono">MADE TODAY THE DAY</span><p>A release blocker appeared in Slack after standup, proving the meeting was not the real coordination layer.</p></div>
+<div class="moment"><span class="mono">MADE TODAY THE DAY</span><p>A senior IC calculated that daily standups consumed the equivalent of one full workday per sprint.</p></div>
+<div class="moment"><span class="mono">MADE TODAY THE DAY</span><p>A manager was asked for a written status summary anyway after every live standup.</p></div>
+<p class="caption">Source: Illustrative fabricated synthesis dataset; framework source linked above.</p>
+</div>
+</section>
+
+<!-- SECTION 4 COMPETITIVE SET -->
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Section 4 · Real Competitive Set</span><h2>What Cadence is really hired against</h2><span class="badge">Illustrative</span></div>
+<div class="frame">
+<p class="compsent">When customers are in <code>distributed product teams with recurring status uncertainty</code> and want <code>alignment without interrupting maker time</code>, they choose between: <code>Cadence</code>, <code>a shared Google Doc</code>, <code>Slack threads</code>, <code>doing nothing / keeping the live standup</code>.</p>
+<div class="scroll-region" style="margin-top:18px"><table><caption class="eyebrow" style="text-align:left;padding-bottom:8px">Competitive comparison matrix</caption>
+<thead><tr><th>Option</th><th>Why it gets hired</th><th>Why it loses</th><th>Hidden appeal</th></tr></thead>
+<tbody>
+<tr><td><strong>Cadence</strong></td><td>Structured async check-ins</td><td>Loses if prompts feel robotic</td><td>Managers get a written artifact</td></tr>
+<tr><td>Shared Google Doc</td><td>Free and familiar</td><td>Ownership decays</td><td>Zero procurement</td></tr>
+<tr><td>Slack threads</td><td>Discussion already lives there</td><td>Updates disappear</td><td>No behavior change</td></tr>
+<tr><td>Doing nothing / live standup</td><td>Preserves the ritual</td><td>Burns focus time</td><td>Leaders feel in control</td></tr>
+</tbody></table></div>
+<p class="caption">Source: Illustrative fabricated synthesis dataset; framework source linked above.</p>
+</div>
+</section>
+
+<!-- SECTION 5 JOB CLUSTERS -->
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Section 5 · Job Clusters</span><h2>Hiring pathways (by pushes + pulls)</h2><span class="badge">Illustrative</span></div>
+<div class="cluster"><h4>Job 1 — When a distributed product team keeps repeating status across meetings and Slack, help them preserve alignment without sacrificing maker mornings.</h4><p><strong>Push cluster:</strong> meeting repetition, timezone drag, status theater.</p><p><strong>Pull cluster:</strong> single async artifact, searchable blockers, less interruption.</p><div class="conflict">Conflict: serving this job with strict prompts may hurt teams that need emotional check-in rituals.</div></div>
+<div class="cluster"><h4>Job 2 — When managers cannot see blockers until it is too late, help them create accountability without adding surveillance.</h4><p><strong>Push cluster:</strong> late surprises, vague ownership, stakeholder pressure.</p><p><strong>Pull cluster:</strong> blocker visibility, follow-up trails, calmer escalation.</p><div class="conflict">Conflict: too much manager visibility may hurt IC trust and adoption.</div></div>
+<div class="cluster"><h4>Job 3 — When senior ICs lose deep-work continuity to ritual meetings, help them communicate progress without performing availability.</h4><p><strong>Push cluster:</strong> fragmented focus, performative updates, calendar resentment.</p><p><strong>Pull cluster:</strong> concise check-ins, autonomy, fewer context switches.</p><div class="conflict">Conflict: minimizing participation may hurt managers who need richer context.</div></div>
+<div class="cluster"><h4>Job 4 — When a growing remote team onboards new members, help them learn norms without reviving daily live status meetings.</h4><p><strong>Push cluster:</strong> new-hire uncertainty, undocumented process, ritual drift.</p><p><strong>Pull cluster:</strong> templates, examples, persistent team memory.</p><div class="conflict">Conflict: template guidance may feel bureaucratic to mature teams.</div></div>
+</section>
+
+<!-- SECTION 6 CONTRADICTIONS -->
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Section 6 · Irrational Contradictions</span><h2>Dining-room-table &amp; say/do gaps</h2><span class="badge">Illustrative</span></div>
+<div class="frame">
+<div class="field"><span class="lbl">Dining room table insight</span><p class="quote">Managers say they want fewer meetings, but the daily standup is where they reassure themselves the team still exists.</p><span class="qlabel">Invented quote / not customer evidence</span></div>
+<div class="field"><span class="lbl">People say X but do Y</span><p class="quote">People say “Slack is enough,” but still ask for a recurring meeting because Slack has no closure ritual.</p><span class="qlabel">Invented quote / not customer evidence</span></div>
+<div class="field"><span class="lbl">People say X but do Y</span><p class="quote">ICs say they hate status updates, but adopt Cadence when the prompt lets them protect uninterrupted work.</p><span class="qlabel">Invented quote / not customer evidence</span></div>
+<div class="field"><span class="lbl">Painkiller layer vs real cause</span><p class="quote">“We need better standup notes.”</p><span class="qlabel">Invented quote / not customer evidence</span><p><strong>Real cause:</strong> The team lacks a trustworthy async accountability ritual.</p></div>
+<div class="field"><span class="lbl">Painkiller layer vs real cause</span><p class="quote">“We need everyone on camera.”</p><span class="qlabel">Invented quote / not customer evidence</span><p><strong>Real cause:</strong> Leaders are using presence as a proxy for progress.</p></div>
+<p class="caption">Source: Illustrative fabricated synthesis dataset; framework source linked above.</p>
+</div>
+</section>
+
+<!-- SECTION 7 OPPORTUNITY SCORING -->
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Section 7 · Opportunity Scoring</span><h2>Prioritized opportunities</h2><span class="badge">Illustrative</span></div>
+<div class="frame">
+<p class="mono" style="background:var(--paper-2);padding:10px;border:1px solid var(--rule)">Priority score = (Reach × Impact × Confidence) ÷ Effort</p>
+<div class="scroll-region"><table id="opp-table">
+<caption class="eyebrow" style="text-align:left;padding-bottom:8px">Sortable — click a column header. Default sort: Priority descending.</caption>
+<thead><tr>
+<th><button data-k="opp" data-t="s">Opportunity</button></th>
+<th><button data-k="job" data-t="s">Job served</button></th>
+<th><button data-k="reach" data-t="n">Reach</button></th>
+<th><button data-k="impact" data-t="n">Impact</button></th>
+<th><button data-k="conf" data-t="n">Confidence</button></th>
+<th><button data-k="effort" data-t="n">Effort</button></th>
+<th><button data-k="score" data-t="n">Priority score</button></th>
+</tr></thead>
+<tbody id="opp-body"></tbody>
+</table></div>
+<p class="caption">Scores are illustrative and fabricated; replace with real synthesis judgment after interviews. Source: Illustrative fabricated synthesis dataset; framework source linked above.</p>
+</div>
+</section>
+
+<!-- SECTION 8 RECOMMENDATIONS -->
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Section 8 · Prioritized Recommendations</span><h2>Per job cluster</h2><span class="badge">Illustrative</span></div>
+<div class="grid2" id="recs"></div>
+</section>
+
+</div><!-- end illustrative panel -->
+
+<!-- ============ BLANK TEMPLATE PANEL ============ -->
+<div id="panel-blank" role="tabpanel" aria-labelledby="tab-blank" hidden>
+<section class="data">
+<div class="banner" style="border-top-color:var(--indigo);background:var(--paper-2);padding:14px 18px" role="note">
+<strong style="color:var(--indigo)">Blank template</strong> — replace placeholders with real switched-customer interview evidence before making product decisions.
+</div>
+</section>
+
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Template · Product Context</span></div>
+<div class="blank"><span class="lbl field">Product</span><div class="editable" contenteditable="true" role="textbox" aria-label="Product"></div><span class="lbl field">Switch to understand</span><textarea aria-label="Switch to understand" placeholder="Add real interview evidence here"></textarea><span class="lbl field">Customer stories basis</span><textarea aria-label="Customer stories basis" placeholder="Add real interview evidence here"></textarea><span class="lbl field">Current assumption about why people buy</span><textarea aria-label="Assumption" placeholder="Add real interview evidence here"></textarea></div>
+</section>
+
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Template · Section 1 Timeline Map</span></div>
+<div id="blank-timeline"></div>
+</section>
+
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Template · Section 2 Four Forces</span></div>
+<div class="grid4" id="blank-forces"></div>
+<div class="blank"><span class="lbl">Force balance — Driving (F1+F2)</span><div class="editable" contenteditable="true" role="textbox" aria-label="Driving"></div><span class="lbl field">Restraining (F3+F4)</span><div class="editable" contenteditable="true" role="textbox" aria-label="Restraining"></div><span class="lbl field">Verdict</span><textarea aria-label="Verdict" placeholder="Add real synthesis verdict here"></textarea></div>
+</section>
+
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Template · Section 3 Switching Moments</span></div>
+<div class="blank"><textarea aria-label="Switching moment 1" placeholder="Made today the day — add real trigger event"></textarea><textarea aria-label="Switching moment 2" placeholder="Made today the day — add real trigger event"></textarea><textarea aria-label="Switching moment 3" placeholder="Made today the day — add real trigger event"></textarea></div>
+</section>
+
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Template · Section 4 Real Competitive Set</span></div>
+<div class="blank"><p class="hint">When customers are in [context] and want [outcome], they choose between: [your product], [unexpected competitor 1], [unexpected competitor 2], Doing nothing.</p><textarea aria-label="Competitive sentence" placeholder="Complete the competitive set sentence with real options"></textarea></div>
+</section>
+
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Template · Section 5 Job Clusters</span></div>
+<div class="blank"><span class="lbl">Job (context → outcome)</span><textarea aria-label="Job" placeholder="Add real hiring pathway"></textarea><span class="lbl field">Push cluster</span><div class="editable" contenteditable="true" role="textbox" aria-label="Push cluster"></div><span class="lbl field">Pull cluster</span><div class="editable" contenteditable="true" role="textbox" aria-label="Pull cluster"></div><span class="lbl field">Conflicts with other jobs</span><div class="editable" contenteditable="true" role="textbox" aria-label="Conflicts"></div></div>
+</section>
+
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Template · Section 6 Contradictions</span></div>
+<div class="blank"><span class="lbl">Dining room table insight</span><textarea aria-label="Dining room" placeholder="Add real irrational-but-real blocker"></textarea><span class="lbl field">People say X but do Y</span><textarea aria-label="Say do" placeholder="Add real say/do contradiction"></textarea><span class="lbl field">Painkiller layer vs real cause</span><textarea aria-label="Painkiller" placeholder="Painkiller: … / Real cause: …"></textarea></div>
+</section>
+
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Template · Section 7 Opportunity Scoring</span></div>
+<div class="blank"><p class="mono">Priority score = (Reach × Impact × Confidence) ÷ Effort</p><div class="scroll-region"><table><thead><tr><th>Opportunity</th><th>Job</th><th>R</th><th>I</th><th>C</th><th>E</th><th>Score</th></tr></thead><tbody><tr><td><div class="editable" contenteditable="true" role="textbox" aria-label="opp"></div></td><td><div class="editable" contenteditable="true" role="textbox" aria-label="job"></div></td><td class="mono">—</td><td class="mono">—</td><td class="mono">—</td><td class="mono">—</td><td class="mono">—</td></tr><tr><td colspan="7" class="hint">Add real opportunity rows and compute scores.</td></tr></tbody></table></div></div>
+</section>
+
+<section class="data">
+<div class="sec-top sec-head"><span class="kicker">Template · Section 8 Recommendations</span></div>
+<div class="blank"><span class="lbl">What to build</span><textarea placeholder="…" aria-label="build"></textarea><span class="lbl field">What to STOP building</span><textarea placeholder="…" aria-label="stop"></textarea><span class="lbl field">What friction to reduce (F3/F4 interventions)</span><textarea placeholder="…" aria-label="friction"></textarea><span class="lbl field">How to position</span><textarea placeholder="…" aria-label="position"></textarea><span class="lbl field">What the real sales process looks like</span><textarea placeholder="…" aria-label="sales"></textarea></div>
+</section>
+</div><!-- end blank panel -->
+
+</main>
+
+<footer>
+<p><a href="https://ancher.us/">Designed in Ancher</a></p>
+<p>Manual review only — illustrative/template output should not be treated as customer evidence without real interview validation.</p>
+</footer>
+</div>
+
+<script>
+/* === DATA === */
+const PHASES=[
+{n:'1',t:'First Thought',trig:'A second engineer complained that the daily video standup broke deep work and repeated Slack updates.',stop:'The manager believed live face-time was the only way to notice blockers.'},
+{n:'2',t:'Passive Looking',trig:'A timezone split made the “daily” meeting inconvenient for half the team.',stop:'They assumed async tools would create lower accountability.'},
+{n:'3',t:'Active Looking',trig:'A product deadline exposed that standups were status theater, not coordination.',stop:'Security review and fear of another notification channel.'},
+{n:'4',t:'Deciding',trig:'A team lead ran a one-week Cadence trial after two missed standups in one week.',stop:'Concern that executives would interpret fewer meetings as less control.'},
+{n:'5',t:'First Use',trig:'The first async check-in surfaced blockers before the old standup time.',stop:'Some teammates posted vague updates because the prompt design was weak.'},
+{n:'6',t:'Ongoing Use',trig:'The team reclaimed four mornings and still shipped the weekly release plan.',stop:'New hires defaulted back to asking for live status meetings.'}];
+
+let OPPS=[
+{opp:'Prompt quality coach',job:'Async alignment without maker-time loss',reach:8,impact:8,conf:6,effort:4},
+{opp:'Manager blocker digest',job:'Accountability without surveillance',reach:7,impact:9,conf:6,effort:5},
+{opp:'Timezone-aware check-in windows',job:'Distributed team alignment',reach:8,impact:6,conf:7,effort:4},
+{opp:'New-hire example library',job:'Onboarding without reviving standups',reach:5,impact:6,conf:6,effort:3},
+{opp:'Slack-thread import',job:'Reduce habit of present',reach:7,impact:5,conf:5,effort:7},
+{opp:'Executive live dashboard',job:'Manager visibility',reach:4,impact:7,conf:4,effort:8}];
+OPPS.forEach(o=>o.score=(o.reach*o.impact*o.conf)/o.effort);
+
+const RECS=[
+{h:'Cluster 1 · Async alignment',build:'Prompt quality coach and searchable weekly artifact.',stop:'Generic meeting-replacement copy.',fric:'Show sample high-quality updates to ease F3 anxiety.',pos:'“Keep alignment without spending your best hour in status.”',sales:'Starts with a one-week standup replacement trial.'},
+{h:'Cluster 2 · Accountability without surveillance',build:'Manager blocker digest.',stop:'Surveillance-style activity metrics.',fric:'Map Cadence output to existing weekly reporting (F4).',pos:'“See blockers without asking everyone to perform progress live.”',sales:'Manager plus respected IC champion.'},
+{h:'Cluster 3 · Protect deep work',build:'Deep-work protected check-in windows.',stop:'Features that create more pings.',fric:'Allow async clarification to reduce F3 anxiety.',pos:'“Protect focus and still be easy to work with.”',sales:'Starts from IC pain but needs manager permission.'},
+{h:'Cluster 4 · Onboard without standups',build:'Example library and onboarding templates.',stop:'Assuming mature-team settings work for new teams.',fric:'Replace “first-week daily standup” with guided async examples (F4).',pos:'“Teach the team rhythm once, then let it compound.”',sales:'Follows remote onboarding pain.'}];
+
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* === TABS === */
+const tabI=document.getElementById('tab-illus'),tabB=document.getElementById('tab-blank');
+const panI=document.getElementById('panel-illus'),panB=document.getElementById('panel-blank');
+function setTab(illus){
+tabI.setAttribute('aria-selected',illus);tabB.setAttribute('aria-selected',!illus);
+panI.hidden=!illus;panB.hidden=illus;
+}
+tabI.addEventListener('click',()=>setTab(true));
+tabB.addEventListener('click',()=>setTab(false));
+[tabI,tabB].forEach((t,i,a)=>t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const o=a[i===0?1:0];o.focus();setTab(o===tabI);}}));
+
+/* === TIMELINE === */
+const tl=document.getElementById('timeline'),det=document.getElementById('phase-detail');
+PHASES.forEach((p,i)=>{
+const b=document.createElement('button');b.className='phase';b.setAttribute('aria-expanded','false');
+b.innerHTML='<span class="num">'+p.n+'</span><span class="pn">'+p.t+'</span>';
+b.addEventListener('click',()=>{
+const open=b.getAttribute('aria-expanded')==='true';
+document.querySelectorAll('#timeline .phase').forEach(x=>x.setAttribute('aria-expanded','false'));
+if(open){det.classList.remove('open');det.innerHTML='';return;}
+b.setAttribute('aria-expanded','true');
+det.classList.add('open');
+det.innerHTML='<h3 class="card-h" style="font-size:20px">'+p.n+'. '+p.t+'</h3><div class="field"><span class="lbl">Trigger to next phase</span>'+p.trig+'</div><div class="field"><span class="lbl">What almost stopped them</span>'+p.stop+'</div>';
+});
+tl.appendChild(b);
+});
+
+/* Blank timeline */
+const bt=document.getElementById('blank-timeline');
+PHASES.forEach(p=>{
+const d=document.createElement('div');d.className='blank';
+d.innerHTML='<strong>'+p.n+'. '+p.t+'</strong><span class="lbl field">Trigger to next phase</span><textarea aria-label="trigger '+p.t+'" placeholder="Add real interview evidence here"></textarea><span class="lbl field">What almost stopped them</span><textarea aria-label="blocker '+p.t+'" placeholder="Add real interview evidence here"></textarea>';
+bt.appendChild(d);
+});
+
+/* Blank forces */
+const bf=document.getElementById('blank-forces');
+['F1 Push','F2 Pull','F3 Anxiety','F4 Habit'].forEach(f=>{
+const d=document.createElement('div');d.className='blank';
+d.innerHTML='<strong>'+f+'</strong><textarea aria-label="'+f+'" placeholder="List real items here"></textarea>';
+bf.appendChild(d);
+});
+
+/* === OPP TABLE === */
+const body=document.getElementById('opp-body');
+let sortKey='score',sortDir=-1;
+function render(){
+const rows=[...OPPS].sort((a,b)=>{let x=a[sortKey],y=b[sortKey];if(typeof x==='string')return sortDir*x.localeCompare(y);return sortDir*(x-y);});
+const top=rows.reduce((m,r)=>r.score>m.score?r:m,rows[0]);
+body.innerHTML='';
+rows.forEach(r=>{
+const tr=document.createElement('tr');if(r===top)tr.className='toprow';
+tr.innerHTML='<td>'+r.opp+(r===top?' <span class="badge" style="font-size:9px">Top priority</span>':'')+'</td><td>'+r.job+'</td><td class="mono">'+r.reach+'</td><td class="mono">'+r.impact+'</td><td class="mono">'+r.conf+'</td><td class="mono">'+r.effort+'</td><td class="mono">'+r.score.toFixed(1)+'</td>';
+body.appendChild(tr);
+});
+document.querySelectorAll('#opp-table th').forEach(th=>th.removeAttribute('aria-sort'));
+const hb=document.querySelector('#opp-table button[data-k="'+sortKey+'"]');
+if(hb)hb.closest('th').setAttribute('aria-sort',sortDir===1?'ascending':'descending');
+}
+document.querySelectorAll('#opp-table th button').forEach(b=>{
+b.addEventListener('click',()=>{const k=b.dataset.k;if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(b.dataset.t==='n')?-1:1;}render();});
+});
+render();
+
+/* === RECS === */
+const rc=document.getElementById('recs');
+RECS.forEach(r=>{
+const d=document.createElement('div');d.className='frame rec';
+d.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center"><h4>'+r.h+'</h4><span class="badge">Illustrative</span></div>'+
+'<span class="lbl">What to build</span>'+r.build+
+'<span class="lbl">What to STOP building</span>'+r.stop+
+'<span class="lbl">What friction to reduce (F3/F4 interventions)</span>'+r.fric+
+'<span class="lbl">How to position</span>'+r.pos+
+'<span class="lbl">What the real sales process looks like</span>'+r.sales+
+'<p class="caption">Source: Illustrative fabricated synthesis dataset; framework source linked above.</p>';
+rc.appendChild(d);
+});
+</script>
+</body>
+</html>

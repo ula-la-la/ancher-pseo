@@ -15,7 +15,6 @@
  */
 
 import fs from "node:fs";
-import path from "node:path";
 
 // ---- config ---------------------------------------------------------------
 const HOST = "twitter241.p.rapidapi.com";
@@ -49,7 +48,7 @@ function parseCsv(text) {
     else if (c !== "\r") cell += c;
   }
   if (cell || row.length) { row.push(cell); rows.push(row); }
-  const head = rows.shift().map((h) => h.replace(/^﻿/, "").trim());
+  const head = rows.shift().map((h) => h.replace(/^\uFEFF/, "").trim());
   return rows.filter((r) => r.length > 1).map((r) => Object.fromEntries(head.map((h, i) => [h, r[i] ?? ""])));
 }
 

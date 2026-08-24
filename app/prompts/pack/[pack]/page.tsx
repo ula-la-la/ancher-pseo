@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "../../../components/SiteHeader";
 import { OutputThumb } from "../../../components/PaperMotif";
 import { getPrompt, packs, toSlug } from "../../../data/prompts";
-import { appUrl, siteUrl, signupUrl } from "../../../site";
+import { siteUrl, signupUrl } from "../../../site";
 
 type PageProps = { params: Promise<{ pack: string }> };
 

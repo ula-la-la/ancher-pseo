@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CFO-Ready Board Report: Revenue Variance, Margin, Cash Runway &amp; CFO Narrative</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script><style>
+:root{--ink-navy:#152544;--slate-steel:#4A5874;--cool-grey:#697586;--accent-blue:#1F5FCC;--accent-blue-deep:#16387A;--border-grey:#D2D8E0;--hairline-grey:#E5E9EF;--paper:#FFFFFF;--mist:#F4F6F9;--fog:#EAEEF3;--success-green:#1E7A52;--warn-amber:#9A6A12;--danger-red:#B42318;--text-primary:#152544;--text-secondary:#4A5874;--shadow-card:0 1px 2px rgba(21,37,68,0.06),0 0 0 1px #D2D8E0;--shadow-card-raised:0 4px 12px rgba(21,37,68,0.08),0 0 0 1px #D2D8E0;--focus-ring:0 0 0 2px #FFFFFF,0 0 0 4px #1F5FCC;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Source Sans 3',sans-serif;color:var(--text-primary);background-color:var(--mist);background-image:linear-gradient(rgba(21,37,68,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(21,37,68,0.035) 1px,transparent 1px);background-size:32px 32px;font-size:16px;line-height:1.55;}
+a{color:var(--accent-blue);}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,48px);}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.eyebrow{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:12px;color:var(--accent-blue);font-weight:600;display:flex;align-items:center;gap:8px;margin:0 0 12px;}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent-blue);display:inline-block;}
+h1{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1.12;letter-spacing:-0.01em;color:var(--ink-navy);margin:8px 0;}
+h2{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:clamp(22px,2.6vw,32px);line-height:1.2;margin:0 0 4px;color:var(--ink-navy);}
+h3{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:17px;margin:0;}
+section{margin:32px 0;}
+/* utility strip */
+.util{background:var(--ink-navy);color:#fff;font-size:13px;}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:40px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px;}
+.util .right{color:#c3ccdb;font-family:'IBM Plex Mono',monospace;font-size:12px;}
+/* header */
+.rep-header{background:var(--paper);border-bottom:1px solid var(--border-grey);}
+.rep-header .wrap{padding-top:28px;padding-bottom:28px;}
+.crumb{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:0.1em;font-size:12px;color:var(--cool-grey);}
+.subline{color:var(--text-secondary);margin:4px 0 0;font-size:15px;}
+.co-name{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;color:var(--slate-steel);text-transform:uppercase;font-weight:600;}
+/* banner */
+.banner{background:var(--fog);border-left:3px solid var(--warn-amber);padding:12px 16px;margin:24px 0;display:flex;align-items:center;gap:10px;border-radius:3px;}
+.banner .chip{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;font-size:11.5px;letter-spacing:0.1em;color:var(--warn-amber);font-weight:600;}
+.card{background:var(--paper);border-radius:4px;box-shadow:var(--shadow-card);padding:24px;}
+/* exec summary */
+.exec{border-top:3px solid var(--accent-blue);display:grid;grid-template-columns:1fr 260px;gap:32px;}
+.exec ul{margin:12px 0 0;padding-left:20px;}
+.exec li{margin-bottom:10px;}
+.readout{border-left:1px solid var(--hairline-grey);padding-left:24px;display:flex;flex-direction:column;gap:16px;}
+.readout .lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--cool-grey);}
+.readout .val{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:26px;}
+.rd-title{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-steel);font-weight:600;}
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--fog);border:1px solid var(--border-grey);border-radius:3px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;padding:3px 8px;font-weight:600;}
+.chip .dot{width:8px;height:8px;border-radius:50%;}
+.c-green{color:var(--success-green);}.c-green .dot{background:var(--success-green);}
+.c-amber{color:var(--warn-amber);}.c-amber .dot{background:var(--warn-amber);}
+.c-red{color:var(--danger-red);}.c-red .dot{background:var(--danger-red);}
+.t-green{color:var(--success-green);}.t-amber{color:var(--warn-amber);}.t-red{color:var(--danger-red);}
+/* kpi grid */
+.kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
+.kpi{background:var(--paper);border:1px solid var(--border-grey);border-radius:4px;padding:18px;box-shadow:var(--shadow-card);transition:box-shadow .15s,transform .15s;}
+.kpi:hover,.kpi:focus-within{box-shadow:var(--shadow-card-raised);transform:translateY(-2px);}
+.kpi .lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.09em;color:var(--cool-grey);}
+.kpi .val{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,32px);line-height:1;margin:10px 0 8px;}
+.kpi .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-secondary);margin-bottom:10px;min-height:2.4em;}
+/* two col */
+.split{display:grid;grid-template-columns:7fr 5fr;gap:24px;}
+.chart-wrap{position:relative;width:100%;}
+.h-main{height:360px;}.h-mid{height:290px;}.h-small{height:240px;}
+.caption{font-size:13px;color:var(--text-secondary);margin-top:12px;font-style:italic;}
+/* toggle */
+.seg{display:inline-flex;border:1px solid var(--border-grey);border-radius:4px;overflow:hidden;margin-bottom:16px;}
+.seg button{font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;background:var(--fog);border:none;padding:10px 16px;min-height:44px;cursor:pointer;color:var(--slate-steel);font-weight:600;}
+.seg button[aria-pressed="true"]{background:var(--paper);color:var(--accent-blue);box-shadow:inset 0 -2px 0 var(--accent-blue);}
+.seg button:focus-visible{outline:none;box-shadow:var(--focus-ring);}
+/* table */
+table{width:100%;border-collapse:collapse;font-size:13px;}
+caption{text-align:left;}
+th,td{padding:9px 10px;border-bottom:1px solid var(--hairline-grey);text-align:left;}
+thead th{background:var(--mist);font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--slate-steel);}
+td.num,th.num{text-align:right;font-family:'IBM Plex Mono',monospace;}
+tbody tr:nth-child(even){background:var(--mist);}
+.table-scroll{overflow-x:auto;}
+/* runway control */
+.ctrl-card{display:flex;flex-direction:column;gap:16px;}
+.assump{background:var(--mist);border:1px solid var(--hairline-grey);border-radius:4px;padding:16px;}
+.assump .big{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:34px;line-height:1;}
+input[type=range]{width:100%;height:44px;accent-color:var(--accent-blue);cursor:pointer;}
+input[type=range]:focus-visible{outline:none;box-shadow:var(--focus-ring);border-radius:4px;}
+.ctrl-row{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--cool-grey);}
+/* risks */
+.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.risk{border:1px solid var(--border-grey);border-radius:4px;padding:16px;background:var(--paper);}
+.risk .head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;}
+.risk p{margin:0;font-size:14px;color:var(--text-secondary);}
+/* decisions */
+.decisions{border-left:3px solid var(--accent-blue);}
+.dec{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--hairline-grey);}
+.dec:last-child{border-bottom:none;}
+.dec .no{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:22px;color:var(--accent-blue);min-width:28px;}
+.dec p{margin:4px 0 8px;font-size:14px;color:var(--text-secondary);}
+.rec{display:inline-flex;background:var(--fog);border:1px solid var(--border-grey);border-radius:3px;padding:3px 10px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--success-green);font-weight:600;letter-spacing:0.05em;}
+/* cfo box */
+.cfo{background:var(--ink-navy);color:#fff;border-top:3px solid var(--accent-blue);border-radius:4px;padding:28px;}
+.cfo h2{color:#fff;}
+.cfo .mlbl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8fb0e6;font-weight:600;}
+.cfo ul{list-style:none;margin:16px 0 0;padding:0;}
+.cfo li{position:relative;padding-left:22px;margin-bottom:14px;color:#e6ebf3;}
+.cfo li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--accent-blue);border-radius:1px;}
+/* source trail */
+.source{background:var(--mist);border:1px solid var(--border-grey);border-radius:4px;padding:20px;}
+footer{background:var(--ink-navy);color:#c3ccdb;padding:28px 0;margin-top:40px;font-size:14px;}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;}
+footer a{color:#8fb0e6;}
+@media(max-width:1199px){.kpi-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:899px){.split{grid-template-columns:1fr;}.exec{grid-template-columns:1fr;}.readout{border-left:none;border-top:1px solid var(--hairline-grey);padding-left:0;padding-top:16px;flex-direction:row;flex-wrap:wrap;}.readout>div{flex:1;}.risk-grid{grid-template-columns:1fr;}}
+@media(max-width:639px){.kpi-grid{grid-template-columns:1fr 1fr;}h1{font-size:26px;}}
+@media(prefers-reduced-motion:reduce){.kpi{transition:none;}.kpi:hover,.kpi:focus-within{transform:none;}}
+@media print{body{background:#fff;}.kpi,.card,.risk,.dec,.cfo{box-shadow:none!important;break-inside:avoid;}.kpi:hover{transform:none;}.util,.seg{display:none;}a[href]::after{content:" (" attr(href) ")";font-size:10px;color:#555;}}
+</style></head><body>
+<div class="util"><div class="wrap"><span>Northwind SaaS, Inc. — ILLUSTRATIVE SAMPLE</span><span class="right">Q2 FY2026 (Apr–Jun 2026) · USD · Board Report</span></div></div>
+<header class="rep-header"><div class="wrap"><div class="crumb">BOARD REPORT / FINANCE / Q2 FY2026</div><h1>CFO-Ready Board Report: Revenue Variance, Margin, Cash Runway &amp; CFO Narrative</h1><div class="co-name">Northwind SaaS, Inc. — Illustrative Sample</div><p class="subline">All figures fictional and for demonstration only.</p></div></header>
+<main class="wrap">
+<div class="banner" role="note"><span class="chip">Sample</span><strong style="color:var(--warn-amber);font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.03em;">Illustrative sample data — not real company financials</strong></div>
+
+<section aria-labelledby="exec-h"><div class="card exec"><div><div class="eyebrow">Executive Summary</div><h2 id="exec-h">Executive Summary</h2><ul><li>Revenue was <strong>$4.62M</strong>, 5.7% below the $4.90M plan, primarily from enterprise timing slippage.</li><li>Gross margin improved to <strong>78.4%</strong>, 2.4 pts above budget, reflecting infrastructure efficiency.</li><li>Net burn is <strong>$0.71M/month</strong>, 9.2% above budget; runway remains approximately 17.0 months.</li><li>Board decision needed: approve S&amp;M reallocation and defer non-critical hiring to preserve runway.</li></ul></div><div class="readout"><div class="rd-title">Founder readout</div><div><div class="lbl">Revenue variance</div><div class="val t-red">-5.7%</div></div><div><div class="lbl">Gross margin</div><div class="val t-green">+2.4 pts</div></div><div><div class="lbl">Runway</div><div class="val t-amber">17.0 mo</div></div></div></div></section>
+
+<section aria-labelledby="kpi-h"><div class="eyebrow">Key Metrics</div><h2 id="kpi-h" class="visually-hidden" style="position:absolute;left:-9999px;">KPI Cards</h2><div class="kpi-grid">
+<div class="kpi" tabindex="0"><div class="lbl">Revenue</div><div class="val">$4.62M</div><div class="sub">Budget $4.90M · Var -$0.28M (-5.7%)</div><span class="chip c-red"><span class="dot"></span>Unfavorable</span></div>
+<div class="kpi" tabindex="0"><div class="lbl">Gross Margin</div><div class="val">78.4%</div><div class="sub">Budget 76.0% · +2.4 pts</div><span class="chip c-green"><span class="dot"></span>Favorable</span></div>
+<div class="kpi" tabindex="0"><div class="lbl">Net Burn</div><div class="val">$0.71M/mo</div><div class="sub">Budget $0.65M/mo · +9.2% higher burn</div><span class="chip c-amber"><span class="dot"></span>Watch</span></div>
+<div class="kpi" tabindex="0"><div class="lbl">Cash Balance</div><div class="val">$12.1M</div><div class="sub">End of Q2 cash</div><span class="chip c-green"><span class="dot"></span>Adequate</span></div>
+<div class="kpi" tabindex="0"><div class="lbl">Cash Runway</div><div class="val">17.0 mo</div><div class="sub">$12.1M / $0.71M monthly burn</div><span class="chip c-amber"><span class="dot"></span>Watch</span></div>
+<div class="kpi" tabindex="0"><div class="lbl">ARR / MRR</div><div class="val">$18.9M</div><div class="sub">MRR $1.575M · NRR 111%</div><span class="chip c-green"><span class="dot"></span>Healthy</span></div>
+</div></section>
+
+<section aria-labelledby="bva-h"><div class="eyebrow">Operating Performance</div><h2 id="bva-h">Budget vs. Actual</h2><div class="split" style="margin-top:16px;">
+<div class="card"><div class="seg" role="group" aria-label="Chart period toggle"><button id="btnQ2" aria-pressed="true">Q2 View</button><button id="btnYTD" aria-pressed="false">YTD View</button></div><div class="chart-wrap h-main"><canvas id="bvaChart" role="img" aria-label="Grouped bar chart comparing budget versus actual financial metrics for Q2 and YTD."></canvas></div><p class="caption">Blue = Budget, Slate = Actual. Values in $M; negatives extend below zero.</p></div>
+<div class="card"><div class="table-scroll"><table id="bvaTable"><caption class="mono" style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cool-grey);margin-bottom:8px;">Budget vs Actual detail ($M)</caption><thead><tr><th>Metric</th><th class="num">Budget</th><th class="num">Actual</th><th class="num">Var $</th><th class="num">Var %</th><th>Status</th></tr></thead><tbody id="bvaBody"></tbody></table></div></div>
+</div></section>
+
+<section aria-labelledby="bridge-h"><div class="eyebrow">From Plan to Actual</div><h2 id="bridge-h">Revenue Variance Bridge</h2><div class="card" style="margin-top:16px;"><div class="chart-wrap h-mid"><canvas id="bridgeChart" role="img" aria-label="Waterfall bridge from budgeted revenue $4.90M to actual $4.62M: New business -$0.19M, Expansion +$0.08M, Churn -$0.10M, Timing slippage -$0.07M."></canvas></div><p class="caption">Revenue shortfall was driven primarily by new business and timing/slippage; expansion partly offset the gap. (4.90 − 0.19 + 0.08 − 0.10 − 0.07 = 4.62)</p></div></section>
+
+<section aria-labelledby="runway-h"><div class="eyebrow">Liquidity</div><h2 id="runway-h">Cash Runway Projection</h2><div class="split" style="margin-top:16px;">
+<div class="card"><div class="chart-wrap h-mid"><canvas id="runwayChart" role="img" aria-label="Cash runway projection line chart from $12.1M starting cash, depleting at the assumed monthly burn."></canvas></div><p class="caption" id="runwayCap">Assumed monthly net burn: $0.71M · Runway end ~17.0 months (approx Nov 2027).</p></div>
+<div class="card ctrl-card"><h3>Runway assumptions</h3><div class="assump"><div class="lbl mono" style="font-size:11px;text-transform:uppercase;color:var(--cool-grey);letter-spacing:0.08em;">Runway</div><div class="big" id="runwayVal">17.0 <span style="font-size:18px;">mo</span></div><div style="margin-top:6px;"><span class="chip c-amber" id="runwayChip"><span class="dot"></span>Watch</span></div></div><div><label for="burnSlider" class="mono" style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--slate-steel);font-weight:600;">Assumed monthly burn: <span id="burnLabel">$0.71M</span></label><input type="range" id="burnSlider" min="0.40" max="1.10" step="0.01" value="0.71" aria-label="Adjust assumed monthly burn in millions of dollars"><div class="ctrl-row"><span>$0.40M</span><span>$1.10M</span></div></div><p style="font-size:13px;color:var(--text-secondary);margin:0;">Runway months = $12.1M cash ÷ selected monthly burn. Adjust to test sensitivity.</p></div>
+</div></section>
+
+<section aria-labelledby="margin-h"><div class="eyebrow">Unit Economics</div><h2 id="margin-h">Gross Margin Trend</h2><div class="card" style="margin-top:16px;"><div class="chart-wrap h-small"><canvas id="marginChart" role="img" aria-label="Line chart of gross margin percentage over six quarters rising from 72.1% to 78.4%."></canvas></div><p class="caption">Six-quarter improvement from 72.1% to 78.4%.</p></div></section>
+
+<section aria-labelledby="risk-h"><div class="eyebrow">Board Watchlist</div><h2 id="risk-h">Risks &amp; Mitigations</h2><div class="risk-grid" style="margin-top:16px;">
+<div class="risk"><div class="head"><h3>Revenue below plan</h3><span class="chip c-amber"><span class="dot"></span>Medium</span></div><p>Pipeline slippage in enterprise segment; mitigate with tightened sales forecasting and stage-gating.</p></div>
+<div class="risk"><div class="head"><h3>Elevated burn vs budget</h3><span class="chip c-amber"><span class="dot"></span>Medium</span></div><p>S&amp;M overspend without proportional bookings; mitigate by pausing lowest-ROI channels.</p></div>
+<div class="risk"><div class="head"><h3>Concentration risk</h3><span class="chip c-amber"><span class="dot"></span>Low-Medium</span></div><p>Top 5 customers are ~28% of ARR; mitigate by diversifying ICP and expanding mid-market.</p></div>
+<div class="risk"><div class="head"><h3>Runway sensitivity</h3><span class="chip c-amber"><span class="dot"></span>Medium</span></div><p>Burn creep to $0.85M/mo cuts runway to ~14 months; hold hiring pace.</p></div>
+</div></section>
+
+<section aria-labelledby="dec-h"><div class="eyebrow">Board Actions</div><h2 id="dec-h">Decisions Needed This Quarter</h2><div class="card decisions" style="margin-top:16px;">
+<div class="dec"><div class="no">1</div><div><h3>Approve S&amp;M reallocation</h3><p>Cut $0.15M/quarter from underperforming paid channels toward outbound.</p><span class="rec">Recommended: Approve</span></div></div>
+<div class="dec"><div class="no">2</div><div><h3>Hiring plan</h3><p>Defer 3 of 8 planned Q3 hires to protect runway.</p><span class="rec">Recommended: Defer non-critical roles</span></div></div>
+<div class="dec"><div class="no">3</div><div><h3>Fundraise timing</h3><p>Begin Series B prep at ~12 months of runway (approx early 2027) vs wait.</p><span class="rec">Recommended: Start groundwork now</span></div></div>
+</div></section>
+
+<section aria-labelledby="cfo-h"><div class="cfo"><div class="mlbl">CFO Talking Points</div><h2 id="cfo-h">What the CFO should say</h2><ul>
+<li>Revenue landed 5.7% under plan, driven mostly by enterprise timing slippage, not lost demand — pipeline coverage remains healthy at ~3.4x.</li>
+<li>Gross margin expanded to 78.4% (+2.4 pts vs budget) on infrastructure efficiency; unit economics are improving.</li>
+<li>Net Revenue Retention of 111% shows the base is compounding; expansion is offsetting churn.</li>
+<li>Burn ran ~9% hot on S&amp;M; we are reallocating to higher-ROI motions and deferring non-critical hires.</li>
+<li>Runway is ~17 months; we will begin Series B groundwork now to raise from a position of strength, not necessity.</li>
+<li>Bottom line: fundamentals are strengthening; the ask this quarter is disciplined spend reallocation and one hiring decision.</li>
+</ul></div></section>
+
+<section aria-labelledby="src-h"><div class="source"><div class="eyebrow">Source Trail</div><h2 id="src-h" style="font-size:20px;">Source trail</h2><p style="margin:8px 0;">Structure derived from a <a href="https://x.com/einsttein_/status/2086377323578949870" target="_blank" rel="noopener">Primary source X post by @einsttein_</a> describing a one-prompt CFO-ready board one-pager. All figures for Northwind SaaS, Inc. are fictional, internally consistent, and for demonstration only.</p></div></section>
+</main>
+<footer><div class="wrap"><div>Illustrative sample data — not real company financials.</div><div><a href="https://ancher.us/" target="_blank" rel="noopener">Designed in Ancher</a></div></div></footer>
+<script>
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NAVY='#152544',SLATE='#4A5874',BLUE='#1F5FCC',GREEN='#1E7A52',RED='#B42318',AMBER='#9A6A12',HAIR='#E5E9EF';
+Chart.defaults.font.family="'IBM Plex Mono', monospace";Chart.defaults.font.size=11;Chart.defaults.color=SLATE;
+const fmtM=v=>(v<0?'-$':'$')+Math.abs(v).toFixed(2)+'M';
+const labels=['Revenue','COGS','Gross Profit','S&M','R&D','G&A','Op. Income'];
+const Q2={budget:[4.90,1.176,3.724,1.90,1.35,0.62,-0.146],actual:[4.62,0.998,3.622,2.05,1.28,0.66,-0.368]};
+const YTD={budget:[9.55,2.34,7.21,3.72,2.66,1.22,-0.39],actual:[9.18,2.10,7.08,3.95,2.55,1.29,-0.71]};
+const expense=[false,true,false,true,true,true,false];
+// table
+function favorable(i,b,a){return expense[i]?(a<b):(a>b);}
+function renderTable(d){const body=document.getElementById('bvaBody');body.innerHTML='';labels.forEach((m,i)=>{const b=d.budget[i],a=d.actual[i];const varD=a-b;const varPct=b!==0?(varD/Math.abs(b)*100):0;const fav=favorable(i,b,a);const cls=fav?'t-green':'t-red';const chip=fav?'<span class="chip c-green"><span class="dot"></span>Favorable</span>':'<span class="chip c-red"><span class="dot"></span>Unfavorable</span>';body.innerHTML+=`<tr><td>${m}</td><td class="num">${fmtM(b)}</td><td class="num">${fmtM(a)}</td><td class="num ${cls}">${(varD>=0?'+':'')}${fmtM(varD).replace('$','$')}</td><td class="num ${cls}">${(varPct>=0?'+':'')}${varPct.toFixed(1)}%</td><td>${chip}</td></tr>`;});}
+renderTable(Q2);
+// bva chart
+const bvaCtx=document.getElementById('bvaChart');
+let bvaChart=new Chart(bvaCtx,{type:'bar',data:{labels,datasets:[{label:'Budget',data:Q2.budget,backgroundColor:BLUE},{label:'Actual',data:Q2.actual,backgroundColor:SLATE}]},options:{responsive:true,maintainAspectRatio:false,animation:!reduce,scales:{y:{title:{display:true,text:'$M'},grid:{color:HAIR}},x:{grid:{display:false}}},plugins:{legend:{position:'top'},tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmtM(c.parsed.y)}}}}});
+function setView(d){bvaChart.data.datasets[0].data=d.budget;bvaChart.data.datasets[1].data=d.actual;bvaChart.update();renderTable(d);}
+const bQ2=document.getElementById('btnQ2'),bYTD=document.getElementById('btnYTD');
+bQ2.addEventListener('click',()=>{bQ2.setAttribute('aria-pressed','true');bYTD.setAttribute('aria-pressed','false');setView(Q2);});
+bYTD.addEventListener('click',()=>{bYTD.setAttribute('aria-pressed','true');bQ2.setAttribute('aria-pressed','false');setView(YTD);});
+// bridge waterfall
+const bLabels=['Budget','New business','Expansion','Churn','Timing/slip.','Actual'];
+const deltas=[null,-0.19,0.08,-0.10,-0.07,null];
+let cum=4.90;const base=[],bar=[],colors=[];
+base.push(0);bar.push(4.90);colors.push(NAVY);
+[-0.19,0.08,-0.10,-0.07].forEach(d=>{if(d>=0){base.push(cum);bar.push(d);colors.push(GREEN);}else{base.push(cum+d);bar.push(-d);colors.push(RED);}cum+=d;});
+base.push(0);bar.push(4.62);colors.push(SLATE);
+new Chart(document.getElementById('bridgeChart'),{type:'bar',data:{labels:bLabels,datasets:[{label:'base',data:base,backgroundColor:'transparent',stack:'s'},{label:'val',data:bar,backgroundColor:colors,stack:'s'}]},options:{responsive:true,maintainAspectRatio:false,animation:!reduce,scales:{y:{title:{display:true,text:'$M'},grid:{color:HAIR},beginAtZero:true},x:{grid:{display:false}}},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const i=c.dataIndex;if(deltas[i]!==null)return (deltas[i]>=0?'+':'')+fmtM(deltas[i]);return fmtM(c.dataset.data[i]+ (c.parsed.y? 0:0));},title:c=>c[0].label}}}}});
+// runway
+const startCash=12.1;const CASH_LBL=['Jun 26','Jul 26','Aug 26','Sep 26','Oct 26','Nov 26','Dec 26','Jan 27','Feb 27','Mar 27','Apr 27','May 27','Jun 27','Jul 27','Aug 27','Sep 27','Oct 27','Nov 27','Dec 27'];
+function runwaySeries(burn){const arr=[];for(let m=0;m<CASH_LBL.length;m++){const v=startCash-burn*m;arr.push(v>0?+v.toFixed(2):null);}return arr;}
+const runwayChart=new Chart(document.getElementById('runwayChart'),{type:'line',data:{labels:CASH_LBL,datasets:[{label:'Cash',data:runwaySeries(0.71),borderColor:BLUE,backgroundColor:'rgba(31,95,204,0.10)',fill:true,tension:0.15,pointRadius:2}]},options:{responsive:true,maintainAspectRatio:false,animation:!reduce,scales:{y:{title:{display:true,text:'$M'},grid:{color:HAIR},beginAtZero:true},x:{grid:{display:false},ticks:{maxRotation:60,minRotation:45}}},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmtM(c.parsed.y)}}}}});
+const slider=document.getElementById('burnSlider'),burnLabel=document.getElementById('burnLabel'),runwayVal=document.getElementById('runwayVal'),runwayCap=document.getElementById('runwayCap'),runwayChip=document.getElementById('runwayChip');
+function updBurn(){const burn=parseFloat(slider.value);const months=startCash/burn;burnLabel.textContent='$'+burn.toFixed(2)+'M';runwayVal.innerHTML=months.toFixed(1)+' <span style="font-size:18px;">mo</span>';runwayCap.textContent='Assumed monthly net burn: $'+burn.toFixed(2)+'M · Runway end ~'+months.toFixed(1)+' months.';let cls='c-green',txt='Adequate';if(months<12){cls='c-red';txt='Critical';}else if(months<18){cls='c-amber';txt='Watch';}runwayChip.className='chip '+cls;runwayChip.innerHTML='<span class="dot"></span>'+txt;runwayChart.data.datasets[0].data=runwaySeries(burn);runwayChart.update();}
+slider.addEventListener('input',updBurn);
+// margin
+new Chart(document.getElementById('marginChart'),{type:'line',data:{labels:['Q1 FY25','Q2 FY25','Q3 FY25','Q4 FY25','Q1 FY26','Q2 FY26'],datasets:[{data:[72.1,73.5,74.8,75.6,77.2,78.4],borderColor:GREEN,backgroundColor:'rgba(30,122,82,0.08)',fill:true,tension:0.2,pointRadius:4,pointBackgroundColor:GREEN}]},options:{responsive:true,maintainAspectRatio:false,animation:!reduce,scales:{y:{title:{display:true,text:'%'},grid:{color:HAIR},suggestedMin:70,suggestedMax:80},x:{grid:{display:false}}},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toFixed(1)+'%'}}}}});
+</script></body></html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NVDA Q4 FY24 Earnings Evidence Tracker</title>
+  <style>
+    :root{--ink:#171b16;--muted:#657066;--paper:#f4f1e9;--card:#fffdf7;--line:#d9d5c9;--green:#58c78b;--lime:#d7f35b}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,sans-serif}a{color:inherit}.wrap{max-width:1180px;margin:auto;padding:28px}
+    header{display:flex;justify-content:space-between;gap:30px;padding:42px 0 30px;border-bottom:1px solid var(--line)}.eyebrow,.chip{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
+    h1{font:700 clamp(40px,7vw,78px)/.96 Georgia,serif;max-width:850px;margin:12px 0 18px}.lede{max-width:680px;color:var(--muted);font-size:18px}.status{align-self:flex-start;background:var(--lime);padding:9px 12px;border-radius:999px;white-space:nowrap}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.metric,.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}.metric b{display:block;font:700 30px/1 Georgia,serif;margin:8px 0}.metric small,.note{color:var(--muted)}
+    nav{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:9px 14px;cursor:pointer}button.active{background:var(--ink);color:white}
+    .layout{display:grid;grid-template-columns:1.5fr .7fr;gap:16px}.row{display:grid;grid-template-columns:120px 1fr 90px;gap:18px;padding:20px 0;border-top:1px solid var(--line)}.row:first-child{border-top:0}.value{font:700 24px Georgia,serif}.sentence{margin:0 0 8px}.verified{color:#197247;font-weight:800}.side h2,.panel h2{font:700 28px Georgia,serif;margin:0 0 12px}.side ul{padding-left:19px}.source{display:block;padding:14px 0;border-top:1px solid var(--line);font-weight:700}
+    footer{display:flex;justify-content:space-between;gap:20px;margin-top:34px;padding:24px 0;border-top:1px solid var(--line);color:var(--muted)}
+    @media(max-width:800px){header,.layout{display:block}.status{display:inline-block}.metrics{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}.wrap{padding:20px}}@media(max-width:480px){.metrics{grid-template-columns:1fr}}
+  </style>
+</head>
+<body><main class="wrap">
+  <header><div><div class="eyebrow">Investor evidence workspace · NVDA</div><h1>Every number, tied to the sentence that supports it.</h1><p class="lede">A focused audit of NVIDIA Q4 FY2024 results. This review version demonstrates the X-post workflow with primary company evidence; it does not claim exhaustive coverage of every spoken line.</p></div><span class="status">Manual review</span></header>
+  <section class="metrics" aria-label="Headline metrics">
+    <div class="metric"><span>Quarterly revenue</span><b>$22.1B</b><small>+22% Q/Q · +265% Y/Y</small></div>
+    <div class="metric"><span>Data Center</span><b>$18.4B</b><small>+27% Q/Q · +409% Y/Y</small></div>
+    <div class="metric"><span>GAAP gross margin</span><b>76.0%</b><small>+2.0 pts Q/Q</small></div>
+    <div class="metric"><span>Next-quarter outlook</span><b>$24.0B</b><small>±2%</small></div>
+  </section>
+  <nav aria-label="Metric filters"><button class="active" data-filter="all">All evidence</button><button data-filter="growth">Growth</button><button data-filter="profitability">Profitability</button><button data-filter="outlook">Outlook</button></nav>
+  <div class="layout"><section class="panel" id="evidence"><h2>Evidence ledger</h2>
+    <article class="row" data-kind="growth"><div><span class="chip">Revenue</span><div class="value">$22.1B</div></div><div><p class="sentence">“NVIDIA today reported revenue for the fourth quarter ended January 28, 2024, of $22.1 billion, up 22% from the previous quarter and up 265% from a year ago.”</p><a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2024" target="_blank" rel="noreferrer">Open primary evidence →</a></div><div class="verified">Verified</div></article>
+    <article class="row" data-kind="growth"><div><span class="chip">Data Center</span><div class="value">$18.4B</div></div><div><p class="sentence">“Fourth-quarter revenue was a record $18.4 billion, up 27% from the previous quarter and up 409% from a year ago.”</p><a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2024" target="_blank" rel="noreferrer">Open primary evidence →</a></div><div class="verified">Verified</div></article>
+    <article class="row" data-kind="profitability"><div><span class="chip">GAAP margin</span><div class="value">76.0%</div></div><div><p class="sentence">The company’s Q4 FY24 summary reports GAAP gross margin of 76.0%, versus 74.0% in Q3 FY24 and 63.3% in Q4 FY23.</p><a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2024" target="_blank" rel="noreferrer">Inspect results table →</a></div><div class="verified">Verified</div></article>
+    <article class="row" data-kind="outlook"><div><span class="chip">Guidance</span><div class="value">$24.0B</div></div><div><p class="sentence">“Revenue is expected to be $24.0 billion, plus or minus 2%.”</p><a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2024" target="_blank" rel="noreferrer">Open outlook →</a></div><div class="verified">Verified</div></article>
+  </section><aside class="side">
+    <section class="panel"><h2>Investor read</h2><ul><li>Data Center represented the central growth engine.</li><li>Margin expansion accompanied the revenue step-up.</li><li>Guidance implied continued sequential growth.</li></ul><p class="note">Interpretations are analytical summaries, not company guidance.</p></section>
+    <section class="panel"><h2>Source trail</h2><a class="source" href="https://x.com/didier_lopes/status/1772458620170441024" target="_blank" rel="noreferrer">Original X workflow →</a><a class="source" href="https://investor.nvidia.com/events-and-presentations/events-and-presentations/event-details/2024/NVIDIA-Q4-FY24-Earnings-Call-2024--4s8TN5sqa/default.aspx" target="_blank" rel="noreferrer">Official earnings event →</a><a class="source" href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2024" target="_blank" rel="noreferrer">Official results →</a></section>
+  </aside></div>
+  <footer><span>Private review artifact · evidence checked 2026-08-21</span><a href="https://ancher.us/">Designed in Ancher</a></footer>
+</main><script>
+  document.querySelectorAll('button[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.row').forEach(r=>r.hidden=b.dataset.filter!=='all'&&r.dataset.kind!==b.dataset.filter)}));
+</script></body></html>

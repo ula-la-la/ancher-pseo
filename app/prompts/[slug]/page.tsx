@@ -6,9 +6,9 @@ import { OutputThumb } from "../../components/PaperMotif";
 import { PromptCards } from "../../components/PromptCards";
 import { CopyPrompt } from "../../components/CopyPrompt";
 import { getPrompt, packs, prompts, toSlug } from "../../data/prompts";
-import { getGalleryItem } from "../../data/gallery";
+import { getPublicGalleryItem } from "../../data/publicGallery";
 import { useCaseBySlug } from "../../data/useCases";
-import { appUrl, siteUrl, signupUrl } from "../../site";
+import { siteUrl, signupUrl } from "../../site";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -33,7 +33,7 @@ export default async function PromptPage({ params }: PageProps) {
   const prompt = getPrompt(slug);
   if (!prompt) notFound();
 
-  const gallery = prompt.gallerySlug ? getGalleryItem(prompt.gallerySlug) : undefined;
+  const gallery = prompt.gallerySlug ? getPublicGalleryItem(prompt.gallerySlug) : undefined;
   const inPacks = packs.filter((pk) => pk.steps.includes(prompt.slug));
   const related = prompts
     .filter((p) => p.slug !== prompt.slug && p.outputType === prompt.outputType)

@@ -2,7 +2,8 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { featuredItem, galleryItems, type GalleryCategory } from "../data/gallery";
+import type { GalleryCategory } from "../data/gallery";
+import { featuredPublicItem, publicGalleryItems } from "../data/publicGallery";
 import { galleryPrompts } from "../data/galleryPrompts";
 import { OutputPreview } from "./OutputPreview";
 import { SiteHeader } from "./SiteHeader";
@@ -13,14 +14,14 @@ const categoryIcon: Record<string, string> = { "All templates": "▣", Research:
 
 export function GalleryHome() {
   const [category, setCategory] = useState<(typeof categories)[number]>("All templates");
-  const visibleItems = useMemo(() => category === "All templates" ? galleryItems : galleryItems.filter((item) => item.category === category), [category]);
+  const visibleItems = useMemo(() => category === "All templates" ? publicGalleryItems : publicGalleryItems.filter((item) => item.category === category), [category]);
 
   return <main><SiteHeader />
     <section className="hero wrap">
       <div className="hero-copy"><p className="kicker"><span /> Template gallery</p><h1>From everything you<br />know, to work you can use.</h1><p>Explore finished work created from real sources, notes, and ideas.</p><a className="primary-button" href={signupUrl}>Create with Ancher <span>→</span></a></div>
-      <Link className="featured-card" href={`/templates/${featuredItem.slug}`}>
-        <OutputPreview item={featuredItem} priority />
-        <div className="featured-copy"><p className="featured-label">Featured template</p><h2>{featuredItem.title}</h2><span className="content-type">{featuredItem.outputType}</span><p>{featuredItem.description}</p><div className="source-line"><span>Suggested sources</span><b>Market reports</b><b>Competitor pages</b><b>Internal notes</b></div><span className="view-link">View template <b>→</b></span></div>
+      <Link className="featured-card" href={`/templates/${featuredPublicItem.slug}`}>
+        <OutputPreview item={featuredPublicItem} priority />
+        <div className="featured-copy"><p className="featured-label">Featured template</p><h2>{featuredPublicItem.title}</h2><span className="content-type">{featuredPublicItem.outputType}</span><p>{featuredPublicItem.description}</p><div className="source-line"><span>Suggested sources</span><b>Market reports</b><b>Competitor pages</b><b>Internal notes</b></div><span className="view-link">View template <b>→</b></span></div>
       </Link>
     </section>
 

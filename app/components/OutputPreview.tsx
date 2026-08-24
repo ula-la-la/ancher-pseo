@@ -1,25 +1,29 @@
 import Image from "next/image";
 import type { GalleryItem } from "../data/gallery";
+import { getGalleryArtifact } from "../data/galleryArtifacts";
 import { galleryExamples } from "../data/galleryExamples";
 import { galleryPrompts } from "../data/galleryPrompts";
 
 export function OutputPreview({ item, large = false, priority = false }: { item: GalleryItem; large?: boolean; priority?: boolean }) {
   const isReady = item.status === "ready";
+  const artifact = getGalleryArtifact(item.slug);
   const prompt = galleryPrompts[item.slug as keyof typeof galleryPrompts];
-  const coverImage = prompt?.source.images[0] ?? galleryExamples[item.slug]?.sources.flatMap((source) => source.images ?? [])[0];
+  const coverImage = artifact?.screenshot
+    ? { src: artifact.screenshot, alt: `${artifact.title} — generated with Ancher` }
+    : !artifact ? prompt?.source.images[0] ?? galleryExamples[item.slug]?.sources.flatMap((source) => source.images ?? [])[0] : undefined;
   if (coverImage) return (
-    <div className={`output-preview ready-output-preview ${item.accent} ${large ? "large" : ""}`} aria-label={`${item.outputType} finished example`}>
+    <div className={`output-preview ready-output-preview ${artifact ? "artifact-output-preview" : ""} ${item.accent} ${large ? "large" : ""}`} aria-label={`${item.outputType} finished example`}>
       <Image className="ready-preview-image" src={coverImage.src} alt={coverImage.alt} fill loading={priority ? "eager" : "lazy"} quality={priority ? 80 : 75} sizes={large ? "(max-width: 680px) 100vw, 60vw" : "(max-width: 680px) 100vw, 33vw"} />
       <span className="ready-preview-shade" />
       {!prompt && <div className="ready-preview-copy"><small>Source-grounded example</small><strong>{item.outputType}</strong></div>}
-      <span className="pending-label finished-label">{prompt ? "Original prompt" : "Finished example"}</span>
+      <span className="pending-label finished-label">{artifact ? "Generated with Ancher" : prompt ? "Original prompt" : "Finished example"}</span>
     </div>
   );
   return (
-    <div className={`output-preview ${item.accent} ${large ? "large" : ""}`} aria-label={`${item.outputType} ${isReady ? "finished example" : "preview pending"}`}>
+    <div className={`output-preview ${artifact?.status === "review" ? "artifact-review-preview" : ""} ${item.accent} ${large ? "large" : ""}`} aria-label={`${item.outputType} ${artifact?.status === "review" ? "awaiting screenshot" : isReady ? "finished example" : "preview pending"}`}>
       <div className="preview-sheet cover-sheet">
         <span className="sheet-eyebrow">ANCHER OUTPUT</span>
-        <strong>{item.outputType}</strong>
+        <strong>{artifact?.title ?? item.outputType}</strong>
         <span className="cover-rule" />
         <small>Generated from your sources</small>
         <div className="landscape-lines"><i /><i /><i /><i /></div>
@@ -28,7 +32,7 @@ export function OutputPreview({ item, large = false, priority = false }: { item:
         <div className="preview-sheet text-sheet"><span>Executive summary</span><i /><i /><i /><i /><i /><div className="mini-chart"><b /><b /><b /><b /></div></div>
         <div className="preview-sheet text-sheet"><span>Key findings</span><div className="matrix-dots"><b /><b /><b /><b /><b /></div><i /><i /><i /><i /></div>
       </>}
-      <span className={`pending-label ${isReady ? "finished-label" : ""}`}>{isReady ? "Finished example" : "Preview pending"}</span>
+      <span className={`pending-label ${isReady ? "finished-label" : ""}`}>{artifact?.status === "review" ? "Awaiting screenshot" : isReady ? "Finished example" : "Preview pending"}</span>
     </div>
   );
 }

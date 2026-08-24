@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { galleryItems } from "../../data/gallery";
+import { publicGalleryItems } from "../../data/publicGallery";
 import { getUseCase, useCases, useCasesBySlug } from "../../data/useCases";
 import { OutputPreview } from "../../components/OutputPreview";
 import { SiteHeader } from "../../components/SiteHeader";
@@ -34,7 +34,7 @@ export default async function UseCasePage({ params }: PageProps) {
   const useCase = getUseCase(slug);
   if (!useCase) notFound();
 
-  const items = galleryItems.filter((item) =>
+  const items = publicGalleryItems.filter((item) =>
     (useCasesBySlug[item.slug] ?? []).includes(useCase.slug),
   );
 

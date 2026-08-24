@@ -2,22 +2,22 @@ import type { GalleryPrompt } from "./galleryPrompts.ts";
 
 export const galleryPromptAdditions = {
   "study-guide": {
-    "title": "Video-to-study-notes prompt",
+    "title": "Raw-notes-to-study-guide prompt",
     "query": "prompt for a study guide",
-    "body": "Summarize this video into clear study notes with key points and examples.",
+    "body": "Here are my raw notes: [paste].\nTurn them into a clean study guide broken into concepts, definitions, diagrams, examples, and ‘things students always misunderstand.’\nMake it impossible to forget.",
     "source": {
-      "tweetId": "2082008984114933828",
-      "author": "AmbrossMuhd",
-      "avatar": "/x-sources/avatars/prompt-study-guide-ambrossmuhd-avatar.jpg",
+      "tweetId": "1998334446379188696",
+      "author": "aiwithmayank",
+      "avatar": "/x-sources/avatars/prompt-study-guide-aiwithmayank-avatar.jpg",
       "images": [
         {
-          "src": "/x-sources/media/prompt-study-guide-2082008984114933828-1.jpg",
-          "alt": "Original prompt post media shared by @AmbrossMuhd."
+          "src": "/x-sources/media/prompt-study-guide-1998334446379188696-1.jpg",
+          "alt": "Original Supernote Generator prompt media shared by @aiwithmayank."
         }
       ],
-      "originalText": "How to turn any YouTube video into notes in 2 minutes:\n\n1. Copy the video link\n2. Paste into Claude or ChatGPT\n3. Prompt: “Summarize this video into clear study notes with key points and examples”\n\nNo more watching 40-minute videos just to take notes.\n\nSave this and try it today.\n#Muhd_El_Nineteen #Automation",
-      "url": "https://x.com/AmbrossMuhd/status/2082008984114933828",
-      "publishedAt": "2026-07-28"
+      "originalText": "1/ THE SUPERNOTE GENERATOR\n\nLectures are chaos.\n\nGemini turns chaos into “I actually get this now.”\n\nPrompt to steal:\n\n“Here are my raw notes: [paste].\nTurn them into a clean study guide broken into concepts, definitions, diagrams, examples, and ‘things students always misunderstand.’\nMake it impossible to forget.”\n\nThis alone can save your semester.",
+      "url": "https://x.com/aiwithmayank/status/1998334446379188696",
+      "publishedAt": "2025-12-09"
     }
   },
   "competitive-landscape": {

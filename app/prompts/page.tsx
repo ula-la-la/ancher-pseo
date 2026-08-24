@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "../components/SiteHeader";
-import { OutputThumb, PaperMotif, outputMotif, outputTint } from "../components/PaperMotif";
+import { PaperMotif, outputMotif, outputTint } from "../components/PaperMotif";
 import { PromptGrid } from "../components/PromptGrid";
 import {
   countByAudience,
@@ -16,7 +16,7 @@ import {
   type SourceType,
 } from "../data/prompts";
 import { useCases } from "../data/useCases";
-import { appUrl, siteUrl, signupUrl } from "../site";
+import { siteUrl, signupUrl } from "../site";
 
 export const metadata: Metadata = {
   title: "Prompt Library",

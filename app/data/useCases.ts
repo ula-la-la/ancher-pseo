@@ -93,9 +93,9 @@ export function getUseCase(slug: string): UseCase | undefined {
  */
 export const useCasesBySlug: Record<string, UseCaseSlug[]> = {
   // --- existing template cluster -------------------------------------------
-  "market-research-report": ["founder", "product", "consultant"],
+  "market-research-report": ["consultant"],
   "competitive-analysis": ["founder", "investor", "product", "consultant"],
-  "content-brief": ["creator", "product"],
+  "content-brief": ["creator"],
   "research-report": ["researcher", "consultant"],
   "executive-summary": ["founder", "investor", "consultant"],
   "project-status-report": ["product", "consultant"],
@@ -128,7 +128,7 @@ export const useCasesBySlug: Record<string, UseCaseSlug[]> = {
   "organize-research-papers": ["researcher"],
   "literature-review": ["researcher"],
   "board-update": ["founder"],
-  "user-research-synthesis": ["product", "researcher"],
+  "user-research-synthesis": ["product"],
   "vc-deal-memo": ["investor"],
   "weekly-digest-deck": ["founder", "product", "consultant"],
 };

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { indexable, siteName, siteUrl } from "./site";
 
+const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: siteName, template: "%s | Ancher" },
@@ -32,6 +34,24 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        {googleAnalyticsId ? (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${googleAnalyticsId}');`,
+              }}
+            />
+          </>
+        ) : null}
+      </head>
       <body>{children}</body>
     </html>
   );

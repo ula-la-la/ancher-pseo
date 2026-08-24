@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "../../../components/SiteHeader";
 import { PromptCards } from "../../../components/PromptCards";
 import { outputTypes, prompts, sourcePhrase, sourceTypes, toSlug } from "../../../data/prompts";
-import { appUrl, siteUrl, signupUrl } from "../../../site";
+import { siteUrl, signupUrl } from "../../../site";
 
 type PageProps = { params: Promise<{ source: string }> };
 

@@ -131,6 +131,27 @@ test("publishes directly usable prompts from unique original X posts for all hom
   }
 });
 
+test("publishes the reviewed notes-to-study-guide prompt with its original X source", async () => {
+  const [{ galleryExamples }, { galleryPrompts }] = await Promise.all([
+    import("../app/data/galleryExamples.ts"),
+    import("../app/data/galleryPrompts.ts"),
+  ]);
+  const prompt = galleryPrompts["study-guide"];
+  const example = galleryExamples["study-guide"];
+
+  assert.equal(
+    prompt.body,
+    "Here are my raw notes: [paste].\nTurn them into a clean study guide broken into concepts, definitions, diagrams, examples, and ‘things students always misunderstand.’\nMake it impossible to forget.",
+  );
+  assert.equal(prompt.source.tweetId, "1998334446379188696");
+  assert.equal(prompt.source.author, "aiwithmayank");
+  assert.equal(prompt.source.url, "https://x.com/aiwithmayank/status/1998334446379188696");
+  assert.equal(prompt.source.publishedAt, "2025-12-09");
+  assert.equal(example.sources.length, 1);
+  assert.equal(example.sources[0].tweetId, prompt.source.tweetId);
+  assert.equal(example.sources[0].text, prompt.source.originalText);
+});
+
 test("preserves complete long-form prompts instead of summaries", async () => {
   const { galleryPrompts } = await import("../app/data/galleryPrompts.ts");
   const postTextMinimums = {

@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Transformer Attention: The Study Guide You Won't Forget</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400..500&family=Hanken+Grotesk:wght@400..700&family=DM+Mono:wght@400..500&display=swap" rel="stylesheet"><style>
+:root{color-scheme:light;--font-display:"Newsreader",Georgia,serif;--font-body:"Hanken Grotesk",sans-serif;--font-mono:"DM Mono",ui-monospace,monospace;--paper:#F0EBDE;--paper-2:#E6E0CE;--ink:#1F2BE0;--ink-soft:#5560E5;--grid:rgba(31,43,224,0.10);--ink-faint:rgba(31,43,224,0.18);--edge:clamp(24px,4vw,80px);--edge-inner:clamp(32px,8vw,160px);--pad-top:clamp(64px,8vh,120px);--pad-bottom:clamp(72px,10vh,140px);--gap-lg:clamp(28px,3vw,56px);--gap-md:clamp(20px,2.2vh,36px);--gap-sm:clamp(14px,1.6vh,24px);--gap-xs:clamp(10px,1.2vh,18px);--rule:1.5px solid var(--ink);--rule-faint:1px solid var(--ink-faint);--grid-size:clamp(28px,2.2vw,44px);}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-weight:400;line-height:1.6;font-size:clamp(15px,1vw,17px);}
+.page-shell{position:relative;width:100%;overflow:hidden;}
+.page-shell::before{content:"";position:fixed;inset:0;background-image:linear-gradient(to right,var(--grid) 1px,transparent 1px),linear-gradient(to bottom,var(--grid) 1px,transparent 1px);background-size:var(--grid-size) var(--grid-size);z-index:0;pointer-events:none;}
+.inner{max-width:min(1440px,calc(100vw - 2*var(--edge)));margin:0 auto;position:relative;z-index:1;}
+h1,h2,h3,.term{font-family:var(--font-display);font-weight:400;color:var(--ink);}
+.micro{font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:0.17em;font-size:clamp(11px,0.85vw,13px);}
+.mono{font-family:var(--font-mono);letter-spacing:0.05em;}
+a{color:var(--ink);}
+section{padding:var(--pad-top) 0 var(--pad-bottom);border-top:var(--rule);}
+.sec-inner{max-width:min(1440px,calc(100vw - 2*var(--edge)));margin:0 auto;position:relative;z-index:1;padding:0 var(--edge);}
+.topbar{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--gap-sm);border-bottom:var(--rule);padding-bottom:var(--gap-sm);margin-bottom:var(--gap-lg);}
+.sec-h{font-size:clamp(42px,5.5vw,92px);line-height:0.96;letter-spacing:-0.01em;}
+.sec-num{align-self:flex-start;}
+/* HERO */
+.hero{padding:var(--pad-top) var(--edge) var(--pad-bottom);position:relative;border-top:none;}
+.hero .micro{margin-bottom:var(--gap-md);display:block;}
+.hero h1{font-size:clamp(64px,10vw,176px);line-height:0.92;letter-spacing:-0.01em;margin:0 0 var(--gap-md);}
+.lede{max-width:60ch;font-size:clamp(17px,1.3vw,21px);margin:0 0 var(--gap-sm);}
+.hero-tag{margin-top:var(--gap-sm);}
+.glitch{position:absolute;top:var(--pad-top);right:0;height:70%;width:60px;opacity:0.9;}
+.qr{position:absolute;top:var(--pad-top);right:70px;}
+/* NAV */
+.toc{border-top:var(--rule);border-bottom:var(--rule);padding:var(--gap-sm) var(--edge);position:sticky;top:0;background:var(--paper);z-index:20;}
+.toc ul{list-style:none;display:flex;gap:var(--gap-md);margin:0;padding:0;overflow-x:auto;scroll-snap-type:x mandatory;}
+.toc li{scroll-snap-align:start;flex:0 0 auto;}
+.toc a{text-decoration:none;display:flex;flex-direction:column;padding:6px 4px;min-height:44px;justify-content:center;}
+.toc a .n{font-family:var(--font-mono);font-size:11px;}
+.toc a .l{font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:0.14em;font-size:12px;}
+.toc a:hover .l,.toc a:focus .l{text-decoration:underline;}
+/* CALLOUT */
+.callout{border:var(--rule);background:var(--paper-2);padding:var(--gap-md);margin:0 var(--edge) 0;}
+.callout h2{font-size:clamp(28px,3vw,44px);margin:0 0 var(--gap-sm);}
+.callout .tag{margin-bottom:var(--gap-sm);}
+.notes{list-style:none;margin:var(--gap-sm) 0 0;padding:0;}
+.notes li{padding:var(--gap-xs) 0;border-top:var(--rule-faint);}
+.notes li:first-child{border-top:var(--rule);}
+/* PROMPT */
+.prompt-block{border:var(--rule);background:var(--paper);padding:var(--gap-md);position:relative;}
+.prompt-block h2{font-size:clamp(28px,3vw,44px);margin:0 0 var(--gap-sm);}
+.prompt-text{font-family:var(--font-mono);white-space:pre-wrap;background:var(--paper-2);border:var(--rule-faint);padding:var(--gap-sm);font-size:clamp(13px,1vw,15px);overflow-x:auto;}
+button.copy{margin-top:var(--gap-sm);font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:0.12em;background:var(--ink);color:var(--paper);border:1.5px solid var(--ink);padding:12px 22px;min-height:44px;cursor:pointer;font-size:13px;}
+button.copy:hover,button.copy:focus{background:var(--paper);color:var(--ink);}
+button.copy:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+.provenance{font-family:var(--font-mono);font-size:12px;border-top:var(--rule);padding-top:var(--gap-sm);margin-top:var(--gap-md);line-height:1.6;}
+.provenance a{word-break:break-all;}
+/* OBJECTIVES */
+.ledger{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--gap-lg);}
+.ledger li{list-style:none;padding:var(--gap-sm) 0;border-top:var(--rule-faint);}
+.ledger{padding:0;margin:0;}
+.intro{max-width:60ch;margin:0 0 var(--gap-lg);}
+/* CONCEPT CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap-md);}
+.card{border:var(--rule);background:var(--paper);padding:var(--gap-sm);display:flex;flex-direction:column;gap:var(--gap-xs);}
+.card .num{font-family:var(--font-mono);font-size:13px;}
+.card h3{font-size:clamp(22px,1.8vw,30px);line-height:1.05;margin:0;}
+.card p{margin:0;font-size:14px;}
+.card .remember{margin-top:auto;font-family:var(--font-mono);font-size:11px;letter-spacing:0.04em;border-top:var(--rule-faint);padding-top:var(--gap-xs);}
+/* DEFINITIONS */
+dl.gloss{margin:0;display:grid;grid-template-columns:1fr;}
+dl.gloss>div{display:grid;grid-template-columns:220px 1fr;gap:var(--gap-md);padding:var(--gap-sm) 0;border-top:var(--rule-faint);align-items:baseline;}
+dl.gloss>div:first-child{border-top:var(--rule);}
+dl.gloss dt{font-family:var(--font-display);font-size:clamp(24px,2vw,34px);line-height:1.05;}
+dl.gloss dd{margin:0;}
+/* DIAGRAM */
+.diagram-panel{border:var(--rule);background-image:linear-gradient(to right,var(--grid) 1px,transparent 1px),linear-gradient(to bottom,var(--grid) 1px,transparent 1px);background-size:var(--grid-size) var(--grid-size);background-color:var(--paper);padding:var(--gap-md);overflow-x:auto;}
+.diagram-panel svg{display:block;min-width:680px;width:100%;height:auto;}
+.diag-caption{margin-top:var(--gap-sm);font-size:14px;max-width:70ch;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+/* EXAMPLES */
+.ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-lg);}
+.ex{border:var(--rule);background:var(--paper);padding:var(--gap-md);}
+.ex h3{font-size:clamp(24px,2vw,34px);margin:0 0 var(--gap-sm);}
+.ex ol,.ex ul{margin:0;padding-left:1.2em;}
+.ex li{padding:var(--gap-xs) 0;border-top:var(--rule-faint);list-style-position:outside;}
+.ex li:first-child{border-top:none;}
+.ex code,.formula{font-family:var(--font-mono);background:var(--paper-2);padding:1px 5px;}
+/* MISCONCEPTIONS */
+.miscon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-md);}
+.miscon{border:var(--rule);background:var(--paper-2);padding:var(--gap-md);}
+.miscon .lab{font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;margin-bottom:6px;}
+.miscon .misread{font-family:var(--font-display);font-size:clamp(20px,1.6vw,26px);line-height:1.1;margin:0 0 var(--gap-sm);}
+.miscon .corrective{font-size:14px;border-top:var(--rule-faint);padding-top:var(--gap-sm);}
+/* MEMORY */
+.mem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap-md);}
+.mem{border:var(--rule);background:var(--paper);padding:var(--gap-md);}
+.mem h3{font-size:clamp(20px,1.6vw,28px);margin:0 0 var(--gap-xs);}
+.mem p{margin:0;font-size:14px;}
+/* REVIEW */
+details.q{border:var(--rule);background:var(--paper);margin-bottom:var(--gap-sm);}
+details.q summary{list-style:none;cursor:pointer;padding:var(--gap-sm) var(--gap-md);display:flex;justify-content:space-between;align-items:center;gap:var(--gap-sm);font-family:var(--font-display);font-size:clamp(18px,1.6vw,26px);min-height:44px;}
+details.q summary::-webkit-details-marker{display:none;}
+details.q summary .mk{font-family:var(--font-mono);font-size:22px;}
+details.q[open] summary .mk::after{content:"–";}
+details.q:not([open]) summary .mk::after{content:"+";}
+details.q summary .mk::after{content:"+";}
+details.q .ans{border-top:var(--rule-faint);margin:0 var(--gap-md);padding:var(--gap-sm) 0;overflow:hidden;}
+@media(prefers-reduced-motion:no-preference){details.q .ans{animation:reveal .22s ease;}}
+@keyframes reveal{from{opacity:0;}to{opacity:1;}}
+/* RECAP */
+.recap li{list-style:none;padding:var(--gap-sm) 0;border-top:var(--rule-faint);}
+.recap{margin:0;padding:0;}
+.recap li:first-child{border-top:var(--rule);}
+.closer{font-family:var(--font-display);font-size:clamp(30px,4vw,60px);line-height:1;margin-top:var(--gap-lg);}
+/* FOOTER */
+footer{border-top:var(--rule);padding:var(--gap-lg) var(--edge);position:relative;z-index:1;font-family:var(--font-mono);font-size:12px;line-height:1.6;}
+footer a{word-break:break-all;}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+.reveal-up{opacity:0;transform:translateY(12px);}
+@media(prefers-reduced-motion:no-preference){.reveal-up{transition:opacity .6s ease,transform .6s ease;}.reveal-up.in{opacity:1;transform:none;}}
+@media(prefers-reduced-motion:reduce){.reveal-up{opacity:1;transform:none;}}
+@media(max-width:1099px){.card-grid{grid-template-columns:repeat(2,1fr);}.miscon-grid{grid-template-columns:1fr;}.ex-grid{grid-template-columns:1fr;}.toc{position:static;}}
+@media(max-width:820px){.ledger{grid-template-columns:1fr;}.mem-grid{grid-template-columns:1fr;}dl.gloss>div{grid-template-columns:1fr;gap:6px;}.glitch,.qr{display:none;}}
+@media(max-width:600px){.card-grid{grid-template-columns:1fr;}button.copy{width:100%;}}
+</style></head>
+<body><div class="page-shell">
+<header class="hero">
+<svg class="glitch" aria-hidden="true" viewBox="0 0 60 400" preserveAspectRatio="none"><g fill="none" stroke="#1F2BE0" stroke-width="1"><rect x="40" y="0" width="20" height="40"/><rect x="20" y="40" width="40" height="30"/><rect x="48" y="70" width="12" height="50"/><rect x="28" y="120" width="32" height="36"/><rect x="44" y="156" width="16" height="60"/><rect x="16" y="216" width="44" height="28"/><rect x="46" y="244" width="14" height="48"/><rect x="30" y="292" width="30" height="40"/><rect x="42" y="332" width="18" height="68"/></g></svg>
+<svg class="qr" aria-hidden="true" width="56" height="56" viewBox="0 0 8 8"><g fill="#1F2BE0"><rect x="0" y="0" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="3" y="0" width="1" height="1"/><rect x="6" y="0" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="4" y="1" width="1" height="1"/><rect x="7" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="6" y="3" width="1" height="1"/><rect x="7" y="3" width="1" height="1"/><rect x="1" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="0" y="5" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/><rect x="5" y="5" width="1" height="1"/><rect x="7" y="5" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="1" y="7" width="1" height="1"/><rect x="4" y="7" width="1" height="1"/><rect x="5" y="7" width="1" height="1"/></g></svg>
+<span class="micro reveal-up">Interactive Study Guide / Demonstration Edition</span>
+<h1 class="reveal-up">Transformer Attention: The Study Guide You Won't Forget</h1>
+<p class="lede reveal-up">A polished guide generated from demonstration lecture notes: objectives, concepts, definitions, diagram, examples, misconceptions, memory devices, review questions, and recap.</p>
+<p class="mono hero-tag reveal-up">Q/K/V FIELD NOTES · ATTENTION MECHANICS · NOT A SOURCE OF TRUTH</p>
+</header>
+<nav class="toc" aria-label="In-page navigation"><ul>
+<li><a href="#notice"><span class="n">00</span><span class="l">Notice</span></a></li>
+<li><a href="#prompt"><span class="n">01</span><span class="l">Prompt to steal</span></a></li>
+<li><a href="#objectives"><span class="n">02</span><span class="l">Objectives</span></a></li>
+<li><a href="#concepts"><span class="n">03</span><span class="l">Core Concepts</span></a></li>
+<li><a href="#definitions"><span class="n">04</span><span class="l">Definitions</span></a></li>
+<li><a href="#diagram"><span class="n">05</span><span class="l">Diagram</span></a></li>
+<li><a href="#examples"><span class="n">06</span><span class="l">Worked Examples</span></a></li>
+<li><a href="#misconceptions"><span class="n">07</span><span class="l">Misconceptions</span></a></li>
+<li><a href="#memory"><span class="n">08</span><span class="l">Memory Devices</span></a></li>
+<li><a href="#review"><span class="n">09</span><span class="l">Review Questions</span></a></li>
+<li><a href="#recap"><span class="n">10</span><span class="l">Recap</span></a></li>
+</ul></nav>
+<main>
+<section id="notice" aria-labelledby="notice-h"><div class="sec-inner">
+<div class="callout">
+<p class="micro tag mono">NOTE / 00</p>
+<h2 id="notice-h">Demonstration input notice</h2>
+<p>Important: the raw notes below are DEMONSTRATION inputs used to showcase the reusable prompt. They are not verified source material and should not be treated as a citation or authority for any technical claim.</p>
+<p class="micro" style="margin-top:var(--gap-md)">DEMONSTRATION RAW NOTES (inputs only, not verified source):</p>
+<ul class="notes">
+<li>Transformer attention lets each token weigh information from other tokens.</li>
+<li>Each token is projected into Query, Key, and Value vectors.</li>
+<li>Attention scores are QK^T divided by sqrt(d_k), followed by softmax.</li>
+<li>The softmax weights form a weighted sum of the Value vectors.</li>
+<li>Multi-head attention runs several attention operations in parallel so different relationships can be represented.</li>
+<li>Positional information is required because attention alone does not encode word order.</li>
+<li>Causal masking prevents a language model from reading future tokens during generation.</li>
+<li>Attention is powerful but has quadratic time and memory cost with sequence length.</li>
+<li>Common misunderstandings: attention weights are not guaranteed explanations; a head does not always have one human-readable role; attention is not the same thing as understanding.</li>
+</ul>
+</div>
+</div></section>
+
+<section id="prompt" aria-labelledby="prompt-h"><div class="sec-inner">
+<div class="topbar"><span class="micro sec-num">01</span><h2 id="prompt-h" class="sec-h">Prompt to steal</h2><span class="mono">REUSABLE / COPY ME</span></div>
+<div class="prompt-block">
+<pre class="prompt-text" id="prompt-text">"Here are my raw notes: [paste].
+Turn them into a clean study guide broken into concepts, definitions, diagrams, examples, and 'things students always misunderstand.'
+Make it impossible to forget."</pre>
+<button class="copy" id="copyBtn" aria-label="Copy reusable prompt to clipboard">Copy prompt</button>
+<span class="sr-only" role="status" aria-live="polite" id="copyStatus"></span>
+<p class="provenance">The reusable prompt is from an X post by @aiwithmayank (Mayank Vora), 2025-12-09: <a href="https://x.com/aiwithmayank/status/1998334446379188696">https://x.com/aiwithmayank/status/1998334446379188696</a>. This is provenance for the reusable PROMPT only and is explicitly NOT verification of any technical claim in this study guide.</p>
+</div>
+</div></section>
+
+<section id="objectives" aria-labelledby="obj-h"><div class="sec-inner">
+<div class="topbar"><span class="micro sec-num">02</span><h2 id="obj-h" class="sec-h">Learning Objectives</h2><span class="mono">BY THE END</span></div>
+<p class="intro">By the end of this guide, you will be able to…</p>
+<ul class="ledger">
+<li>Explain why attention lets each token gather information from other tokens.</li>
+<li>Identify the role of Query, Key, and Value vectors.</li>
+<li>Walk through scaled dot-product attention: scores, scaling, softmax, weighted sum.</li>
+<li>Describe why multi-head attention can represent several relationships at once.</li>
+<li>Explain why positional information and causal masking are needed.</li>
+<li>Recognize the quadratic cost of full attention as sequence length grows.</li>
+</ul>
+</div></section>
+
+<section id="concepts" aria-labelledby="con-h"><div class="sec-inner">
+<div class="topbar"><span class="micro sec-num">03</span><h2 id="con-h" class="sec-h">Core Concepts</h2><span class="mono">08 CARDS</span></div>
+<div class="card-grid">
+<article class="card reveal-up"><span class="num">01</span><h3>Attention weighting</h3><p>Each token assigns weights to other tokens so it can mix relevant information.</p><span class="remember">TOKENS WEIGH TOKENS</span></article>
+<article class="card reveal-up"><span class="num">02</span><h3>Q/K/V projection</h3><p>The same token representation is linearly projected into Query, Key, and Value views.</p><span class="remember">QUERY ASKS · KEY MATCHES · VALUE CARRIES</span></article>
+<article class="card reveal-up"><span class="num">03</span><h3>Scaled dot-product</h3><p>Compute QK^T / sqrt(d_k), then apply softmax to convert scores into weights.</p><span class="remember">SCORE · SCALE · SOFTMAX</span></article>
+<article class="card reveal-up"><span class="num">04</span><h3>Weighted sum of Values</h3><p>Use the softmax weights to average Value vectors into the attention output.</p><span class="remember">BLEND THE VALUES</span></article>
+<article class="card reveal-up"><span class="num">05</span><h3>Multi-head attention</h3><p>Run several attention computations in parallel, then combine them.</p><span class="remember">MANY READERS · ONE SUMMARY</span></article>
+<article class="card reveal-up"><span class="num">06</span><h3>Positional encoding</h3><p>Add or otherwise supply position information because attention alone is permutation-insensitive.</p><span class="remember">ORDER MUST BE TOLD</span></article>
+<article class="card reveal-up"><span class="num">07</span><h3>Causal masking</h3><p>Block future positions so an autoregressive model cannot read tokens it has not generated yet.</p><span class="remember">NO PEEKING AHEAD</span></article>
+<article class="card reveal-up"><span class="num">08</span><h3>Quadratic cost</h3><p>Full attention compares token pairs, so time and memory scale roughly with sequence length squared.</p><span class="remember">PAIRS GROW AS n²</span></article>
+</div>
+</div></section>
+
+<section id="definitions" aria-labelledby="def-h"><div class="sec-inner">
+<div class="topbar"><span class="micro sec-num">04</span><h2 id="def-h" class="sec-h">Precise Definitions</h2><span class="mono">GLOSSARY</span></div>
+<dl class="gloss">
+<div><dt>Query</dt><dd>The vector representing what a token is looking for.</dd></div>
+<div><dt>Key</dt><dd>The vector representing what a token offers for matching.</dd></div>
+<div><dt>Value</dt><dd>The vector carrying the information that will be mixed into the output.</dd></div>
+<div><dt>Attention score</dt><dd>A similarity value, often from a query-key dot product, before normalization.</dd></div>
+<div><dt>Softmax</dt><dd>A function that turns scores into positive weights that sum to one.</dd></div>
+<div><dt>Multi-head attention</dt><dd>Several attention operations run in parallel with separate learned projections.</dd></div>
+<div><dt>Positional encoding</dt><dd>Information that tells the model where tokens occur in the sequence.</dd></div>
+<div><dt>Causal mask</dt><dd>A mask that prevents a position from attending to future positions.</dd></div>
+<div><dt>Quadratic complexity</dt><dd>Growth proportional to n², caused here by comparing many token pairs.</dd></div>
+</dl>
+</div></section>
+
+<section id="diagram" aria-labelledby="diag-h"><div class="sec-inner">
+<div class="topbar"><span class="micro sec-num">05</span><h2 id="diag-h" class="sec-h">Visual Diagram</h2><span class="mono">Q/K/V FLOW</span></div>
+<div class="diagram-panel">
+<svg viewBox="0 0 900 460" role="img" aria-labelledby="diagT diagD"><title id="diagT">Q/K/V attention flow diagram</title><desc id="diagD">Input tokens are linearly projected into three parallel lanes: Query, Key, and Value. Query and Key combine to form the scaled dot product QK transpose divided by the square root of d_k. That result passes through softmax to produce attention weights, which are used in a weighted sum with the Value vectors, producing the final output.</desc>
+<defs><marker id="arw" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1F2BE0"/></marker></defs>
+<g fill="none" stroke="#1F2BE0" stroke-width="1.5">
+<rect x="20" y="190" width="140" height="70" fill="#F0EBDE"/>
+<rect x="260" y="40" width="120" height="60" fill="#F0EBDE"/>
+<rect x="260" y="195" width="120" height="60" fill="#F0EBDE"/>
+<rect x="260" y="350" width="120" height="60" fill="#F0EBDE"/>
+<rect x="470" y="110" width="150" height="70" fill="#F0EBDE"/>
+<rect x="470" y="220" width="150" height="55" fill="#F0EBDE"/>
+<rect x="680" y="330" width="140" height="60" fill="#F0EBDE"/>
+<rect x="770" y="195" width="110" height="60" fill="#F0EBDE"/>
+</g>
+<g fill="#1F2BE0" font-family="DM Mono, monospace" font-size="13">
+<text x="90" y="222" text-anchor="middle">Input</text><text x="90" y="240" text-anchor="middle">tokens</text>
+<text x="320" y="75" text-anchor="middle">Query (Q)</text>
+<text x="320" y="230" text-anchor="middle">Key (K)</text>
+<text x="320" y="385" text-anchor="middle">Value (V)</text>
+<text x="545" y="142" text-anchor="middle">QK^T /</text><text x="545" y="162" text-anchor="middle">sqrt(d_k)</text>
+<text x="545" y="252" text-anchor="middle">softmax</text>
+<text x="750" y="365" text-anchor="middle">weighted</text><text x="750" y="382" text-anchor="middle">sum of V</text>
+<text x="825" y="230" text-anchor="middle">Output</text>
+</g>
+<g stroke="#1F2BE0" stroke-width="1.5" fill="none" marker-end="url(#arw)">
+<path d="M160,210 L258,72"/><path d="M160,225 L258,225"/><path d="M160,242 L258,378"/>
+<path d="M380,70 L468,130"/><path d="M380,225 L468,160"/>
+<path d="M545,180 L545,218"/>
+<path d="M620,248 L678,340"/><path d="M380,390 L678,378"/>
+<path d="M820,360 L826,258"/>
+</g>
+<g fill="#1F2BE0" font-family="Hanken Grotesk, sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">
+<text x="200" y="130">PROJECT Q</text><text x="185" y="215">PROJECT K</text><text x="190" y="320">PROJECT V</text>
+<text x="420" y="95">SCORES</text><text x="558" y="205">SCALED</text>
+<text x="628" y="300">WEIGHTS</text><text x="500" y="402">VALUES IN</text>
+</g>
+</svg>
+</div>
+<p class="diag-caption">The Query asks what it needs, Keys determine matches, and Values carry the content that gets blended into the output.</p>
+</div></section>
+
+<section id="examples" aria-labelledby="ex-h"><div class="sec-inner">
+<div class="topbar"><span class="micro sec-num">06</span><h2 id="ex-h" class="sec-h">Worked Examples</h2><span class="mono">STEP BY STEP</span></div>
+<div class="ex-grid">
+<article class="ex reveal-up"><h3>Tiny numeric walkthrough</h3><ol>
+<li>Suppose token A has scores against tokens A, B, C: <code>[2, 1, 0]</code> after the query-key dot products and scaling.</li>
+<li>Softmax turns these into approximate weights <code>[0.67, 0.24, 0.09]</code>.</li>
+<li>If the Value vectors are simplified as <code>V_A = 10</code>, <code>V_B = 20</code>, <code>V_C = 30</code>, then the output is approximately <span class="formula">0.67×10 + 0.24×20 + 0.09×30 = 14.2</span>.</li>
+<li>Interpretation: token A mostly uses its own Value, borrows some from token B, and only a little from token C.</li>
+</ol></article>
+<article class="ex reveal-up"><h3>Multi-head intuition</h3><ul>
+<li>One head might strongly connect a pronoun to a nearby noun.</li>
+<li>Another head might track syntax or punctuation boundaries.</li>
+<li>Another might distribute attention broadly for context.</li>
+<li>But do not overclaim: heads are learned components and are not guaranteed to have a single human-readable job.</li>
+</ul></article>
+</div>
+</div></section>
+
+<section id="misconceptions" aria-labelledby="mis-h"><div class="sec-inner">
+<div class="topbar"><span class="micro sec-num">07</span><h2 id="mis-h" class="sec-h">Things students always misunderstand</h2><span class="mono">CORRECTIVES</span></div>
+<div class="miscon-grid">
+<article class="miscon reveal-up"><p class="lab">MISREAD / 01</p><p class="misread">“Attention weights are explanations.”</p><p class="corrective">Corrective: They can be informative, but they are not guaranteed explanations of model behavior.</p></article>
+<article class="miscon reveal-up"><p class="lab">MISREAD / 02</p><p class="misread">“Each head has one clean human-readable role.”</p><p class="corrective">Corrective: A head can behave differently across layers, tokens, contexts, and training runs.</p></article>
+<article class="miscon reveal-up"><p class="lab">MISREAD / 03</p><p class="misread">“Attention is the same as understanding.”</p><p class="corrective">Corrective: Attention is a mechanism for routing information; understanding is a broader behavioral claim.</p></article>
+</div>
+</div></section>
+
+<section id="memory" aria-labelledby="mem-h"><div class="sec-inner">
+<div class="topbar"><span class="micro sec-num">08</span><h2 id="mem-h" class="sec-h">Memory Devices</h2><span class="mono">MNEMONICS</span></div>
+<div class="mem-grid">
+<article class="mem reveal-up"><h3>Q/K/V = search engine</h3><p>Query is the search phrase, Keys are the index entries, Values are the pages you actually read.</p></article>
+<article class="mem reveal-up"><h3>Softmax = attention budget</h3><p>It turns raw scores into a budget that must add up to 100%.</p></article>
+<article class="mem reveal-up"><h3>Mask = exam divider</h3><p>In generation, the model cannot peek at future answers.</p></article>
+<article class="mem reveal-up"><h3>Multi-head = study group</h3><p>Several readers inspect the same sentence for different patterns, then combine notes.</p></article>
+<article class="mem reveal-up"><h3>Quadratic cost = everyone interviews everyone</h3><p>Double the tokens and the number of pairwise comparisons grows much faster.</p></article>
+</div>
+</div></section>
+
+<section id="review" aria-labelledby="rev-h"><div class="sec-inner">
+<div class="topbar"><span class="micro sec-num">09</span><h2 id="rev-h" class="sec-h">Review Questions</h2><span class="mono">CLICK TO REVEAL</span></div>
+<details class="q"><summary>What are Query, Key, and Value in one sentence each?<span class="mk" aria-hidden="true"></span></summary><div class="ans">Query is what a token is looking for, Key is what a token offers for matching, and Value is the information that gets blended into the output.</div></details>
+<details class="q"><summary>Why divide by sqrt(d_k) before softmax?<span class="mk" aria-hidden="true"></span></summary><div class="ans">Scaling keeps the dot-product scores from growing too large as dimensionality increases, which keeps softmax gradients stable rather than saturated.</div></details>
+<details class="q"><summary>What does the softmax step produce?<span class="mk" aria-hidden="true"></span></summary><div class="ans">Positive attention weights that sum to one, used to form a weighted average of the Value vectors.</div></details>
+<details class="q"><summary>Why does a language model need a causal mask?<span class="mk" aria-hidden="true"></span></summary><div class="ans">So each position cannot attend to future tokens it has not generated yet, preserving autoregressive generation.</div></details>
+<details class="q"><summary>Why is full attention described as quadratic?<span class="mk" aria-hidden="true"></span></summary><div class="ans">It compares every token pair, so time and memory scale roughly with the square of the sequence length (n²).</div></details>
+<details class="q"><summary>Name one misconception about attention weights.<span class="mk" aria-hidden="true"></span></summary><div class="ans">That attention weights are guaranteed explanations of model behavior — they can be informative but are not proof of how the model reasons.</div></details>
+</div></section>
+
+<section id="recap" aria-labelledby="rec-h"><div class="sec-inner">
+<div class="topbar"><span class="micro sec-num">10</span><h2 id="rec-h" class="sec-h">Quick Recap</h2><span class="mono">SUMMARY</span></div>
+<ul class="recap">
+<li>Attention lets tokens mix information from other tokens.</li>
+<li>Queries compare against Keys to create scores.</li>
+<li>Scores are scaled, softmaxed, and used to weight Values.</li>
+<li>Multi-head attention repeats this in parallel.</li>
+<li>Positional information and causal masks handle order and generation constraints.</li>
+<li>Full attention is powerful but expensive because token pairs grow quadratically.</li>
+</ul>
+<p class="closer">Ask with Q. Match with K. Carry with V.</p>
+</div></section>
+</main>
+<footer>
+<p>The reusable prompt is from an X post by @aiwithmayank (Mayank Vora), 2025-12-09: <a href="https://x.com/aiwithmayank/status/1998334446379188696">https://x.com/aiwithmayank/status/1998334446379188696</a>. Provenance for the reusable PROMPT only — explicitly NOT verification of any technical claim.</p>
+<p style="margin-top:12px">This page is a demonstration study guide produced by executing the reusable prompt on demonstration notes. It is not a verified technical reference.</p>
+</footer>
+</div>
+<script>
+/* === COPY PROMPT === */
+const btn=document.getElementById('copyBtn'),status=document.getElementById('copyStatus'),src=document.getElementById('prompt-text');
+function feedback(){btn.textContent='Copied';status.textContent='Prompt copied to clipboard.';setTimeout(()=>{btn.textContent='Copy prompt';status.textContent='';},2000);}
+btn.addEventListener('click',async()=>{const t=src.textContent;try{await navigator.clipboard.writeText(t);feedback();}catch(e){const r=document.createRange();r.selectNodeContents(src);const s=window.getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');feedback();}catch(_){status.textContent='Copy not supported; text selected.';}}});
+/* === REVEAL ON SCROLL === */
+const mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+if(!mq.matches){const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});document.querySelectorAll('.reveal-up').forEach(el=>io.observe(el));}else{document.querySelectorAll('.reveal-up').forEach(el=>el.classList.add('in'));}
+</script>
+</body></html>

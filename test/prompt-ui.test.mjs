@@ -41,3 +41,16 @@ test("labels all 34 homepage cards as prompt included", async () => {
   const homepage = await page("/");
   assert.equal(homepage.match(/<span class="prompt-badge">Prompt included<\/span>/g)?.length, 34);
 });
+
+test("shows the published Ancher output for the Study Guide", async () => {
+  const studyGuide = await page("/templates/study-guide");
+
+  assert.match(studyGuide, /Generated with Ancher/);
+  assert.match(studyGuide, /View live Ancher output/);
+  assert.match(studyGuide, /\/gallery-artifacts\/study-guide\.png/);
+  assert.match(
+    studyGuide,
+    /https:\/\/transformer-attention-interactive-study-guide-7c06954e7c5026ab\.ancher\.app\//,
+  );
+  assert.match(studyGuide, /Original X post for this prompt/);
+});

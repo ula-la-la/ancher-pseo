@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { galleryItems } from "./data/gallery";
+import { publicGalleryItems } from "./data/publicGallery";
 import { useCases } from "./data/useCases";
 import { outputTypes, packs, prompts, sourceTypes, toSlug } from "./data/prompts";
 import { siteUrl } from "./site";
@@ -46,12 +46,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     })),
 
-    // Only list pages whose output has actually been produced. Listing
-    // `status: "pending"` shells would spend crawl budget on thin pages and
-    // invite a quality demotion across the whole directory.
-    ...galleryItems
-      .filter((item) => item.status === "ready")
-      .map((item) => ({
+    // Only advertise templates backed by published Ancher artifacts.
+    ...publicGalleryItems.map((item) => ({
         url: `${siteUrl}/templates/${item.slug}`,
         lastModified: now,
         changeFrequency: "monthly" as const,

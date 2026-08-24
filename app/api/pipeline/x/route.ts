@@ -142,6 +142,29 @@ type Tweet = {
   isQuestion: boolean;
 };
 
+type TwitterLegacy = {
+  full_text?: string;
+  id_str?: string;
+  created_at?: string;
+  favorite_count?: number;
+  retweet_count?: number;
+  reply_count?: number;
+};
+
+type TwitterUser = {
+  screen_name?: string;
+  followers_count?: number;
+};
+
+type TwitterPayloadNode = {
+  legacy?: TwitterLegacy;
+  tweet?: TwitterPayloadNode;
+  core?: { user_results?: { result?: { legacy?: TwitterUser } } };
+  rest_id?: string;
+  views?: { count?: string | number };
+  [key: string]: unknown;
+};
+
 const QUESTION_RE =
   /\?|^(how|what|why|when|which|where|who|does|do |is |are |can |should |any(one| recs| rec| tips)|looking for|best way|need a|recommend)/i;
 
@@ -151,7 +174,7 @@ function extractTweets(payload: unknown): Tweet[] {
   const walk = (node: unknown) => {
     if (!node || typeof node !== "object") return;
     if (Array.isArray(node)) return node.forEach(walk);
-    const rec = node as Record<string, any>;
+    const rec = node as TwitterPayloadNode;
     const legacy = rec.legacy ?? rec.tweet?.legacy;
     if (legacy?.full_text) {
       const user =

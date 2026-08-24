@@ -17,8 +17,8 @@ export const signupUrl = "https://app.ancher.ai/register";
  * this stops it being *indexed*, not being *read*. For genuine privacy use
  * Cloudflare Access or Basic auth instead.
  *
- * Flip it by setting NEXT_PUBLIC_INDEXABLE=true in wrangler.jsonc `vars`
- * (and in the Workers Builds environment, if deploying from Git) and
- * redeploying. It is read at build time, so a redeploy is required.
+ * The production build script sets NEXT_PUBLIC_INDEXABLE=true while the
+ * matching wrangler.jsonc variable keeps the Worker runtime consistent.
+ * This is read at build time, so changing it always requires a redeploy.
  */
 export const indexable = process.env.NEXT_PUBLIC_INDEXABLE === "true";
